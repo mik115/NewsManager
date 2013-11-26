@@ -17,7 +17,7 @@
 	
 	//user controll per il content..
 	function content(){ ?>
-	<div ng-app="phonecatApp">
+	<div ng-app="mainApp">
 		<div ng-controller="PhoneListCtrl">
 			<label>Name:</label>
 			<input type="text" ng-model="yourName" placeholder="Enter a name here">
@@ -31,6 +31,11 @@
 				</li>
 			</ul>
 		 </div>
+		<div ng-controller='auth'>
+			<p>Username: <input type='text' ng-model='username'/></p>
+			<p>Password: <input type='password' ng-model='password'/></p>
+			<p><input type='button' value='login' ng-click='login()'/></p>
+		</div>
 	</div>
 	<div>
 		<textarea id='editor'></textarea>

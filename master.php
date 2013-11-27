@@ -1,9 +1,11 @@
 <html>
 	<?php
-		if(isset($_COOKIE["PHPSESSID"])){
+		if(!isset($_COOKIE["PHPSESSID"])){
+			header("Location: ".$path."index.php");
+		}else{
 			session_start();
-			if($_SESSION["scope"]=="NewsManager"){
-				header("Location: home.php");
+			if(!$_SESSION["scope"]=="NewsManager"){
+				header("Location: ".$path."index.php");
 			}
 		}
 	?>

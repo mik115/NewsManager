@@ -4,7 +4,7 @@
 			header("Location: ".$path."index.php");
 		}else{
 			session_start();
-			if(!$_SESSION["scope"]=="NewsManager"){
+			if($_SESSION["scope"]!="NewsManager"){
 				header("Location: ".$path."index.php");
 			}
 		}

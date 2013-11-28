@@ -21,9 +21,12 @@ mainApp.controller("auth", function authCtrl($scope, $http){
 		 }).success(function(data, status, headers, config){
 			 if (data != "") {
 				//è andato tutto a buon fine!! sei loggato
+				window.location.href= "contents/home.php"
 			 }else{
-				 alert("username o password errata!");
 				 //non è andata bene
+				 $scope.loginError=true;
+				 $scope.emptyPassword=true;
+				 $scope.emptyName=true;
 			 }
 		 }).error(function(data, status, headers, config){
 			

@@ -1,5 +1,5 @@
 <?php
-	$path = "";
+	$path = "../";
 	//user controll per l'header...
 	function head(){ ?>
 		<title>Home Page</title>

@@ -10,7 +10,9 @@
 	*/
 	?>
 	<head>
-		<link rel='stylesheet' type='text/css' src='style/general.css'/>
+		<link rel='stylesheet' type='text/css' href='lib/dist/css/bootstrap.css'/>
+		<link rel='stylesheet' type='text/css' href='lib/dist/css/bootstrap-theme.css'/>
+		<link rel='stylesheet' type='text/css' href='style/general.css'/>
 		<script type="text/javascript" src='<?php echo $path ?>lib/jquery-1.10.2.min.js'></script>
 		<script type="text/javascript" src='<?php echo $path ?>lib/angular.min.js'></script>
 		<!--Header della pagina specifica-->

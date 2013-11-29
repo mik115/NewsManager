@@ -7,13 +7,11 @@ mainApp.controller("auth", function authCtrl($scope, $http){
 	 $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	 
 	 $scope.login = function(){
-		if ($.trim($scope.username)=="") {
-		  $scope.emptyName=true;
+		if ($.trim($scope.username)=="" || $.trim($scope.password)=="") {
+		  $scope.emptyField=true;
 		}
-		if ($.trim($scope.password)=="") {
-		  $scope.emptyPassword=true;
-		}
-		if($.trim($scope.username)!="" && $.trim($scope.password)!=""){
+		else{
+		  $scope.emptyField=false;
 		  $http({
 			 url:"PHP/login.php",
 			 method: "POST",
@@ -25,8 +23,6 @@ mainApp.controller("auth", function authCtrl($scope, $http){
 			 }else{
 				 //non è andata bene
 				 $scope.loginError=true;
-				 $scope.emptyPassword=true;
-				 $scope.emptyName=true;
 			 }
 		 }).error(function(data, status, headers, config){
 			

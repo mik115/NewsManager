@@ -27,11 +27,12 @@
 	<div ng-app="mainApp">
 		<div ng-controller='auth'>
 			<p class='errorMessage' ng-show='loginError'>Username o Password Errati</p>
-			<p>Username: <input ng-change='emptyName = false' ng-class='{redBorder:emptyName}' type='text' ng-model='username' /></p>
-			<p>Password: <input ng-change='emptyPassword = false' ng-class='{redBorder:emptyPassword}' type='password' ng-model='password' /></p>
-			<p><input type='button' value='login' ng-click='login()' /></p>
+			<p class='errorMessage' ng-show='emptyField'>Entrambi i campi sono required</p>
+			<p>Username: <input class='form-control' type='text' ng-model='username' required/></p>
+			<p>Password: <input class='form-control' type='password' ng-model='password' required /></p>
+			<p><input class="btn btn-default" type='button' value='login' ng-click='login()' /></p>
 		</div>
-	</div>
+	</div>        
 	
 	<?php }
 

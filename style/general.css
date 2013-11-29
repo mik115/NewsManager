@@ -1,3 +1,15 @@
-.errorMessage{
-	color:red;
+/*override classi bootstrap*/
+.form-control{
+	width: auto;
+}
+
+.form-control.ng-invalid.ng-invalid-required:focus{
+	border-color: #e9322d;
+	-webkit-box-shadow: 0 0 6px #f8b9b7;
+	-moz-box-shadow: 0 0 6px #f8b9b7;
+	box-shadow: 0 0 6px #f8b9b7;
+}
+
+.errorMessage{
+	color:red;
 }

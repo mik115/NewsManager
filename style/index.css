@@ -1,0 +1,12 @@
+/*override bootstrap/*/
+.form-control{
+	margin: auto;
+}
+
+body{
+	text-align: center;
+}
+
+#welcomeDiv{
+	margin-bottom: 30px;
+}

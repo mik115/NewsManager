@@ -1,9 +1,20 @@
-//angular.module("main", [])
+angular.module("main", []).directive("returnpress", function(){
+		  return {
+				link: function(scope, elem, attrs) {
+					  var functionToCall = scope.$eval(attrs.returnpress);
+					  elem.on('keydown', function(e){
+						  if(e.which==13){
+								functionToCall();
+						  }
+					 });
+				}
+		  };
+	 });
 	 
 
 
 //importante! va messo per la dichiarazione dell'app!
-var mainApp = angular.module('mainApp', []);
+var mainApp = angular.module('mainApp', ["main"]);
 
 mainApp.controller("auth", function authCtrl($scope, $http){
 	 
@@ -36,21 +47,3 @@ mainApp.controller("auth", function authCtrl($scope, $http){
 		  alert("aaa");
 	 }
 });
-
-mainApp.directive("keyPress", function(){
-		  return {
-	//			restrict: 'A',
-				link: function(scope, elem, attrs) {
-					  // this next line will convert the string
-					  // function name into an actual function
-					  var functionToCall = scope.$eval(attrs.keyPress);
-					  elem.on('keydown', function(e){
-							 // on the keydown event, call my function
-							 // and pass it the keycode of the key
-							 // that was pressed
-							 // ex: if ENTER was pressed, e.which == 13
-							 functionToCall(e.which);
-					  });
-				}
-		  };
-	 });

@@ -35,8 +35,8 @@
 			</div>
 			<p class='errorMessage' ng-show='loginError'>Username o Password Errati</p>
 			<p class='errorMessage' ng-show='emptyField'>Entrambi i campi sono required</p>
-			<p>Username: <input keyPress="aaa()" class='form-control' type='text' ng-model='username' required /></p>
-			<p>Password: <input class='form-control' type='password' ng-model='password' required /></p>
+			<p>Username: <input returnpress="login" class='form-control' type='text' ng-model='username' required /></p>
+			<p>Password: <input returnpress="login" class='form-control' type='password' ng-model='password' required /></p>
 			<p><input class="btn btn-default" type='button' value='login' ng-click='login()' /></p>
 		</div>
 	</div>        

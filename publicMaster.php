@@ -15,6 +15,7 @@
 		<link rel='stylesheet' type='text/css' href='style/general.css'/>
 		<script type="text/javascript" src='<?php echo $path ?>lib/jquery-1.10.2.min.js'></script>
 		<script type="text/javascript" src='<?php echo $path ?>lib/angular.min.js'></script>
+		<script type='text/javascript' src='<?php echo $path ?>script/angularModules.js'></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<!--Header della pagina specifica-->

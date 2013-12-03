@@ -1,20 +1,6 @@
-angular.module("main", []).directive("returnpress", function(){
-		  return {
-				link: function(scope, elem, attrs) {
-					  var functionToCall = scope.$eval(attrs.returnpress);
-					  elem.on('keydown', function(e){
-						  if(e.which==13){
-								functionToCall();
-						  }
-					 });
-				}
-		  };
-	 });
-	 
-
 
 //importante! va messo per la dichiarazione dell'app!
-var mainApp = angular.module('mainApp', ["main"]);
+var mainApp = angular.module('mainApp', ["MainModule"]);
 
 mainApp.controller("auth", function authCtrl($scope, $http){
 	 

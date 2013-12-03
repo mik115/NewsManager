@@ -10,14 +10,7 @@
 	*/
 	?>
 	<head>
-		<link rel='stylesheet' type='text/css' href='lib/dist/css/bootstrap.css'/>
-		<link rel='stylesheet' type='text/css' href='lib/dist/css/bootstrap-theme.css'/>
-		<link rel='stylesheet' type='text/css' href='style/general.css'/>
-		<script type="text/javascript" src='<?php echo $path ?>lib/jquery-1.10.2.min.js'></script>
-		<script type="text/javascript" src='<?php echo $path ?>lib/angular.min.js'></script>
-		<script type='text/javascript' src='<?php echo $path ?>script/angularModules.js'></script>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+		<?php include("includes/generalHead.php")?>
 		<!--Header della pagina specifica-->
 		<?php echo head() ?>
 	</head>

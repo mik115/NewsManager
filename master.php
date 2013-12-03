@@ -10,12 +10,23 @@
 		}
 	?>
 	<head>
-		<script type="text/javascript" src='<?php echo $path ?>lib/jquery-1.10.2.min.js'></script>
-		<script type="text/javascript" src='<?php echo $path ?>lib/angular.min.js'></script>
+		<?php include("includes/generalHead.php")?>
 		<!--Header della pagina specifica-->
 		<?php echo head() ?>
 	</head>
 	<body>
+		<nav class="navbar navbar-default generalHeader" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand" >News Manager</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-inner">
+				<ul class="nav navbar-nav">
+				  <li class="active"><a href="#">Home</a></li>
+				  <li><a href="#">Impostazioni</a></li>
+				</ul>
+			</div>
+		</nav>
 		<!--Content della pagina specifica-->
 		<?php echo content() ?>
 	</body>

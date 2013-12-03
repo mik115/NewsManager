@@ -16,3 +16,8 @@
 	color:red;
 }
 
+/*testata generale*/
+.generalHeader .navbar-nav{
+	margin-left: 50px;
+}
+

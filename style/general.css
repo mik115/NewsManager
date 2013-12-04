@@ -17,7 +17,22 @@
 }
 
 /*testata generale*/
-.generalHeader .navbar-nav{
-	margin-left: 50px;
+.generalHeader .navbar-header{
+	position:absolute;
+	float: none;
 }
 
+.generalHeader .navbar-collapse{
+	padding: 0px;
+	text-align: center;
+}
+
+.generalHeader .navbar-nav{
+	float: none;
+}
+
+
+.generalHeader .navbar-nav li{
+	float: none;
+	display: inline-block;
+}

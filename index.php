@@ -19,14 +19,6 @@
 	
 	//user controll per il content..
 	function content(){ ?>
-	
-	<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		  <a class="navbar-brand" >News Manager</a>
-		</div>
-	</nav>
-	
 	<div ng-app="mainApp">
 		<div ng-controller='auth'>
 			<div id='welcomeDiv'>

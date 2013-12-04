@@ -14,16 +14,16 @@
 		<!--Header della pagina specifica-->
 		<?php echo head() ?>
 	</head>
-	<body>
-		<nav class="navbar navbar-default generalHeader" role="navigation">
+	<body ng-app='MainModule'>
+		<nav ng-controller="navagationBar" class="navbar navbar-default generalHeader" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<a class="navbar-brand" >News Manager</a>
 			</div>
-			<div class="collapse navbar-collapse navbar-inner">
+			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-				  <li class="active"><a href="#">Home</a></li>
-				  <li><a href="#">Impostazioni</a></li>
+					<li ng-class='{active:classPage=="Home"}'><a href="#">Home</a></li>
+					<li ng-class='{active:classPage=="Impostazioni"}'><a href="#">Impostazioni</a></li>
 				</ul>
 			</div>
 		</nav>

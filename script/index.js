@@ -2,9 +2,7 @@
 //importante! va messo per la dichiarazione dell'app!
 var mainApp = angular.module('mainApp', ["MainModule"]);
 
-mainApp.controller("auth", function authCtrl($scope, $http, setClassPage){
-	 
-	 setClassPage($scope, "Home");
+mainApp.controller("auth", function authCtrl($scope, $http){
 	 
 	 $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	 $scope.login = function(){
@@ -29,9 +27,5 @@ mainApp.controller("auth", function authCtrl($scope, $http, setClassPage){
 				 
 				});
 		  }
-	 }
-	 
-	 $scope.aaa=function(){
-		  alert("aaa");
 	 }
 });

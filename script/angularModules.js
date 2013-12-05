@@ -1,12 +1,22 @@
 var mainModule = angular.module("MainModule", []);
+var classPage='';
 
-mainModule.controller("navagationBar", function($scope){
-//	$scope.classPage="Home";
-});
+ mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
+    var service = {
+      setClassPage: function ( page ) {
+		classPage = page;
+      $rootScope.$broadcast( 'classPage.update' );
+     }
+   }
+   return service;
+ }]);
 
-mainModule.factory('setClassPage', function(page) {
-  $scope.classPage=page;
-});
+mainModule.controller("navagationBar", [ '$scope', function( scope ) {
+   scope.$on( 'classPage.update', function( event ) {
+     scope.classPage = classPage;
+   });
+ }]);
+
 
 mainModule.directive("returnpress", function(){
 	return {

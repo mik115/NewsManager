@@ -3,7 +3,7 @@
 	$path = "";
 	
 	//user control per l'head
-	function head(){ ?>
+	function head($path){ ?>
 		<!--librearia di ckeditor
 		<script type="text/javascript" src='lib/ckeditor/ckeditor.js'></script>
 		<script type="text/javascript" src="lib/ckeditor/adapters/jquery.js"></script>-->
@@ -18,7 +18,7 @@
 	<?php }
 	
 	//user controll per il content..
-	function content(){ ?>
+	function content($path){ ?>
 	<div ng-app="mainApp">
 		<div ng-controller='auth'>
 			<div id='welcomeDiv'>

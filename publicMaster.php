@@ -12,7 +12,7 @@
 	<head>
 		<?php include("includes/generalHead.php")?>
 		<!--Header della pagina specifica-->
-		<?php echo head() ?>
+		<?php echo head($path); ?>
 	</head>
 	<body>
 		<nav class="navbar navbar-default" role="navigation">
@@ -22,6 +22,6 @@
 		</div>
 	</nav>
 		<!--Content della pagina specifica-->
-		<?php echo content() ?>
+		<?php echo content($path); ?>
 	</body>
 </head>

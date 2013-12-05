@@ -12,7 +12,7 @@
 	<head>
 		<?php include("includes/generalHead.php")?>
 		<!--Header della pagina specifica-->
-		<?php echo head() ?>
+		<?php echo head($path); ?>
 	</head>
 	<body ng-app='MainModule'>
 		<nav ng-controller="navagationBar" class="navbar navbar-default generalHeader" role="navigation">
@@ -28,6 +28,6 @@
 			</div>
 		</nav>
 		<!--Content della pagina specifica-->
-		<?php echo content() ?>
+		<?php echo content($path); ?>
 	</body>
 </head>

@@ -1,15 +1,15 @@
 <?php
 	$path = "";
 	//user controll per l'header...
-	function head(){ ?>
+	function head($path){ ?>
 		<title>[PAGE TITLE]</title>
 	<?php }
 	
 	//user controll per il content..
-	function content(){ ?>
+	function content($path){ ?>
 	[CONTENT PAGE]
 	<?php }
 
 
-	require("master.php");
+	require($path."master.php");
 ?>

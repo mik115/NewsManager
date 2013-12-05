@@ -4,18 +4,15 @@ var classPage='';
  mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
     var service = {
       setClassPage: function ( page ) {
-		classPage = page;
-      $rootScope.$broadcast( 'classPage.update' );
+		angular.element("[ng-controller = 'navagationBar']").scope().$apply(function($scope){
+			$scope.classPage=page;
+		});
      }
-   }
+   };
    return service;
  }]);
 
-mainModule.controller("navagationBar", [ '$scope', function( scope ) {
-   scope.$on( 'classPage.update', function( event ) {
-     scope.classPage = classPage;
-   });
- }]);
+var navigationBar= mainModule.controller("navagationBar", function( $scope ) { });
 
 
 mainModule.directive("returnpress", function(){

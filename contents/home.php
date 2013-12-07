@@ -8,7 +8,7 @@
 	
 	//user controll per il content..
 	function content(){ ?>
-		<div id="homeApp">
+		<div>
 			<div ng-controller='mainCtrl'>
 				<p>ciao</p>
 			</div>

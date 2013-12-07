@@ -14,8 +14,8 @@
 		<!--Header della pagina specifica-->
 		<?php echo head($path); ?>
 	</head>
-	<body>
-		<nav ng-app='MainModule' class="navbar navbar-default generalHeader" role="navigation">
+	<body ng-app='MainModule'>
+		<nav class="navbar navbar-default generalHeader" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<a class="navbar-brand" >News Manager</a>

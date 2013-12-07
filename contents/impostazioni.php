@@ -8,7 +8,7 @@
 	
 	//user controll per il content..
 	function content(){ ?>
-	<div id='implAppl'> 
+	<div> 
 		<div ng-controller='impMainCtrl'>
 			
 		</div>

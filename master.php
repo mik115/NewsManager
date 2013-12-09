@@ -1,4 +1,4 @@
-<html>
+<html ng-app='MainModule'>
 	<?php
 		if(!isset($_COOKIE["PHPSESSID"])){
 			header("Location: ".$path."index.php");
@@ -14,7 +14,7 @@
 		<!--Header della pagina specifica-->
 		<?php echo head($path); ?>
 	</head>
-	<body ng-app='MainModule'>
+	<body>
 		<nav class="navbar navbar-default generalHeader" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">

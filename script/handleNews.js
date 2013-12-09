@@ -32,6 +32,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		if ($event) {
 			$event.stopImmediatePropagation();
 		}
+//		location.href='editNews.php?id = {{l'id della news da modificare}}';
 	}
 	
 	$scope.addNewNews=function($event){
@@ -39,6 +40,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		if ($event) {
 			$event.stopImmediatePropagation();
 		}
+		location.href='editNews.php';
 	}
 	
 	$scope.deleteNews = function($event){

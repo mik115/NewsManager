@@ -22,6 +22,7 @@ mainApp.controller("auth", function authCtrl($scope, $http){
 					 }else{
 						 //non è andata bene
 						 $scope.loginError=true;
+						 $scope.password = "";
 					 }
 				}).error(function(data, status, headers, config){
 				 

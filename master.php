@@ -28,7 +28,9 @@
 				</ul>
 			</div>
 		</nav>
+		<div id='mainContainer'>
 		<!--Content della pagina specifica-->
 		<?php echo content($path); ?>
+		</div>
 	</body>
 </head>

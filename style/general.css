@@ -36,3 +36,7 @@
 	float: none;
 	display: inline-block;
 }
+
+#mainContainer{
+	text-align: center;
+}

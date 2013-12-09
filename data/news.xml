@@ -1,0 +1,20 @@
+<!-- MODELLO
+
+<notizie>
+	<notizia>
+		<id>{string}</id>
+		<tags>
+			<tag>{string}</tag>
+		</tags>
+		<categoria>{string}</categoria>
+		<titolo>{string}</titolo>
+		<sottotitolo>{string}</sottotitolo>
+		<corpo>{HTML String}</corpo>
+		<dataCreazione>{dateTime}</dataCreazione>
+		<dataPubblicazione>{dateTime}</dataPubblicazione>
+		<evidenza>{boolean}</evidenza>
+	</notizia>
+</notizie>
+
+-->
+<notizie></notizie>

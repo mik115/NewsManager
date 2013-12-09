@@ -4,17 +4,8 @@
 	
 	//user control per l'head
 	function head($path){ ?>
-		<!--librearia di ckeditor
-		<script type="text/javascript" src='lib/ckeditor/ckeditor.js'></script>
-		<script type="text/javascript" src="lib/ckeditor/adapters/jquery.js"></script>-->
 		<link rel='stylesheet' type='text/css' href='style/index.css'/>
 		<script type="text/javascript" src='script/index.js'></script>
-		<script type='text/javascript'>
-			angular.element(document).ready(function(){
-		//		angular.element("#editor").ckeditor();
-		//document.ready event
-			});
-		</script>
 	<?php }
 	
 	//user controll per il content..

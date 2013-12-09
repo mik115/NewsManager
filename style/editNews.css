@@ -1,4 +1,10 @@
 #backButton{
 	float: left;
 	margin: 20px;
+	clear: both;
+}
+
+#cke_textEditor{
+	clear: both;
+	margin: 20px;
 }

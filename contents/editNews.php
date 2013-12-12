@@ -4,12 +4,16 @@
 	function head($path){ ?>
 		<title ng-controller='pageTitleSetter'>{{pageTitle}}</title>
 		<link rel="stylesheet" type='text/css' href='<?php echo $path?>style/editNews.css'/>
+<!--		<script type="text/javascript" src="<?php echo $path?>lib/ckeditor/adapters/jquery.js"></script>-->
+<!--		<script type="text/javascript" src="<?php echo $path?>lib/ckeditor/plugins/colorbutton/plugin.js"></script>-->
 		<script type="text/javascript" src='<?php echo $path?>lib/ckeditor/ckeditor.js'></script>
-		<script type="text/javascript" src="<?php echo $path?>	lib/ckeditor/adapters/jquery.js"></script>
+<!--		<script type="text/javascript" src='<?php echo $path?>lib/ckeditor/build-config.js'></script>-->
+<!--		<script type="text/javascript" src='<?php echo $path?>lib/ckeditor/config.js'></script>-->
+		
 		<script type='text/javascript' src='<?php echo $path?>script/editNews.js'></script>
 		<script type='text/javascript'>
 			angular.element(document).ready(function(){
-				angular.element("#textEditor").ckeditor();
+				CKEDITOR.replace( "textEditor");
 			});
 		</script>
 	<?php }

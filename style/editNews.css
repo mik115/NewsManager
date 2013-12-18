@@ -1,5 +1,9 @@
+.cke_button:hover{
+	cursor: pointer;
+}
+
 #backButton{
-	float: left;
+	display: block;
 	margin: 20px;
 	clear: both;
 }
@@ -7,4 +11,24 @@
 #cke_textEditor{
 	clear: both;
 	margin: 20px;
+}
+
+.form-control{
+	display: inline-block;
+	width: 100%;
+}
+
+#metaContent{
+	display: inline-block;
+	margin: auto;
+}
+
+.rightDiv{
+	float:right;
+	text-align: left;
+}
+.leftDiv{
+	float: left;
+	text-align: left;
+	margin-right: 100px;
 }

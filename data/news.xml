@@ -1,4 +1,4 @@
-<!-- MODELLO
+<!-- ////////////////////////////////////// MODELLO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 <notizie>
 	<notizia>
@@ -15,6 +15,15 @@
 		<evidenza>{boolean}</evidenza>
 	</notizia>
 </notizie>
-
--->
+<categorie>
+	<categoria>{string}</categoria>
+</categorie>
+<tags>
+	<tag>{string}</tag>
+</tags>
+/////////////////////////////////////////////////////////////////////////////////////-->
+<root>
 <notizie></notizie>
+<categorie></categorie>
+<tags></tags>
+</root>

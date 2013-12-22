@@ -17,6 +17,13 @@
 	display: inline-block;
 	width: 100%;
 }
+.form-group{
+	margin-bottom:0px;
+}
+
+.formRow {
+	margin: 5px 0px 10px;
+}
 
 #metaContent{
 	display: inline-block;
@@ -26,9 +33,11 @@
 .rightDiv{
 	float:right;
 	text-align: left;
+	width: 300px;
 }
 .leftDiv{
 	float: left;
 	text-align: left;
 	margin-right: 100px;
+	width: 300px;
 }

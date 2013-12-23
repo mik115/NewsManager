@@ -17,6 +17,14 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		//TODO qui instanzio le azioni specifiche per la creazione di una nuova news
 	}
 	
+	$scope.save = function(){
+		//TODO inserire qui le azioni per il salvataggio della news...
+		//capire quali sono i campi obbligatori e quelli opzionali ed effettuare un controllo sui primi.
+		if (!$scope.title || $scope.title=="") {
+			var aaaa=0;
+		}
+	}
+	
 	$scope.tags = [
 		{
 			nome: "primo tag",

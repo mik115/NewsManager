@@ -17,4 +17,57 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		//TODO qui instanzio le azioni specifiche per la creazione di una nuova news
 	}
 	
+	$scope.tags = [
+		{
+			nome: "primo tag",
+			id: 0
+		},
+		{
+			nome: "prissmo tag",
+			id: 1
+		},
+		{
+			nome: "pridfdfmo tag",
+			id: 2
+		},
+		{
+			nome: "priamo tag",
+			id: 3
+		},
+		{
+			nome: "priamo tag",
+			id: 4
+		},
+		{
+			nome: "prifmo tag",
+			id: 5
+		},
+		{
+			nome: "primo tsdag",
+			id: 6
+		}
+	];
+	
+	$scope.categories = [
+		{
+			nome: "prima categoria",
+			id: 0
+		},
+		{
+			nome: "prima categoria",
+			id: 1
+		},
+		{
+			nome: "priadsma categoria",
+			id: 2
+		},
+		{
+			nome: "primda categoria",
+			id: 3
+		},
+		{
+			nome: "paarima categoria",
+			id: 4
+		}
+	];
 });

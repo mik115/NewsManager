@@ -48,36 +48,14 @@
 					<select id='tagsSelection' class='selectpicker' multiple data-live-search="true"
     						  title='Scegli dei tag' data-selected-text-format="count>2" data-count-selected-text="{0} selected" data-size=10>
 						<!--qui ci vanno i possibili tags-->
-						<option>i possibili tag</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
-						<option>altre opzioni</option>
+						<option ng-repeat='tag in tags' value='{{tag.id}}'>{{tag.nome}}</option>
 					</select>
 				</div>
 				<div class='rightDiv'>
 					<div class='formRow'>Sottotitolo: <input class='form-control' value='sottotitolo'/></div>
-					<div class='formRow'>Importante: <input class='form-control' value='importante {checkbox}'/></div>
-					<select id='categoryButton' class='selectpicker show-tick' data-live-search="true" title='Scegli una categoria' data-size=10>
-    					<option>Una categoria</option>
-						<option>un'altra categoria</option>
-						<option>un'altra categoria</option>
-						<option>un'altra categoria</option>
-						<option>un'altra categoria</option>
-						<option>un'altra categoria</option>
+					<div class='formRow'>Importante: <input type='checkbox'/></div>
+					<select id='categoryButton' class='selectpicker' data-live-search="true" title='Scegli una categoria' data-size=10>
+    					<option ng-repeat='category in categories' value='{{category.id}}'>{{category.nome}}</option>
 					</select>
 				</div>
 			</div>

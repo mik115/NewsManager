@@ -7,7 +7,7 @@ mainModule.controller('pageTitleSetter', function pageTitleSetter($scope, $locat
 	}
 });
 
-mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location){
+mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location, $http){
 	classPage.setClassPage("News"); //per evidenziare il link corrente
 	var parametersArray = $location.search();
 	if (parametersArray.length !=0 && parametersArray.Id) {
@@ -17,12 +17,39 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		//TODO qui instanzio le azioni specifiche per la creazione di una nuova news
 	}
 	
+	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	$scope.save = function(){
-		//TODO inserire qui le azioni per il salvataggio della news...
-		//capire quali sono i campi obbligatori e quelli opzionali ed effettuare un controllo sui primi.
-		if (!$scope.title || $scope.title=="") {
-			var aaaa=0;
+		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
+			//TODO inserire qui le azioni per il salvataggio della news...
+			$http({
+				url: "../PHP/saveNews.php",
+				method: "POST",
+				data : $.param({
+					title : $scope.title,
+					newsContent: CKEDITOR.instances.textEditor.getData(),
+					date: $('#datetimepicker').data("DateTimePicker").getDate().toString(),
+					tags: $scope.tagSelect,
+					subtitle: $scope.subtitle,
+					important: $scope.important,
+					category: $scope.catSelect
+				})
+			}).success(function(data, status, headers, config){
+				if (data != "") {
+					//è andato tutto a buon fine!! sei loggato
+				//	window.location.href= "contents/home.php"
+				}else{
+					//non è andata bene
+					$scope.loginError=true;
+					$scope.password = "";
+				}
+			}).error(function(data, status, headers, config){
+			 
+			});
 		}
+	}
+	
+	$scope.checkCompleteness=function(){
+		$scope.errore = (!$scope.title || $scope.title=="" || CKEDITOR.instances.textEditor.getData()=="");
 	}
 	
 	$scope.tags = [

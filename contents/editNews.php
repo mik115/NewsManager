@@ -20,7 +20,7 @@
 				$('.selectpicker').selectpicker({
 					width: "100%"
 				});
-				$('#datetimepicker1').datetimepicker({
+				$('#datetimepicker').datetimepicker({
 					language: 'it'
 				});
 			});
@@ -37,8 +37,8 @@
 					<div class='formRow'>
 						Data Pubblicazione:
 						<div class="form-group">
-							<div class='input-group date' id='datetimepicker1'>
-								<input ng-model='date' type='text' class="form-control" data-format="ddd DD-MM-YYYY HH:mm" />
+							<div class='input-group date' id='datetimepicker'>
+								<input ng-model='publishDate' type='text' class="form-control" data-format="ddd DD-MM-YYYY HH:mm" />
 								<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
 								</span>
@@ -59,18 +59,19 @@
 					</select>
 				</div>
 			</div>
-			<input id='saveButton' type ='button' class='btn btn-primary' value='Salva' data-toggle="modal" data-target="#myModal"/>
-			<textarea id='textEditor'>{{newsBody}}</textarea>
+			<input ng-click='checkCompleteness()' id='saveButton' type ='button' class='btn btn-primary' value='Salva' data-toggle="modal" data-target="#myModal"/>
+			<textarea id='textEditor' ng-model='newNewsBody'>{{newsBody}}</textarea>
 			<!-- modal window-->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-body">
-							Sei sicuro di voler salvare la news?
+							<div ng-show='!errore'> Sei sicuro di voler salvare la news?</div>
+							<div ng-show='errore'> Devi compilare i campi che sono obbligatori per poter proseguire</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-							<button type="button" class="btn btn-primary" ng-click='save()'>Salva</button>
+							<button ng-show='!errore' type="button" class="btn btn-primary" ng-click='save()'>Salva</button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

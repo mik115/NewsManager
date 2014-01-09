@@ -35,15 +35,14 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				})
 			}).success(function(data, status, headers, config){
 				if (data != "") {
-					//è andato tutto a buon fine!! sei loggato
-				//	window.location.href= "contents/home.php"
+					
 				}else{
 					//non è andata bene
 					$scope.loginError=true;
 					$scope.password = "";
 				}
 			}).error(function(data, status, headers, config){
-			 
+			
 			});
 		}
 	}

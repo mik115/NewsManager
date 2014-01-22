@@ -21,6 +21,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	$scope.save = function(){
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
 			//TODO inserire qui le azioni per il salvataggio della news...
+			$scope.loading= true;
 			$http({
 				url: "../PHP/saveNews.php",
 				method: "POST",
@@ -35,7 +36,9 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				})
 			}).success(function(data, status, headers, config){
 				if (data != false) {
-					$("#myModal").modal('hide');
+					//$("#myModal").modal('hide');
+					$scope.loading=false;
+					$scope.success=true;
 					//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 				}else{
 					//non è andata bene
@@ -45,6 +48,10 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				
 			});
 		}
+	}
+	
+	$scope.redirect = function(){
+		alert("aaaaaaaaa");
 	}
 	
 	$scope.checkCompleteness=function(){

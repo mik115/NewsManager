@@ -1,10 +1,7 @@
 <?php
-	//TODO codificare tutti i campi di inserimento liberi, cosi da non fare casino con possibili input da parte dello user
 	$filePath = "../data/news.xml";
 	$dom = new DomDocument();
 	$dom->load($filePath);
-	//etc
-	var_dump($_POST);
 	$date = new DateTime($_POST["date"]);
 	$now = new DateTime();
 	if($date<$now){

@@ -1,7 +1,8 @@
 <?php
 	//TODO codificare tutti i campi di inserimento liberi, cosi da non fare casino con possibili input da parte dello user
+	$filePath = "../data/news.xml";
 	$dom = new DomDocument();
-	$dom->load("../data/news.xml");
+	$dom->load($filePath);
 	//etc
 	var_dump($_POST);
 	$date = new DateTime($_POST["date"]);
@@ -15,7 +16,7 @@
 	//TITOLO
 	$title = $dom->createElement("titolo");
 	$title->appendChild($dom->createTextNode($_POST["title"]));
-	$notizia->appendChild($titolo);
+	$notizia->appendChild($title);
 	//SOTOTITOLO
 	$subtitle = $dom->createElement("sottotitolo");
 	$subtitle->appendChild($dom->createTextNode($_POST["subtitle"]));
@@ -30,12 +31,12 @@
 	$notizia -> appendChild($datePublication);
 	//IMPORTANTE
 	$important= $dom->createElement("importante");
-	if($_POST["importatn"]=="")
+	if($_POST["important"]=="")
 		$importantContent=false;
 	else
 		$importantContent=true;
 	$important->appendChild($dom->createTextNode($importantContent));
-	$notizia->appendChidld($important);
+	$notizia->appendChild($important);
 	//CATEGORIA
 	$category = $dom->createElement("categoria");
 	$category ->appendChild($dom->createTextNode($_POST["category"]));
@@ -52,7 +53,6 @@
 	$newsContent = $dom->createElement("corpo");
 	$newsContent->appendChild($dom->createTextNode(base64_encode($_POST["newsContent"])));
 	$notizia->appendChild($newsContent);
-	var_dump($notizia);
-	$dom->documentRoot->appendChild($notizia);
-	//$dom->save§();
+	$dom->documentElement->appendChild($notizia);
+	echo  1;//$dom->save($filePath);
 ?>

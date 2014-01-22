@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!-- ////////////////////////////////////// MODELLO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 <notizie>
@@ -22,4 +23,4 @@
 	<tag>{string}</tag>
 </tags>
 /////////////////////////////////////////////////////////////////////////////////////-->
-<notizie></notizie>
+<notizie><notizia><titolo>sdfasdfasdf</titolo><sottotitolo>dfdddf</sottotitolo><dataCreazione>1390383666</dataCreazione><dataPubblicazione></dataPubblicazione><importante></importante><categoria>1</categoria><tags><tag>1</tag></tags><corpo>PHA+c2FkZnNkZnNkZmFzZGZzPC9wPgo=</corpo></notizia></notizie>

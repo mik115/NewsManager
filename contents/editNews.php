@@ -62,7 +62,7 @@
 			<input ng-click='checkCompleteness()' id='saveButton' type ='button' class='btn btn-primary' value='Salva' data-toggle="modal" data-target="#myModal"/>
 			<textarea id='textEditor' ng-model='newNewsBody'>{{newsBody}}</textarea>
 			<!-- modal window-->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal fade" ng-model='modalWindowConfirmation' id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-body">

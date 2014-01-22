@@ -34,15 +34,15 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 					category: $scope.catSelect
 				})
 			}).success(function(data, status, headers, config){
-				if (data != "") {
-					
+				if (data != false) {
+					$("#myModal").modal('hide');
+					//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 				}else{
 					//non è andata bene
-					$scope.loginError=true;
-					$scope.password = "";
+					
 				}
 			}).error(function(data, status, headers, config){
-			
+				
 			});
 		}
 	}
@@ -50,7 +50,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	$scope.checkCompleteness=function(){
 		$scope.errore = (!$scope.title || $scope.title=="" || CKEDITOR.instances.textEditor.getData()=="");
 	}
-	
+	//TODO caricare dinamicamente le categories e i tags dall'apposito XML
 	$scope.tags = [
 		{
 			nome: "primo tag",

@@ -2,6 +2,7 @@
 	$filePath = "../data/news.xml";
 	$dom = new DomDocument();
 	$dom->load($filePath);
+	$xpath = new DOMXpath($dom);
 	$date = new DateTime($_POST["date"]);
 	$now = new DateTime();
 	if($date<$now){
@@ -10,6 +11,19 @@
 		$date = $date->format("U");
 	}
 	$notizia = $dom->createElement("notizia");
+	//ID
+	//TODO capire bene come recuperare il max id presente nel xml!!
+	$result = $xpath ->query("/notizia/id[not(preceding-sibling::id/text() > text() or following-sibling::id/text() > text())]");
+	if(!is_null($result)){
+		var_dump($result);
+		$maxIdVal = intVal($result->item(0)->textContent);
+		var_dump($maxIdVal);
+	}else{
+		$idValue = 1;
+	}
+	$id= $dom->createElement("id");
+	$id->appendChild($dom->createTextNode($idValue));
+	$notizia->appendChild($id);
 	//TITOLO
 	$title = $dom->createElement("titolo");
 	$title->appendChild($dom->createTextNode($_POST["title"]));

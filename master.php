@@ -10,9 +10,15 @@
 		}
 	?>
 	<head>
+		
+		<script type='text/javascript'>
+			var pagePath = "<?php echo $path ?>";
+		</script>
+		
 		<?php include("includes/generalHead.php")?>
 		<!--Header della pagina specifica-->
 		<?php echo head($path); ?>
+		
 	</head>
 	<body>
 		<nav class="navbar navbar-default generalHeader" role="navigation">

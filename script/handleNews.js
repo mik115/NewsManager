@@ -1,6 +1,26 @@
-mainModule.controller("handleNewsController", function handleNewsController($scope, classPage){
+mainModule.controller("handleNewsController", function handleNewsController($scope, classPage, $http){
 	classPage.setClassPage("News");
 	//TODO rendere dinamico il caricamento delle news con una chiamata verso il file XML
+	
+	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
+	$http({
+		url: pagePath+"PHP/getNews.php",
+		method: "POST"
+	}).success(function(data, status, headers, config){
+		if (data != false) {
+			//$("#myModal").modal('hide');
+			$scope.loading=false;
+			$scope.success=true;
+			//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
+		}else{
+			//non è andata bene
+			
+		}
+	}).error(function(data, status, headers, config){
+		
+	});
+	
+	
 	$scope.notizie = [{
 		Titolo : "una bella news di prova!",
 		Sottotitolo: "ma va che bella news!!",

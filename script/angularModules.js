@@ -1,12 +1,12 @@
 var mainModule = angular.module("MainModule", []);
 var classPage='';
 
- mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
-    var service = {
-      setClassPage: function ( page ) {
-		$rootScope.classPage = page;
-     }
-   };
+mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
+	var service = {
+		setClassPage: function ( page ) {
+			$rootScope.classPage = page;
+		}
+	};
    return service;
  }]);
 

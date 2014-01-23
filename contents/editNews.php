@@ -72,8 +72,8 @@
 							<div ng-show='errore'> Devi compilare i campi che sono obbligatori per poter proseguire</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" ng-mousedown='{{!success || "redirect()"}}'>{{!success && 'Annulla' || 'Chiudi'}}</button>
-							<button ng-show='!errore && !loading && !success' type="button" class="btn btn-primary" ng-click='save()'>Salva</button>
+							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" ng-click='redirect("<?php echo $path?>")'>{{!success && 'Annulla' || 'Chiudi'}}</button>
+							<button ng-show='!errore && !loading && !success' type="button" class="btn btn-primary" ng-click='save("<?php echo $path?>")'>Salva</button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

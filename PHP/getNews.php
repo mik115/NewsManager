@@ -13,8 +13,13 @@
 
 	//TODO completare la creazione della classe con tutte le varie cose che ci stanno dentro.
 class Notizia {
-	public $titolo ="";
-	public $sottotitolo = "";
+	public $titolo;
+	public $sottotitolo;
+	public $id;
+	public $tags;
+	public $categoria;
+	public $corpo;
+	
 	
 	public function __construct($dom){
 		$this->titolo = $dom->getElementsByTagName("titolo")->item(0)->textContent;

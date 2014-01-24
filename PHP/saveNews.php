@@ -12,17 +12,20 @@
 	}
 	$notizia = $dom->createElement("notizia");
 	//ID
-	//TODO capire bene come recuperare il max id presente nel xml!!
-	$result = $xpath ->query("/notizia/id[not(preceding-sibling::id/text() > text() or following-sibling::id/text() > text())]");
+	$result = $xpath ->query('//id');
 	if(!is_null($result)){
-		var_dump($result);
-		$maxIdVal = intVal($result->item(0)->textContent);
-		var_dump($maxIdVal);
+		$maxId = 0;
+		foreach($result as $idResult){
+			if($maxId< intval($idResult->textContent)){
+				$maxId= intval($idResult->textContent);
+			}
+		}
+		$maxId++;
 	}else{
-		$idValue = 1;
+		$maxId = 1;
 	}
 	$id= $dom->createElement("id");
-	$id->appendChild($dom->createTextNode($idValue));
+	$id->appendChild($dom->createTextNode($maxId));
 	$notizia->appendChild($id);
 	//TITOLO
 	$title = $dom->createElement("titolo");
@@ -54,10 +57,12 @@
 	$notizia->appendChild($category);
 	//TAGS
 	$tags = $dom->createElement("tags");
-	foreach($_POST["tags"] as $t){
-		$tag = $dom->createElement("tag");
-		$tag->appendChild($dom->createTextNode($t));
-		$tags->appendChild($tag);
+	if($_POST["tags"]){
+		foreach($_POST["tags"] as $t){
+			$tag = $dom->createElement("tag");
+			$tag->appendChild($dom->createTextNode($t));
+			$tags->appendChild($tag);
+		}
 	}
 	$notizia->appendChild($tags);
 	//NEWSCONTENT
@@ -65,5 +70,5 @@
 	$newsContent->appendChild($dom->createTextNode(base64_encode($_POST["newsContent"])));
 	$notizia->appendChild($newsContent);
 	$dom->documentElement->appendChild($notizia);
-	echo  1;//$dom->save($filePath);
+	echo $dom->save($filePath);
 ?>

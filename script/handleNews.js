@@ -7,45 +7,14 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		url: pagePath+"PHP/getNews.php",
 		method: "POST"
 	}).success(function(data, status, headers, config){
-		if (data != false) {
-			//$("#myModal").modal('hide');
-			$scope.loading=false;
-			$scope.success=true;
-			//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
-		}else{
-			//non è andata bene
-			
-		}
+		$scope.notizie = data;
 	}).error(function(data, status, headers, config){
 		
 	});
 	
-	
-	$scope.notizie = [{
-		Titolo : "una bella news di prova!",
-		Sottotitolo: "ma va che bella news!!",
-		Corpo: "Niente da dire...Lorem ipsum..."
-	},
-	{
-		Titolo : "una bella news di prova!",
-		Sottotitolo: "ma va che bella news!!",
-		Corpo: "Niente da dire...Lorem ipsum..."
-	},
-	{
-		Titolo : "una bella news di prova!",
-		Sottotitolo: "ma va che bella news!!",
-		Corpo: "Niente da dire...Lorem ipsum..."
-	},
-	{
-		Titolo : "una bella news di prova!",
-		Sottotitolo: "ma va che bella news!!",
-		Corpo: "Niente da dire...Lorem ipsum..."
-	},
-	{
-		Titolo : "una bella news di prova!",
-		Sottotitolo: "ma va che bella news!!",
-		Corpo: "Niente da dire...Lorem ipsum..."
-	}];
+	$scope.unescape=function(data){
+		return unescape(data);
+	}
 	
 	//TODO gestire l'evento
 	$scope.modifyNews = function($event){

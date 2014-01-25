@@ -22,9 +22,9 @@
 						<th></th>
 						<th></th>
 					<tr ng-repeat='notizia in notizie' ng-click='modifyNews()'>
-						<td>{{notizia.Titolo}}</td>
-						<td>{{notizia.Sottotitolo}}</td>
-						<td>{{notizia.Corpo}}</td>
+						<td>{{notizia.titolo}}</td>
+						<td>{{notizia.sottotitolo}}</td>
+						<td>{{unescape(notizia.corpo)}}</td>
 						<td class='btnCell'><input type='button' class='btn btn-info' value='Modifica' ng-click='modifyNews($event)'/>
 						<td class='btnCell'><input type='button' class='btn btn-danger' value='Elimina' ng-click='deleteNews($event)'/>
 					</tr>

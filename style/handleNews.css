@@ -7,11 +7,3 @@
 	margin-bottom: 20px;
 	margin-left: 20px;
 }
-
-#newsList tr:hover{
-	cursor: pointer;
-}
-
-#newsList tr td.btnCell{
-	width: 95px;
-}

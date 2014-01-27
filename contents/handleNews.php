@@ -25,8 +25,8 @@
 						<td>{{notizia.titolo}}</td>
 						<td>{{notizia.sottotitolo}}</td>
 						<td>{{unescape(notizia.corpo)}}</td>
-						<td class='btnCell'><input type='button' class='btn btn-info' value='Modifica' ng-click='modifyNews($event)'/>
-						<td class='btnCell'><input type='button' class='btn btn-danger' value='Elimina' ng-click='deleteNews($event)'/>
+						<td class='btnCell'><input type='button' class='btn btn-info btn-sm' value='Modifica' ng-click='modifyNews($event)'/>
+						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='deleteNews($event)'/>
 					</tr>
 				</table>
 			</div>

@@ -9,6 +9,27 @@
 	-moz-box-shadow: 0 0 6px #f8b9b7;
 	box-shadow: 0 0 6px #f8b9b7;
 }
+
+/*table override*/
+
+.table tr td.btnCell{
+	width: 1px;
+}
+
+.table th{
+	background-color: #444 !important;
+	color: white;
+}
+
+.table.table-hover tr:hover td{
+	background-color: #CFFFFF;
+	cursor: default;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td{
+	background-color: #eee;	
+}
+/*end override*/
 /*fine override*/
 
 

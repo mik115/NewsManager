@@ -13,6 +13,11 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 	});
 	
 	$scope.unescape=unescape;
+	$scope.moment = moment;
+	
+	$scope.showDetails= function(id){
+		location.href = pagePath+ "contents/newsDetails.php?id="+id;
+	}
 	
 	//TODO gestire l'evento
 	$scope.modifyNews = function($event){
@@ -28,10 +33,8 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		if ($event) {
 			$event.stopImmediatePropagation();
 		}
-		location.href='editNews.php';
+		location.href=pagePath + 'contents/editNews.php';
 	}
-	
-	$scope.moment = moment;
 	
 	//TODO gestire l'evento
 	$scope.deleteNews = function($event){

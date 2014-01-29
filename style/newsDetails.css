@@ -1,0 +1,48 @@
+.cke_button:hover{
+	cursor: pointer;
+}
+
+#backButton{
+	display: block;
+	margin: 20px;
+	clear: both;
+}
+
+#cke_textEditor{
+	clear: both;
+	margin: 20px;
+}
+
+.form-control{
+	display: inline-block;
+	width: 100%;
+}
+.form-group{
+	margin-bottom:0px;
+}
+
+.formRow {
+	margin: 5px 0px 10px;
+}
+
+#metaContent{
+	display: inline-block;
+	margin: auto;
+	margin-right: 20px;
+}
+
+.rightDiv{
+	float:right;
+	text-align: left;
+	width: 300px;
+}
+.leftDiv{
+	float: left;
+	text-align: left;
+	margin-right: 100px;
+	width: 300px;
+}
+
+#saveButton{
+	margin-right: 20px;
+}

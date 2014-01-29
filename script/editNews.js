@@ -18,12 +18,12 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
-	$scope.save = function(path){
+	$scope.save = function(){
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
 			//TODO inserire qui le azioni per il salvataggio della news...
 			$scope.loading= true;
 			$http({
-				url: path+"PHP/saveNews.php",
+				url: pagePath+"PHP/saveNews.php",
 				method: "POST",
 				data : $.param({
 					title : $scope.title,
@@ -50,9 +50,9 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		}
 	}
 	
-	$scope.redirect = function(path){
+	$scope.redirect = function(){
 		if ($scope.success) {
-			location.href=path+'contents/handleNews.php';
+			location.href=pagePath+'contents/handleNews.php';
 		}
 	}
 	

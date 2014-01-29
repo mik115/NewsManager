@@ -12,9 +12,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		
 	});
 	
-	$scope.unescape=function(data){
-		return unescape(data);
-	}
+	$scope.unescape=unescape;
 	
 	//TODO gestire l'evento
 	$scope.modifyNews = function($event){
@@ -32,6 +30,8 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		}
 		location.href='editNews.php';
 	}
+	
+	$scope.moment = moment;
 	
 	//TODO gestire l'evento
 	$scope.deleteNews = function($event){

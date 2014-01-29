@@ -27,7 +27,7 @@
 }
 
 .table-striped>tbody>tr:nth-child(odd)>td{
-	background-color: #eee;	
+	background-color: #F8F8F8;	
 }
 /*end override*/
 /*fine override*/

@@ -1,1 +1,6 @@
-<categorie></categorie>
+<categorie>
+	<categoria>
+		<id>1</id>
+		<nome>Che bella cat</nome>
+	</categoria>
+</categorie>

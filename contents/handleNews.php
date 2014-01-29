@@ -17,14 +17,16 @@
 				<table id='newsList' class='table table-striped table-bordered table-hover'>
 					<tr>
 						<th>Titolo</th>
-						<th>Sottotitolo</th>
-						<th>Corpo della news</th>
+						<th>Creata</th>
+						<th>Tags</th>
+						<th>Categoria</th>
 						<th></th>
 						<th></th>
-					<tr ng-repeat='notizia in notizie' ng-click='modifyNews()'>
+					<tr newsId = "{{notizia.id}}" ng-repeat='notizia in notizie' ng-click='modifyNews()'>
 						<td>{{notizia.titolo}}</td>
-						<td>{{notizia.sottotitolo}}</td>
-						<td>{{unescape(notizia.corpo)}}</td>
+						<td>{{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}</td>
+						<td>{{notizia.tags.length}}</td>
+						<td>{{notizia.categoria.nome}}</td>
 						<td class='btnCell'><input type='button' class='btn btn-info btn-sm' value='Modifica' ng-click='modifyNews($event)'/>
 						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='deleteNews($event)'/>
 					</tr>

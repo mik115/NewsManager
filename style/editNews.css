@@ -28,6 +28,7 @@
 #metaContent{
 	display: inline-block;
 	margin: auto;
+	margin-right: 20px;
 }
 
 .rightDiv{
@@ -43,7 +44,5 @@
 }
 
 #saveButton{
-	margin-top: 131px;
-	position: absolute;
-	margin-left: 100px;
+	margin-right: 20px;
 }

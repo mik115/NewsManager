@@ -15,10 +15,12 @@
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: {{notizia.titolo}}</div>
 					<div class='formRow'>
-						Data Pubblicazione: {{notizia.dataPubblicazione}}
+						Data Creazione: {{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}
 					</div>
 					<div class='formRow'>
-						Data Creazione: {{notizia.dataCreazione}}
+						Data Pubblicazione: {{notizia.dataPubblicazione &&
+						moment(notizia.dataPubblicazione, "X").format("DD/MM/YYYY : HH:mm") ||
+						moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}
 					</div>
 					<select ng-model='tagSelect' id='tagsSelection' class='selectpicker' multiple data-live-search="true"
     						  title='Scegli dei tag' data-selected-text-format="count>2" data-count-selected-text="{0} selected" data-size=10>

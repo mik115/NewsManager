@@ -28,8 +28,14 @@ class Methods{
 		return $notizieArray;
 	}
 	public function GetNews($dom, $id){
-		//TODO implementare il metodo per il recupero di una sola news con un determinato id!
-		return "Metodo ancora da implementare";
+		$xpath = new DOMXpath($dom);
+		$notiziaDom = $xpath->query("notizia[id = ".intval($id)."]")->item(0);
+		if(!is_null($notiziaDom)){
+			$notizia = new Notizia($notiziaDom);
+			return $notizia;
+		}else{
+			return "false";
+		}
 	}
 }
 

@@ -30,3 +30,9 @@ mainModule.directive("returnpress", function(){
 		 }
 	};
 });
+
+mainModule.config(['$locationProvider',
+	function($locationProvider) {
+		 $locationProvider.html5Mode(true);
+	}]
+);

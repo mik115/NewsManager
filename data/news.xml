@@ -23,5 +23,10 @@
 	<tag>{string}</tag>
 </tags>
 /////////////////////////////////////////////////////////////////////////////////////-->
-<notizie><notizia><id>1</id><titolo>sdfasdfasdf</titolo><sottotitolo>dfdddf</sottotitolo><dataCreazione>1390383666</dataCreazione><dataPubblicazione/><importante/><categoria>1</categoria><tags><tag>1</tag></tags><corpo>PHA+c2FkZnNkZnNkZmFzZGZzPC9wPgo=</corpo></notizia>
-<notizia><id>2</id><titolo>sdfasdfasdf</titolo><sottotitolo>dfdddf</sottotitolo><dataCreazione>1390383666</dataCreazione><dataPubblicazione/><importante/><categoria>1</categoria><tags><tag>1</tag></tags><corpo>PHA+c2FkZnNkZnNkZmFzZGZzPC9wPgo=</corpo></notizia><notizia><id>3</id><titolo>sdfgdfgsdf</titolo><sottotitolo/><dataCreazione>1390569675</dataCreazione><dataPubblicazione/><importante/><categoria/><tags/><corpo>PHA+ZHNmZ2RmZ3NkPC9wPgo=</corpo></notizia><notizia><id>4</id><titolo>sdfasdfas</titolo><sottotitolo/><dataCreazione>1390569695</dataCreazione><dataPubblicazione/><importante/><categoria/><tags/><corpo>PHA+ZmRkZGRkZGQ8L3A+Cg==</corpo></notizia><notizia><id>5</id><titolo>cccccccccc</titolo><sottotitolo></sottotitolo><dataCreazione>1391000583</dataCreazione><dataPubblicazione></dataPubblicazione><importante></importante><categoria></categoria><tags/><corpo>PHA+Y2NjY2NjYzwvcD4K</corpo></notizia></notizie>
+<notizie>
+<notizia><id>1</id><titolo>sdfasdfasdf</titolo><sottotitolo>dfdddf</sottotitolo><dataCreazione>1390383666</dataCreazione><dataPubblicazione/><importante/><categoria>1</categoria><tags><tag>1</tag></tags><corpo>PHA+c2FkZnNkZnNkZmFzZGZzPC9wPgo=</corpo></notizia>
+<notizia><id>2</id><titolo>sdfasdfasdf</titolo><sottotitolo>dfdddf</sottotitolo><dataCreazione>1390383666</dataCreazione><dataPubblicazione/><importante/><categoria>1</categoria><tags><tag>1</tag></tags><corpo>PHA+c2FkZnNkZnNkZmFzZGZzPC9wPgo=</corpo></notizia>
+<notizia><id>3</id><titolo>sdfgdfgsdf</titolo><sottotitolo/><dataCreazione>1390569675</dataCreazione><dataPubblicazione/><importante/><categoria/><tags/><corpo>PHA+ZHNmZ2RmZ3NkPC9wPgo=</corpo></notizia>
+<notizia><id>4</id><titolo>sdfasdfas</titolo><sottotitolo/><dataCreazione>1390569695</dataCreazione><dataPubblicazione/><importante/><categoria/><tags/><corpo>PHA+ZmRkZGRkZGQ8L3A+Cg==</corpo></notizia>
+<notizia><id>5</id><titolo>cccccccccc</titolo><sottotitolo/><dataCreazione>1391000583</dataCreazione><dataPubblicazione/><importante/><categoria/><tags/><corpo>PHA+Y2NjY2NjYzwvcD4K</corpo></notizia>
+</notizie>

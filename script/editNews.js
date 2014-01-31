@@ -50,6 +50,10 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		}
 	}
 	
+	$scope.backAction= function(){
+		location.href=pagePath+'contents/handleNews.php';
+	}
+	
 	$scope.redirect = function(){
 		if ($scope.success) {
 			location.href=pagePath+'contents/handleNews.php';

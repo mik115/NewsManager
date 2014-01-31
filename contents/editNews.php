@@ -30,7 +30,7 @@
 	//user controll per il content..
 	function content($path){ ?>
 		<div ng-controller='mainCtrl'>
-			<input id='backButton' type='button' class='btn btn-default' value='Anunlla'/>
+			<input id='backButton' ng-click='backAction()' type='button' class='btn btn-default' value='Anunlla'/>
 			<div id='metaContent'>
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: <input ng-model='title' class='form-control' value='titolo'/></div>

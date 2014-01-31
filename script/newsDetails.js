@@ -33,6 +33,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$scope.moment = moment;
+	$scope.unescape=unescape;
 	$scope.getData= function(data, format){
 		if (!data) {
 			return "";

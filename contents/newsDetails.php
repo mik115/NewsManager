@@ -15,28 +15,33 @@
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: {{notizia.titolo}}</div>
 					<div class='formRow'>
-						Data Creazione: {{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}
+						Data Creazione: {{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY HH:mm")}}
 					</div>
 					<div class='formRow'>
 						Data Pubblicazione: {{notizia.dataPubblicazione &&
-						moment(notizia.dataPubblicazione, "X").format("DD/MM/YYYY : HH:mm") ||
-						moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}
+						moment(notizia.dataPubblicazione, "X").format("DD/MM/YYYY HH:mm") ||
+						moment(notizia.dataCreazione, "X").format("DD/MM/YYYY HH:mm")}}
 					</div>
-					<select ng-model='tagSelect' id='tagsSelection' class='selectpicker' multiple data-live-search="true"
-    						  title='Scegli dei tag' data-selected-text-format="count>2" data-count-selected-text="{0} selected" data-size=10>
-						<!--qui ci vanno i possibili tags-->
-						<option ng-repeat='tag in tags' value='{{tag.id}}'>{{tag.nome}}</option>
-					</select>
+					<div class ='formRow'>
+						Tags:
+						<div class='tagList'>
+							<ul>
+								<li ng-repeat='tag in notizia.tags'>{{tag.nome}}</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 				<div class='rightDiv'>
-					<div class='formRow'>Sottotitolo: <input ng-model='subtitle' class='form-control' value='sottotitolo'/></div>
+					<div class='formRow'>Sottotitolo: {{notizia.sottotitolo}}</div>
 					<div class='formRow'>Importante: <input ng-model='important' type='checkbox'/></div>
-					<select ng-model='catSelect' id='categoryButton' class='selectpicker' data-live-search="true" title='Scegli una categoria' data-size=10>
-    					<option ng-repeat='category in categories' value='{{category.id}}'>{{category.nome}}</option>
-					</select>
+					<div class = 'formRow'>Categoria: {{notizia.categoria.nome}}</div>
 				</div>
 			</div>
-			<input ng-click='checkCompleteness()' id='saveButton' type ='button' class='btn btn-primary' value='Salva' data-toggle="modal" data-target="#myModal"/>
+			<input ng-click='checkCompleteness()' id='saveButton' type ='button' class='btn btn-success' value='Edit' data-toggle="modal" data-target="#myModal"/>
+			<div>
+				Contenuto:
+				<div class='newsBody' ng-bind-html-unsafe="unescape(notizia.corpo)"></div>
+			</div>
 		</div>
 	<?php }
 

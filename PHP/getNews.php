@@ -39,7 +39,6 @@ class Methods{
 	}
 }
 
-
 class Notizia {
 	public $titolo;
 	public $sottotitolo;
@@ -64,9 +63,33 @@ class Notizia {
 		$this->tags= array();
 		$tags = $dom->getElementsByTagName("tag");
 		foreach($tags as $tag){
-			array_push($this->tags, $tag->textContent);
+			array_push($this->tags, new Tag($tag->textContent));
 		}
 	}
+}
+
+class Tag{
+	public $id;
+	public $nome;
+	
+	public function __construct($tagId){
+		$this->id = $tagId;
+		$this->nome = $this->GetTagName();
+	}
+	
+	private function GetTagName(){
+		if($this->id != null){
+			$dom = new DomDocument();
+			$dom->load("../data/tags.xml");
+			$xpath = new DOMXpath($dom);
+			$tag = $xpath->query("tag[id=".$this->id."]")->item(0);
+			$tagNome = $tag->getElementsByTagName("nome")->item(0)->nodeValue;
+		}else{
+			$tagNome= $this->categoriaNome = "Nessun Tag";
+		}
+		return $tagNome;
+	}
+	
 }
 
 class Categoria{
@@ -91,6 +114,4 @@ class Categoria{
 		return $categoriaNome;
 	}
 }
-
-
 ?>

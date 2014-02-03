@@ -33,11 +33,11 @@
 				</div>
 				<div class='rightDiv'>
 					<div class='formRow'>Sottotitolo: {{notizia.sottotitolo}}</div>
-					<div class='formRow'>Importante: <input ng-model='important' type='checkbox'/></div>
+					<div class='formRow'>Importante: {{notizia.importante && "Si" || "No"}}</div>
 					<div class = 'formRow'>Categoria: {{notizia.categoria.nome}}</div>
 				</div>
 			</div>
-			<input ng-click='checkCompleteness()' id='saveButton' type ='button' class='btn btn-success' value='Edit' data-toggle="modal" data-target="#myModal"/>
+			<input ng-click='editNews()' id='editButton' type ='button' class='btn btn-success' value='Edit'/>
 			<div>
 				Contenuto:
 				<div class='newsBody' ng-bind-html-unsafe="unescape(notizia.corpo)"></div>

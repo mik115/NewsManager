@@ -38,7 +38,7 @@
 						Data Pubblicazione:
 						<div class="form-group">
 							<div class='input-group date' id='datetimepicker'>
-								<input ng-model='publishDate' type='text' class="form-control" data-format="ddd DD-MM-YYYY HH:mm" />
+								<input ng-model='publishDate' type='text' class="form-control" data-format="ddd DD/MM/YYYY HH:mm" />
 								<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
 								</span>

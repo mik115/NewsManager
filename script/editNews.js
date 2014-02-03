@@ -1,6 +1,6 @@
 mainModule.controller('pageTitleSetter', function pageTitleSetter($scope, $location){
 	var parametersArray = $location.search();
-	if (parametersArray.length !=0 && parametersArray.Id) {
+	if (parametersArray && parametersArray.id) {
 		$scope.pageTitle="Edit News";
 	}else{
 		$scope.pageTitle="Add News";
@@ -10,7 +10,34 @@ mainModule.controller('pageTitleSetter', function pageTitleSetter($scope, $locat
 mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location, $http){
 	classPage.setClassPage("News"); //per evidenziare il link corrente
 	var parametersArray = $location.search();
-	if (parametersArray.length !=0 && parametersArray.Id) {
+	if (parametersArray && parametersArray.id) {
+		$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
+		$http({
+			url: pagePath+"PHP/getNews.php",
+			method: "POST",
+			data : $.param({
+				id: parametersArray.id
+			})
+		}).success(function(data, status, headers, config){
+			if (data != false) {
+				$scope.title = data.titolo;
+				$scope.newNewsBody= unescape(data.corpo);
+				if (data.dataPublicazione=="") {
+					$('#datetimepicker').data("DateTimePicker").setValue(moment(data.dataCreazione, "X"));
+		//			$scope.publishDate = new Date(parseInt(data.dataCreazione));
+				}else{
+					$scope.publishDate = data.dataPublicazione;
+				}
+				$scope.subtitle =  data.sottotitolo;
+				$scope.important = data.importante;
+				//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
+			}else{
+				//non è andata bene
+				
+			}
+		}).error(function(data, status, headers, config){
+			
+		});
 		$scope.newsBody="<h1>ma che bella news</h1>";
 		//TODO qui instanzio le azioni per la modifica della news indicata dall'id...quindi anche il caricamento del corpo e metadati della news
 	}else{

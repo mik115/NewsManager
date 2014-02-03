@@ -19,15 +19,6 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		location.href = pagePath+ "contents/newsDetails.php?id="+id;
 	}
 	
-	//TODO gestire l'evento
-	$scope.modifyNews = function($event){
-		//onclick su una riga della grid
-		if ($event) {
-			$event.stopImmediatePropagation();
-		}
-//		location.href='editNews.php?id = {{l'id della news da modificare}}';
-	}
-	
 	$scope.addNewNews=function($event){
 		//onclick sul bottona add new news
 		if ($event) {

@@ -21,13 +21,11 @@
 						<th>Tags</th>
 						<th>Categoria</th>
 						<th></th>
-						<th></th>
 					<tr newsId="{{notizia.id}}" ng-click='showDetails(notizia.id)' ng-repeat='notizia in notizie' ng-click='modifyNews()'>
 						<td>{{notizia.titolo}}</td>
 						<td>{{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}</td>
 						<td>{{notizia.tags.length}}</td>
 						<td>{{notizia.categoria.nome}}</td>
-						<td class='btnCell'><input type='button' class='btn btn-info btn-sm' value='Modifica' ng-click='modifyNews($event)'/>
 						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='deleteNews($event)'/>
 					</tr>
 				</table>

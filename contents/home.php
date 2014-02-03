@@ -10,7 +10,6 @@
 	function content(){ ?>
 		<div>
 			<div ng-controller='mainCtrl'>
-				<p>ciao</p>
 			</div>
 		</div>
 	<?php }

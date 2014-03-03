@@ -13,9 +13,10 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	if (parametersArray && parametersArray.id) {
 		$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 		$http({
-			url: pagePath+"PHP/getNews.php",
+			url: pagePath+"PHP/newsHandler.php",
 			method: "POST",
 			data : $.param({
+				action: "GetNews",
 				id: parametersArray.id
 			})
 		}).success(function(data, status, headers, config){
@@ -30,6 +31,12 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				}
 				$scope.subtitle =  data.sottotitolo;
 				$scope.important = data.importante;
+				var tagListId= new Array();
+				for (var tag in data.tags) {
+					tagListId.push(data.tags[tag].id);
+				}
+				//TODO capire come valorizzare la select!
+				$("tagsSelection").selectpicker("val", tagListId)
 				//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 			}else{
 				//non è andata bene
@@ -50,9 +57,10 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			//TODO inserire qui le azioni per il salvataggio della news...
 			$scope.loading= true;
 			$http({
-				url: pagePath+"PHP/saveNews.php",
+				url: pagePath+"PHP/newsHandler.php",
 				method: "POST",
 				data : $.param({
+					action: "SaveNews",
 					title : $scope.title,
 					newsContent: CKEDITOR.instances.textEditor.getData(),
 					date: $('#datetimepicker').data("DateTimePicker").getDate().toString(),
@@ -62,14 +70,15 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 					category: $scope.catSelect
 				})
 			}).success(function(data, status, headers, config){
-				if (data != false) {
+				if (data != "false") {
 					//$("#myModal").modal('hide');
 					$scope.loading=false;
 					$scope.success=true;
 					//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 				}else{
 					//non è andata bene
-					
+					$scope.loading= false;
+					$scope.errore=true;
 				}
 			}).error(function(data, status, headers, config){
 				

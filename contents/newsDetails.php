@@ -24,9 +24,9 @@
 					</div>
 					<div class ='formRow'>
 						Tags:
-						<div class='tagList'>
-							<ul>
-								<li ng-repeat='tag in notizia.tags'>{{tag.nome}}</li>
+						<div class='tagList' >
+							<ul class="list-group">
+								<li class='list-group-item' ng-repeat='tag in notizia.tags'>{{tag.nome}}</li>
 							</ul>
 						</div>
 					</div>

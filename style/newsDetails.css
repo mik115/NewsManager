@@ -43,6 +43,15 @@
 	width: 300px;
 }
 
+.tagList{
+	border: 1px solid #DDDDDD;
+	border-radius: 7px;
+	padding: 10px;
+	margin-top: 5px;
+	max-height: 100px;
+	overflow: auto;
+}
+
 #editButton{
 	margin-right: 20px;
 }

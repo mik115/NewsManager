@@ -1,6 +1,38 @@
 <tags>
 	<tag>
+		<id>0</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
 		<id>1</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>2</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>3</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>4</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>5</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>6</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>7</id>
+		<nome>general tag</nome>
+	</tag>
+	<tag>
+		<id>8</id>
 		<nome>general tag</nome>
 	</tag>
 </tags>

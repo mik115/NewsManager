@@ -4,7 +4,10 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	$http({
-		url: pagePath+"PHP/getNews.php",
+		url: pagePath+"PHP/newsHandler.php",
+		data : $.param({
+				action: "GetAllNews"
+			}),
 		method: "POST"
 	}).success(function(data, status, headers, config){
 		$scope.notizie = data;
@@ -27,11 +30,44 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		location.href=pagePath + 'contents/editNews.php';
 	}
 	
-	//TODO gestire l'evento
-	$scope.deleteNews = function($event){
-		//onclick sull'elliminazione della news
+	$scope.onDelButtonEvent = function($event){
 		if ($event) {
 			$event.stopImmediatePropagation();
 		}
+		$scope.notiziaSelezionata = event.currentTarget.parentNode.parentNode.attributes["newsid"].textContent;
+		$scope.loading=false;
+		$scope.success=false;
+		$scope.error=false;
+		$("#myModal").modal('show');
+	}
+	
+	//TODO gestire l'evento
+	$scope.deleteNews = function(){
+		//onclick sull'elliminazione della news
+		$scope.loading= true;
+		$http({
+			url: pagePath+"PHP/deleteNews.php",
+			method: "POST",
+			data : $.param({
+				id: $scope.notiziaSelezionata
+			})
+		}).success(function(data, status, headers, config){
+			if (data != false) {
+				//$("#myModal").modal('hide');
+				$scope.loading=false;
+				$scope.success=true;
+				for (var n in $scope.notizie) {
+					//TODO trovo la notizia selezionata attraverso l'id e la elimino dall'array
+					if ($scope.notizie[n].id == $scope.notiziaSelezionata) {
+						delete $scope.notizie[n];
+					}
+				}
+			}else{
+				//non è andata bene
+				$scope.error=true;
+			}
+		}).error(function(data, status, headers, config){
+			$scope.error = true;
+		});
 	}
 });

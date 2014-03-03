@@ -9,9 +9,10 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	if (parametersArray && parametersArray.id) {
 		$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 		$http({
-			url: pagePath+"PHP/getNews.php",
+			url: pagePath+"PHP/newsHandler.php",
 			method: "POST",
 			data : $.param({
+				action: "GetNews",
 				id : parametersArray.id
 			})
 		}).success(function(data, status, headers, config){

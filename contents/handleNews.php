@@ -26,13 +26,29 @@
 						<td>{{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}</td>
 						<td>{{notizia.tags.length}}</td>
 						<td>{{notizia.categoria.nome}}</td>
-						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='deleteNews($event)'/>
+						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='onDelButtonEvent($event)'/></td>
 					</tr>
 				</table>
 			</div>
+			<!-- modal window-->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div ng-show='!errore && !success && !loading'> Sei sicuro di voler eliminare la news?</div>
+							<div ng-show ='success'> La news è stata eliminata</div>
+							<div ng-show='loading'><img src='<?php echo $path?>images/loading.gif'/></div>
+							<div ng-show='errore'> Si è verificato un errore imprevisto. Riprovare.</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" data-target="#myModal">{{!success && 'Annulla' || 'Chiudi'}}</button>
+							<button ng-show='!errore && !loading && !success' type="button" class="btn btn-primary" ng-click='deleteNews()'>Elimina</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
 		</div>
 	<?php }
-
-
+	
 	require($path."master.php");
 ?>

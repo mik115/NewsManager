@@ -1,0 +1,719 @@
+<NotepadPlus>
+    <Project name="newsmanager">
+        <Folder name="contents">
+            <File name="contents\editNews.php" />
+            <File name="contents\handleNews.php" />
+            <File name="contents\home.php" />
+            <File name="contents\impostazioni.php" />
+            <File name="contents\newsDetails.php" />
+        </Folder>
+        <Folder name="data">
+            <File name="data\categories.xml" />
+            <File name="data\data.json" />
+            <File name="data\news.xml" />
+            <File name="data\tags.xml" />
+            <File name="data\users.xml" />
+        </Folder>
+        <Folder name="images">
+            <File name="images\loading.gif" />
+            <File name="images\loadings.gif" />
+        </Folder>
+        <Folder name="includes">
+            <File name="includes\generalHead.php" />
+        </Folder>
+        <Folder name="lib">
+            <Folder name="bootstrap-datetimepicker">
+                <Folder name="bootstrap" />
+                <Folder name="build">
+                    <Folder name="css">
+                        <File name="lib\bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.css" />
+                        <File name="lib\bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.min.css" />
+                    </Folder>
+                    <Folder name="js">
+                        <File name="lib\bootstrap-datetimepicker\build\js\bootstrap-datetimepicker.min.js" />
+                    </Folder>
+                </Folder>
+                <Folder name="src">
+                    <Folder name="js">
+                        <Folder name="locales">
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ar-ma.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ar.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.bg.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.br.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.bs.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ca.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.cs.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.cv.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.da.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.de.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.el.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.en-au.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.en-ca.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.en-gb.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.eo.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.es.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.et.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.eu.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.fa.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.fi.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.fr-ca.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.fr.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.gl.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.he.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.hi.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.hr.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.hu.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.id.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.is.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.it.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ja.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ka.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ko.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.lt.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.lv.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ml.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.mr.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ms-my.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.nb.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ne.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.nl.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.nn.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.pl.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.pt.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ro.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.ru.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.sk.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.sl.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.sq.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.sv.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.th.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.tr.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.tzm-la.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.tzm.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.uk.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.uz.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.vn.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+                            <File name="lib\bootstrap-datetimepicker\src\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+                        </Folder>
+                        <File name="lib\bootstrap-datetimepicker\src\js\bootstrap-datetimepicker.js" />
+                    </Folder>
+                    <Folder name="less">
+                        <File name="lib\bootstrap-datetimepicker\src\less\bootstrap-datetimepicker.less" />
+                        <File name="lib\bootstrap-datetimepicker\src\less\build.less" />
+                    </Folder>
+                </Folder>
+                <File name="lib\bootstrap-datetimepicker\.gitignore" />
+                <File name="lib\bootstrap-datetimepicker\.gitmodules" />
+                <File name="lib\bootstrap-datetimepicker\.lvimrc" />
+                <File name="lib\bootstrap-datetimepicker\.npmignore" />
+                <File name="lib\bootstrap-datetimepicker\bower.json" />
+                <File name="lib\bootstrap-datetimepicker\component.json" />
+                <File name="lib\bootstrap-datetimepicker\CONTRIBUTING.md" />
+                <File name="lib\bootstrap-datetimepicker\LICENSE" />
+                <File name="lib\bootstrap-datetimepicker\Makefile" />
+                <File name="lib\bootstrap-datetimepicker\package.json" />
+                <File name="lib\bootstrap-datetimepicker\README.md" />
+            </Folder>
+            <Folder name="bootstrap-select">
+                <File name="lib\bootstrap-select\bootstrap-select.css" />
+                <File name="lib\bootstrap-select\bootstrap-select.jquery.json" />
+                <File name="lib\bootstrap-select\bootstrap-select.js" />
+                <File name="lib\bootstrap-select\bootstrap-select.min.css" />
+                <File name="lib\bootstrap-select\bootstrap-select.min.js" />
+                <File name="lib\bootstrap-select\bower.json" />
+                <File name="lib\bootstrap-select\composer.json" />
+                <File name="lib\bootstrap-select\CONTRIBUTING.md" />
+                <File name="lib\bootstrap-select\package.json" />
+                <File name="lib\bootstrap-select\README.md" />
+                <File name="lib\bootstrap-select\test.html" />
+            </Folder>
+            <Folder name="ckeditor">
+                <Folder name="adapters">
+                    <File name="lib\ckeditor\adapters\jquery.js" />
+                </Folder>
+                <Folder name="lang">
+                    <File name="lib\ckeditor\lang\en.js" />
+                </Folder>
+                <Folder name="plugins">
+                    <Folder name="a11yhelp">
+                        <Folder name="dialogs">
+                            <Folder name="lang">
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+                                <File name="lib\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+                            </Folder>
+                            <File name="lib\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="about">
+                        <Folder name="dialogs">
+                            <Folder name="hidpi">
+                                <File name="lib\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+                            </Folder>
+                            <File name="lib\ckeditor\plugins\about\dialogs\about.js" />
+                            <File name="lib\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="clipboard">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\clipboard\dialogs\paste.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="colordialog">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="dialog">
+                        <File name="lib\ckeditor\plugins\dialog\dialogDefinition.js" />
+                    </Folder>
+                    <Folder name="fakeobjects">
+                        <Folder name="images">
+                            <File name="lib\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="image">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\image\dialogs\image.js" />
+                        </Folder>
+                        <Folder name="images">
+                            <File name="lib\ckeditor\plugins\image\images\noimage.png" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="link">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\link\dialogs\anchor.js" />
+                            <File name="lib\ckeditor\plugins\link\dialogs\link.js" />
+                        </Folder>
+                        <Folder name="images">
+                            <Folder name="hidpi">
+                                <File name="lib\ckeditor\plugins\link\images\hidpi\anchor.png" />
+                            </Folder>
+                            <File name="lib\ckeditor\plugins\link\images\anchor.png" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="magicline">
+                        <Folder name="images">
+                            <Folder name="hidpi">
+                                <File name="lib\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+                            </Folder>
+                            <File name="lib\ckeditor\plugins\magicline\images\icon.png" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="pastefromword">
+                        <Folder name="filter">
+                            <File name="lib\ckeditor\plugins\pastefromword\filter\default.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="scayt">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\scayt\dialogs\options.js" />
+                            <File name="lib\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+                        </Folder>
+                        <File name="lib\ckeditor\plugins\scayt\LICENSE.md" />
+                        <File name="lib\ckeditor\plugins\scayt\README.md" />
+                    </Folder>
+                    <Folder name="specialchar">
+                        <Folder name="dialogs">
+                            <Folder name="lang">
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+                                <File name="lib\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+                            </Folder>
+                            <File name="lib\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="table">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\table\dialogs\table.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="tabletools">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="wsc">
+                        <Folder name="dialogs">
+                            <File name="lib\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+                            <File name="lib\ckeditor\plugins\wsc\dialogs\tmp.html" />
+                            <File name="lib\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+                            <File name="lib\ckeditor\plugins\wsc\dialogs\wsc.css" />
+                            <File name="lib\ckeditor\plugins\wsc\dialogs\wsc.js" />
+                            <File name="lib\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+                        </Folder>
+                        <File name="lib\ckeditor\plugins\wsc\LICENSE.md" />
+                        <File name="lib\ckeditor\plugins\wsc\README.md" />
+                    </Folder>
+                    <File name="lib\ckeditor\plugins\icons.png" />
+                    <File name="lib\ckeditor\plugins\icons_hidpi.png" />
+                </Folder>
+                <Folder name="samples">
+                    <Folder name="assets">
+                        <Folder name="inlineall">
+                            <File name="lib\ckeditor\samples\assets\inlineall\logo.png" />
+                        </Folder>
+                        <Folder name="outputxhtml">
+                            <File name="lib\ckeditor\samples\assets\outputxhtml\outputxhtml.css" />
+                        </Folder>
+                        <Folder name="uilanguages">
+                            <File name="lib\ckeditor\samples\assets\uilanguages\languages.js" />
+                        </Folder>
+                        <File name="lib\ckeditor\samples\assets\posteddata.php" />
+                        <File name="lib\ckeditor\samples\assets\sample.css" />
+                        <File name="lib\ckeditor\samples\assets\sample.jpg" />
+                    </Folder>
+                    <Folder name="plugins">
+                        <Folder name="dialog">
+                            <Folder name="assets">
+                                <File name="lib\ckeditor\samples\plugins\dialog\assets\my_dialog.js" />
+                            </Folder>
+                            <File name="lib\ckeditor\samples\plugins\dialog\dialog.html" />
+                        </Folder>
+                        <Folder name="enterkey">
+                            <File name="lib\ckeditor\samples\plugins\enterkey\enterkey.html" />
+                        </Folder>
+                        <Folder name="htmlwriter">
+                            <Folder name="assets">
+                                <Folder name="outputforflash">
+                                    <File name="lib\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
+                                    <File name="lib\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.swf" />
+                                    <File name="lib\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\swfobject.js" />
+                                </Folder>
+                            </Folder>
+                            <File name="lib\ckeditor\samples\plugins\htmlwriter\outputforflash.html" />
+                            <File name="lib\ckeditor\samples\plugins\htmlwriter\outputhtml.html" />
+                        </Folder>
+                        <Folder name="magicline">
+                            <File name="lib\ckeditor\samples\plugins\magicline\magicline.html" />
+                        </Folder>
+                        <Folder name="toolbar">
+                            <File name="lib\ckeditor\samples\plugins\toolbar\toolbar.html" />
+                        </Folder>
+                        <Folder name="wysiwygarea">
+                            <File name="lib\ckeditor\samples\plugins\wysiwygarea\fullpage.html" />
+                        </Folder>
+                    </Folder>
+                    <File name="lib\ckeditor\samples\ajax.html" />
+                    <File name="lib\ckeditor\samples\api.html" />
+                    <File name="lib\ckeditor\samples\appendto.html" />
+                    <File name="lib\ckeditor\samples\datafiltering.html" />
+                    <File name="lib\ckeditor\samples\divreplace.html" />
+                    <File name="lib\ckeditor\samples\index.html" />
+                    <File name="lib\ckeditor\samples\inlineall.html" />
+                    <File name="lib\ckeditor\samples\inlinebycode.html" />
+                    <File name="lib\ckeditor\samples\inlinetextarea.html" />
+                    <File name="lib\ckeditor\samples\jquery.html" />
+                    <File name="lib\ckeditor\samples\readonly.html" />
+                    <File name="lib\ckeditor\samples\replacebyclass.html" />
+                    <File name="lib\ckeditor\samples\replacebycode.html" />
+                    <File name="lib\ckeditor\samples\sample.css" />
+                    <File name="lib\ckeditor\samples\sample.js" />
+                    <File name="lib\ckeditor\samples\sample_posteddata.php" />
+                    <File name="lib\ckeditor\samples\tabindex.html" />
+                    <File name="lib\ckeditor\samples\uicolor.html" />
+                    <File name="lib\ckeditor\samples\uilanguages.html" />
+                    <File name="lib\ckeditor\samples\xhtmlstyle.html" />
+                </Folder>
+                <Folder name="skins">
+                    <Folder name="moono">
+                        <Folder name="images">
+                            <Folder name="hidpi">
+                                <File name="lib\ckeditor\skins\moono\images\hidpi\close.png" />
+                                <File name="lib\ckeditor\skins\moono\images\hidpi\lock-open.png" />
+                                <File name="lib\ckeditor\skins\moono\images\hidpi\lock.png" />
+                                <File name="lib\ckeditor\skins\moono\images\hidpi\refresh.png" />
+                            </Folder>
+                            <File name="lib\ckeditor\skins\moono\images\arrow.png" />
+                            <File name="lib\ckeditor\skins\moono\images\close.png" />
+                            <File name="lib\ckeditor\skins\moono\images\lock-open.png" />
+                            <File name="lib\ckeditor\skins\moono\images\lock.png" />
+                            <File name="lib\ckeditor\skins\moono\images\refresh.png" />
+                        </Folder>
+                        <File name="lib\ckeditor\skins\moono\dialog.css" />
+                        <File name="lib\ckeditor\skins\moono\dialog_ie.css" />
+                        <File name="lib\ckeditor\skins\moono\dialog_ie7.css" />
+                        <File name="lib\ckeditor\skins\moono\dialog_ie8.css" />
+                        <File name="lib\ckeditor\skins\moono\dialog_iequirks.css" />
+                        <File name="lib\ckeditor\skins\moono\dialog_opera.css" />
+                        <File name="lib\ckeditor\skins\moono\editor.css" />
+                        <File name="lib\ckeditor\skins\moono\editor_gecko.css" />
+                        <File name="lib\ckeditor\skins\moono\editor_ie.css" />
+                        <File name="lib\ckeditor\skins\moono\editor_ie7.css" />
+                        <File name="lib\ckeditor\skins\moono\editor_ie8.css" />
+                        <File name="lib\ckeditor\skins\moono\editor_iequirks.css" />
+                        <File name="lib\ckeditor\skins\moono\icons.png" />
+                        <File name="lib\ckeditor\skins\moono\icons_hidpi.png" />
+                        <File name="lib\ckeditor\skins\moono\readme.md" />
+                    </Folder>
+                </Folder>
+                <File name="lib\ckeditor\build-config.js" />
+                <File name="lib\ckeditor\CHANGES.md" />
+                <File name="lib\ckeditor\ckeditor.js" />
+                <File name="lib\ckeditor\config.js" />
+                <File name="lib\ckeditor\contents.css" />
+                <File name="lib\ckeditor\LICENSE.md" />
+                <File name="lib\ckeditor\README.md" />
+                <File name="lib\ckeditor\styles.js" />
+            </Folder>
+            <Folder name="dist">
+                <Folder name="css">
+                    <File name="lib\dist\css\bootstrap-theme.css" />
+                    <File name="lib\dist\css\bootstrap-theme.min.css" />
+                    <File name="lib\dist\css\bootstrap.css" />
+                    <File name="lib\dist\css\bootstrap.min.css" />
+                </Folder>
+                <Folder name="fonts">
+                    <File name="lib\dist\fonts\glyphicons-halflings-regular.eot" />
+                    <File name="lib\dist\fonts\glyphicons-halflings-regular.svg" />
+                    <File name="lib\dist\fonts\glyphicons-halflings-regular.ttf" />
+                    <File name="lib\dist\fonts\glyphicons-halflings-regular.woff" />
+                </Folder>
+                <Folder name="js">
+                    <File name="lib\dist\js\bootstrap.js" />
+                    <File name="lib\dist\js\bootstrap.min.js" />
+                </Folder>
+            </Folder>
+            <Folder name="moment">
+                <Folder name="lang">
+                    <File name="lib\moment\lang\ar-ma.js" />
+                    <File name="lib\moment\lang\ar.js" />
+                    <File name="lib\moment\lang\bg.js" />
+                    <File name="lib\moment\lang\br.js" />
+                    <File name="lib\moment\lang\bs.js" />
+                    <File name="lib\moment\lang\ca.js" />
+                    <File name="lib\moment\lang\cs.js" />
+                    <File name="lib\moment\lang\cv.js" />
+                    <File name="lib\moment\lang\cy.js" />
+                    <File name="lib\moment\lang\da.js" />
+                    <File name="lib\moment\lang\de.js" />
+                    <File name="lib\moment\lang\el.js" />
+                    <File name="lib\moment\lang\en-au.js" />
+                    <File name="lib\moment\lang\en-ca.js" />
+                    <File name="lib\moment\lang\en-gb.js" />
+                    <File name="lib\moment\lang\eo.js" />
+                    <File name="lib\moment\lang\es.js" />
+                    <File name="lib\moment\lang\et.js" />
+                    <File name="lib\moment\lang\eu.js" />
+                    <File name="lib\moment\lang\fa.js" />
+                    <File name="lib\moment\lang\fi.js" />
+                    <File name="lib\moment\lang\fo.js" />
+                    <File name="lib\moment\lang\fr-ca.js" />
+                    <File name="lib\moment\lang\fr.js" />
+                    <File name="lib\moment\lang\gl.js" />
+                    <File name="lib\moment\lang\he.js" />
+                    <File name="lib\moment\lang\hi.js" />
+                    <File name="lib\moment\lang\hr.js" />
+                    <File name="lib\moment\lang\hu.js" />
+                    <File name="lib\moment\lang\id.js" />
+                    <File name="lib\moment\lang\is.js" />
+                    <File name="lib\moment\lang\it.js" />
+                    <File name="lib\moment\lang\ja.js" />
+                    <File name="lib\moment\lang\ka.js" />
+                    <File name="lib\moment\lang\ko.js" />
+                    <File name="lib\moment\lang\lb.js" />
+                    <File name="lib\moment\lang\lt.js" />
+                    <File name="lib\moment\lang\lv.js" />
+                    <File name="lib\moment\lang\mk.js" />
+                    <File name="lib\moment\lang\ml.js" />
+                    <File name="lib\moment\lang\mr.js" />
+                    <File name="lib\moment\lang\ms-my.js" />
+                    <File name="lib\moment\lang\nb.js" />
+                    <File name="lib\moment\lang\ne.js" />
+                    <File name="lib\moment\lang\nl.js" />
+                    <File name="lib\moment\lang\nn.js" />
+                    <File name="lib\moment\lang\pl.js" />
+                    <File name="lib\moment\lang\pt-br.js" />
+                    <File name="lib\moment\lang\pt.js" />
+                    <File name="lib\moment\lang\ro.js" />
+                    <File name="lib\moment\lang\rs.js" />
+                    <File name="lib\moment\lang\ru.js" />
+                    <File name="lib\moment\lang\sk.js" />
+                    <File name="lib\moment\lang\sl.js" />
+                    <File name="lib\moment\lang\sq.js" />
+                    <File name="lib\moment\lang\sv.js" />
+                    <File name="lib\moment\lang\ta.js" />
+                    <File name="lib\moment\lang\th.js" />
+                    <File name="lib\moment\lang\tl-ph.js" />
+                    <File name="lib\moment\lang\tr.js" />
+                    <File name="lib\moment\lang\tzm-la.js" />
+                    <File name="lib\moment\lang\tzm.js" />
+                    <File name="lib\moment\lang\uk.js" />
+                    <File name="lib\moment\lang\uz.js" />
+                    <File name="lib\moment\lang\vn.js" />
+                    <File name="lib\moment\lang\zh-cn.js" />
+                    <File name="lib\moment\lang\zh-tw.js" />
+                </Folder>
+                <Folder name="min">
+                    <File name="lib\moment\min\langs.js" />
+                    <File name="lib\moment\min\langs.min.js" />
+                    <File name="lib\moment\min\moment-with-langs.js" />
+                    <File name="lib\moment\min\moment-with-langs.min.js" />
+                    <File name="lib\moment\min\moment.min.js" />
+                </Folder>
+                <Folder name="tasks">
+                    <File name="lib\moment\tasks\component.js" />
+                    <File name="lib\moment\tasks\embed_languages.js" />
+                    <File name="lib\moment\tasks\history.js" />
+                    <File name="lib\moment\tasks\size.js" />
+                    <File name="lib\moment\tasks\zones.js" />
+                </Folder>
+                <Folder name="test">
+                    <Folder name="lang">
+                        <File name="lib\moment\test\lang\ar-ma.js" />
+                        <File name="lib\moment\test\lang\ar.js" />
+                        <File name="lib\moment\test\lang\bg.js" />
+                        <File name="lib\moment\test\lang\br.js" />
+                        <File name="lib\moment\test\lang\bs.js" />
+                        <File name="lib\moment\test\lang\ca.js" />
+                        <File name="lib\moment\test\lang\cs.js" />
+                        <File name="lib\moment\test\lang\cv.js" />
+                        <File name="lib\moment\test\lang\cy.js" />
+                        <File name="lib\moment\test\lang\da.js" />
+                        <File name="lib\moment\test\lang\de.js" />
+                        <File name="lib\moment\test\lang\el.js" />
+                        <File name="lib\moment\test\lang\en-au.js" />
+                        <File name="lib\moment\test\lang\en-ca.js" />
+                        <File name="lib\moment\test\lang\en-gb.js" />
+                        <File name="lib\moment\test\lang\en.js" />
+                        <File name="lib\moment\test\lang\eo.js" />
+                        <File name="lib\moment\test\lang\es.js" />
+                        <File name="lib\moment\test\lang\et.js" />
+                        <File name="lib\moment\test\lang\eu.js" />
+                        <File name="lib\moment\test\lang\fa.js" />
+                        <File name="lib\moment\test\lang\fi.js" />
+                        <File name="lib\moment\test\lang\fo.js" />
+                        <File name="lib\moment\test\lang\fr-ca.js" />
+                        <File name="lib\moment\test\lang\fr.js" />
+                        <File name="lib\moment\test\lang\gl.js" />
+                        <File name="lib\moment\test\lang\he.js" />
+                        <File name="lib\moment\test\lang\hi.js" />
+                        <File name="lib\moment\test\lang\hr.js" />
+                        <File name="lib\moment\test\lang\hu.js" />
+                        <File name="lib\moment\test\lang\id.js" />
+                        <File name="lib\moment\test\lang\is.js" />
+                        <File name="lib\moment\test\lang\it.js" />
+                        <File name="lib\moment\test\lang\ja.js" />
+                        <File name="lib\moment\test\lang\ka.js" />
+                        <File name="lib\moment\test\lang\ko.js" />
+                        <File name="lib\moment\test\lang\lb.js" />
+                        <File name="lib\moment\test\lang\lt.js" />
+                        <File name="lib\moment\test\lang\lv.js" />
+                        <File name="lib\moment\test\lang\mk.js" />
+                        <File name="lib\moment\test\lang\ml.js" />
+                        <File name="lib\moment\test\lang\mr.js" />
+                        <File name="lib\moment\test\lang\ms-my.js" />
+                        <File name="lib\moment\test\lang\nb.js" />
+                        <File name="lib\moment\test\lang\ne.js" />
+                        <File name="lib\moment\test\lang\nl.js" />
+                        <File name="lib\moment\test\lang\nn.js" />
+                        <File name="lib\moment\test\lang\pl.js" />
+                        <File name="lib\moment\test\lang\pt-br.js" />
+                        <File name="lib\moment\test\lang\pt.js" />
+                        <File name="lib\moment\test\lang\ro.js" />
+                        <File name="lib\moment\test\lang\rs.js" />
+                        <File name="lib\moment\test\lang\ru.js" />
+                        <File name="lib\moment\test\lang\sk.js" />
+                        <File name="lib\moment\test\lang\sl.js" />
+                        <File name="lib\moment\test\lang\sq.js" />
+                        <File name="lib\moment\test\lang\sv.js" />
+                        <File name="lib\moment\test\lang\ta.js" />
+                        <File name="lib\moment\test\lang\th.js" />
+                        <File name="lib\moment\test\lang\tl-ph.js" />
+                        <File name="lib\moment\test\lang\tr.js" />
+                        <File name="lib\moment\test\lang\tzm-la.js" />
+                        <File name="lib\moment\test\lang\tzm.js" />
+                        <File name="lib\moment\test\lang\uk.js" />
+                        <File name="lib\moment\test\lang\uz.js" />
+                        <File name="lib\moment\test\lang\vn.js" />
+                        <File name="lib\moment\test\lang\zh-cn.js" />
+                        <File name="lib\moment\test\lang\zh-tw.js" />
+                    </Folder>
+                    <Folder name="moment">
+                        <File name="lib\moment\test\moment\add_subtract.js" />
+                        <File name="lib\moment\test\moment\create.js" />
+                        <File name="lib\moment\test\moment\days_in_month.js" />
+                        <File name="lib\moment\test\moment\diff.js" />
+                        <File name="lib\moment\test\moment\duration.js" />
+                        <File name="lib\moment\test\moment\format.js" />
+                        <File name="lib\moment\test\moment\getters_setters.js" />
+                        <File name="lib\moment\test\moment\invalid.js" />
+                        <File name="lib\moment\test\moment\is_after.js" />
+                        <File name="lib\moment\test\moment\is_before.js" />
+                        <File name="lib\moment\test\moment\is_moment.js" />
+                        <File name="lib\moment\test\moment\is_same.js" />
+                        <File name="lib\moment\test\moment\is_valid.js" />
+                        <File name="lib\moment\test\moment\lang.js" />
+                        <File name="lib\moment\test\moment\leapyear.js" />
+                        <File name="lib\moment\test\moment\listers.js" />
+                        <File name="lib\moment\test\moment\min_max.js" />
+                        <File name="lib\moment\test\moment\mutable.js" />
+                        <File name="lib\moment\test\moment\normalizeUnits.js" />
+                        <File name="lib\moment\test\moment\parsing_flags.js" />
+                        <File name="lib\moment\test\moment\preparse_postformat.js" />
+                        <File name="lib\moment\test\moment\quarter.js" />
+                        <File name="lib\moment\test\moment\sod_eod.js" />
+                        <File name="lib\moment\test\moment\string_prototype.js" />
+                        <File name="lib\moment\test\moment\utc.js" />
+                        <File name="lib\moment\test\moment\weekday.js" />
+                        <File name="lib\moment\test\moment\weeks.js" />
+                        <File name="lib\moment\test\moment\week_year.js" />
+                        <File name="lib\moment\test\moment\zones.js" />
+                    </Folder>
+                </Folder>
+                <File name="lib\moment\.gitignore" />
+                <File name="lib\moment\.npmignore" />
+                <File name="lib\moment\.travis.yml" />
+                <File name="lib\moment\bower.json" />
+                <File name="lib\moment\component.json" />
+                <File name="lib\moment\composer.json" />
+                <File name="lib\moment\CONTRIBUTING.md" />
+                <File name="lib\moment\ender.js" />
+                <File name="lib\moment\Gruntfile.js" />
+                <File name="lib\moment\LICENSE" />
+                <File name="lib\moment\moment.js" />
+                <File name="lib\moment\package.js" />
+                <File name="lib\moment\package.json" />
+                <File name="lib\moment\readme.md" />
+            </Folder>
+            <File name="lib\angular.min.js" />
+            <File name="lib\bootstrap-3.0.2-dist.zip" />
+            <File name="lib\bootstrap-datetimepicker-master.zip" />
+            <File name="lib\ckeditor_4.3.1_68207ec6064d.zip" />
+            <File name="lib\font-awesome-4.0.3.zip" />
+            <File name="lib\jquery-1.10.2.min.js" />
+            <File name="lib\jquery-1.10.2.min.map" />
+            <File name="lib\moment-develop.zip" />
+            <File name="lib\moment.min.js" />
+            <File name="lib\silviomoreto-bootstrap-select-1.4.2-0-g9656fcf.zip" />
+        </Folder>
+        <Folder name="PHP">
+            <File name="PHP\login.php" />
+            <File name="PHP\newsHandler.php" />
+            <File name="PHP\saveNews.php" />
+        </Folder>
+        <Folder name="script">
+            <File name="script\angularModules.js" />
+            <File name="script\editNews.js" />
+            <File name="script\handleNews.js" />
+            <File name="script\home.js" />
+            <File name="script\impostazioni.js" />
+            <File name="script\index.js" />
+            <File name="script\newsDetails.js" />
+        </Folder>
+        <Folder name="style">
+            <File name="style\editNews.css" />
+            <File name="style\general.css" />
+            <File name="style\handleNews.css" />
+            <File name="style\index.css" />
+            <File name="style\newsDetails.css" />
+        </Folder>
+        <Folder name="Template">
+            <File name="Template\InternalPageTemplate.php" />
+            <File name="Template\PublicPageTemplate.php" />
+        </Folder>
+        <File name="index.php" />
+        <File name="LICENSE.md" />
+        <File name="master.php" />
+        <File name="pong.html" />
+        <File name="pong.js" />
+        <File name="publicMaster.php" />
+        <File name="README.md" />
+    </Project>
+</NotepadPlus>

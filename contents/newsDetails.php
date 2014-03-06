@@ -22,7 +22,13 @@
 						moment(notizia.dataPubblicazione, "X").format("DD/MM/YYYY HH:mm") ||
 						moment(notizia.dataCreazione, "X").format("DD/MM/YYYY HH:mm")}}
 					</div>
-					<div class ='formRow'>
+				</div>
+				<div class='rightDiv'>
+					<div class='formRow'>Sottotitolo: {{notizia.sottotitolo}}</div>
+					<div class='formRow'>Importante: {{notizia.importante && "Si" || "No"}}</div>
+					<div class = 'formRow'>Categoria: {{notizia.categoria.nome}}</div>
+				</div>
+				<div class ='formRow'>
 						Tags:
 						<div class='tagList' >
 							<ul class="list-group">
@@ -30,12 +36,6 @@
 							</ul>
 						</div>
 					</div>
-				</div>
-				<div class='rightDiv'>
-					<div class='formRow'>Sottotitolo: {{notizia.sottotitolo}}</div>
-					<div class='formRow'>Importante: {{notizia.importante && "Si" || "No"}}</div>
-					<div class = 'formRow'>Categoria: {{notizia.categoria.nome}}</div>
-				</div>
 			</div>
 			<input ng-click='editNews()' id='editButton' type ='button' class='btn btn-success' value='Edit'/>
 			<div>

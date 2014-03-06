@@ -36,3 +36,9 @@ mainModule.config(['$locationProvider',
 		 $locationProvider.html5Mode(true);
 	}]
 );
+
+mainModule.run(function($rootScope) {
+    $('[ng-app]').on('click', 'a', function() {
+        window.location.href = $(this).attr('href');
+    });
+});

@@ -1,8 +1,10 @@
 <?php
 	$path = "../";
 	//user controll per l'header...
+	
 	function head($path){ ?>
 		<title ng-controller='pageTitleSetter'>{{pageTitle}}</title>
+		<title> Title</title>
 		<link rel="stylesheet" type='text/css' href='<?php echo $path?>lib/bootstrap-select/bootstrap-select.css'/>
 		<link rel="stylesheet" type='text/css' href='<?php echo $path?>lib/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'/>
 		<link rel="stylesheet" type='text/css' href='<?php echo $path?>style/editNews.css'/>
@@ -31,6 +33,7 @@
 	function content($path){ ?>
 		<div ng-controller='mainCtrl'>
 			<input id='backButton' ng-click='backAction()' type='button' class='btn btn-default' value='Anunlla'/>
+			</div>
 			<div id='metaContent'>
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: <input ng-model='title' class='form-control' value='titolo'/></div>
@@ -79,8 +82,7 @@
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 		</div>
-	<?php }
-
+	<?php } 
 
 	require($path."master.php");
 ?>

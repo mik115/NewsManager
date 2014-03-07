@@ -1,13 +1,11 @@
 <html>
 	<?php
-	/*	decommentare per avere l'effetto di login automatico
 	 	if(isset($_COOKIE["PHPSESSID"])){
 			session_start();
 			if($_SESSION["scope"]=="NewsManager"){
 				header("Location: ".$path."home.php");
 			}
 		}
-	*/
 	?>
 	<head>
 		<?php include("includes/generalHead.php")?>

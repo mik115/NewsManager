@@ -53,6 +53,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	$scope.save = function(){
+		$scope.saveError = false;
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
 			//TODO inserire qui le azioni per il salvataggio della news...
 			$scope.loading= true;
@@ -77,11 +78,12 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 					//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 				}else{
 					//non è andata bene
-					$scope.loading= false;
-					$scope.errore=true;
+					$scope.saveError = true;
 				}
 			}).error(function(data, status, headers, config){
-				
+				$scope.saveError = true;
+			}).always(function(){
+				$scope.loading= false;
 			});
 		}
 	}
@@ -97,6 +99,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$scope.checkCompleteness=function(){
+		$scope.saveError = false;
 		$scope.errore = (!$scope.title || $scope.title=="" || CKEDITOR.instances.textEditor.getData()=="");
 	}
 	//TODO caricare dinamicamente le categories e i tags dall'apposito XML

@@ -3,7 +3,7 @@
 	 	if(isset($_COOKIE["PHPSESSID"])){
 			session_start();
 			if($_SESSION["scope"]=="NewsManager"){
-				header("Location: ".$path."home.php");
+				header("Location: ".$path."contents/home.php");
 			}
 		}
 	?>

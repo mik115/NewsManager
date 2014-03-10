@@ -1,5 +1,4 @@
 var mainModule = angular.module("MainModule", []);
-var classPage='';
 
 mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
 	var service = {
@@ -10,6 +9,25 @@ mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
    return service;
  }]);
 
+ 
+mainModule.service("modalWindowService", [function(){
+	return{
+		openModal: function(){
+		var scope = angular.element("#myModal").scope();
+			//$("#myModal").modal('show');
+		
+		}
+	};
+}]);
+
+
+mainModule.controller("modalWindow", function($scope){
+	$scope.queryMessage="";
+	$scope.ErrorMessage="";
+	$scope.redirect ="";
+	$scope.okAction="";
+});
+ 
 var navigationBar= mainModule.controller("navagationBar", function($rootScope, $scope ) {
 	$scope.classPage = "";
 	$scope.$watch($rootScope.classPage, function(){

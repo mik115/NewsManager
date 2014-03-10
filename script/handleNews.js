@@ -1,4 +1,4 @@
-mainModule.controller("handleNewsController", function handleNewsController($scope, classPage, $http){
+mainModule.controller("handleNewsController", function handleNewsController($scope, classPage, $http, modalWindowService){
 	classPage.setClassPage("News");
 	//TODO rendere dinamico il caricamento delle news con una chiamata verso il file XML
 	
@@ -38,7 +38,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		$scope.loading=false;
 		$scope.success=false;
 		$scope.error=false;
-		$("#myModal").modal('show');
+		modalWindowService.openModal();
 	}
 	
 	//TODO gestire l'evento

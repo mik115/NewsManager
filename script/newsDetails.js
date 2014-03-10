@@ -43,8 +43,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$scope.back = function(){
-		if ($scope.success) {
-			location.href=pagePath+'contents/handleNews.php';
-		}
+		location.href=pagePath+'contents/handleNews.php';
 	}
 });

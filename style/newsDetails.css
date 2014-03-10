@@ -58,4 +58,19 @@
 
 #editButton{
 	margin-right: 20px;
+	margin-top: -30px;
+}
+
+
+.bodyContainer{
+	text-align: left;
+	margin: auto;
+	width: 784px;
+	margin-top: 50px;
+}
+
+.newsBody{
+	border: 1px solid #DDDDDD;
+	border-radius: 7px;
+	padding: 10px;
 }

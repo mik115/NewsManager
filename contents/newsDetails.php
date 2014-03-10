@@ -10,7 +10,7 @@
 	//user controll per il content..
 	function content($path){ ?>
 		<div ng-controller='mainCtrl'>
-			<input id='backButton' type='button' class='btn btn-default' value='Indietro'/>
+			<input id='backButton' type='button' class='btn btn-default' value='Indietro' ng-click='back()'/>
 			<div id='metaContent'>
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: {{notizia.titolo}}</div>
@@ -29,17 +29,18 @@
 					<div class = 'formRow'>Categoria: {{notizia.categoria.nome}}</div>
 				</div>
 				<div class ='formRow'>
-						Tags:
+						Tags <span>({{notizia.tags.length}}):
 						<div class='tagList' >
-							<ul class="list-group">
+							<ul class="list-group" ng-show='notizia.tags.length > 0'>
 								<li class='list-group-item' ng-repeat='tag in notizia.tags'>{{tag.nome}}</li>
 							</ul>
+							<p ng-show='notizia.tags.length == 0'>Nessun Tag</p>
 						</div>
 					</div>
 			</div>
 			<input ng-click='editNews()' id='editButton' type ='button' class='btn btn-success' value='Edit'/>
-			<div>
-				Contenuto:
+			<div class='bodyContainer'>
+				<p>Contenuto:</p>
 				<div class='newsBody' ng-bind-html-unsafe="unescape(notizia.corpo)"></div>
 			</div>
 		</div>

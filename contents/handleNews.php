@@ -21,7 +21,7 @@
 						<th>Tags</th>
 						<th>Categoria</th>
 						<th></th>
-					<tr newsId="{{notizia.id}}" ng-click='showDetails(notizia.id)' ng-repeat='notizia in notizie' ng-click='modifyNews()'>
+					<tr newsId="{{notizie.indexOf(notizia)}}" ng-click='showDetails(notizia.id)' ng-repeat='notizia in notizie' ng-click='modifyNews()'>
 						<td>{{notizia.titolo}}</td>
 						<td>{{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}</td>
 						<td>{{notizia.tags.length}}</td>

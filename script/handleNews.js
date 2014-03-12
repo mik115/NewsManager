@@ -35,39 +35,33 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 			$event.stopImmediatePropagation();
 		}
 		$scope.notiziaSelezionata = event.currentTarget.parentNode.parentNode.attributes["newsid"].textContent;
-		$scope.loading=false;
-		$scope.success=false;
-		$scope.error=false;
-		modalWindowService.openModal();
+		modalWindowService.openModal($scope.deleteNews,{
+			message: "Sei sicuro di voler eliminare la news <b>"+$scope.notizie[$scope.notiziaSelezionata].titolo+"</b>?",
+			okButtonText: "Elimina"
+		});
 	}
 	
-	//TODO gestire l'evento
-	$scope.deleteNews = function(){
+	$scope.deleteNews = function($modalScope){
 		//onclick sull'elliminazione della news
-		$scope.loading= true;
 		$http({
-			url: pagePath+"PHP/deleteNews.php",
+			url: pagePath+"PHP/newsHandler.php",
 			method: "POST",
 			data : $.param({
-				id: $scope.notiziaSelezionata
+				action: "DeleteNews",
+				id: $scope.notizie[$scope.notiziaSelezionata].id
 			})
 		}).success(function(data, status, headers, config){
 			if (data != false) {
 				//$("#myModal").modal('hide');
-				$scope.loading=false;
-				$scope.success=true;
-				for (var n in $scope.notizie) {
-					//TODO trovo la notizia selezionata attraverso l'id e la elimino dall'array
-					if ($scope.notizie[n].id == $scope.notiziaSelezionata) {
-						delete $scope.notizie[n];
-					}
-				}
+				$modalScope.loading=false;
+				$modalScope.success=true;
+				$scope.notizie.splice($scope.notiziaSelezionata, 1);
 			}else{
 				//non è andata bene
-				$scope.error=true;
+				$modalScope.error=true;
 			}
 		}).error(function(data, status, headers, config){
-			$scope.error = true;
+			$modalScope.error = true;
 		});
 	}
 });

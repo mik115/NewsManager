@@ -12,20 +12,45 @@ mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
  
 mainModule.service("modalWindowService", [function(){
 	return{
-		openModal: function(){
-		var scope = angular.element("#myModal").scope();
-			//$("#myModal").modal('show');
-		
+		openModal: function(okAction, options){
+			var scope = angular.element("#myModal").scope();
+			if(options){
+				if(options.message)
+					scope.queryMessage=options.message;
+				if(options.ErrorMessage)
+					scope.ErrorMessage = options.ErrorMessage;
+				if(options.redirect)
+					scope.redirect = options.redirect;
+				if(options.okButtonText)
+					scope.okButtonText = options.okButtonText;
+			}
+			
+			scope.okAction= okAction;
+			$("#myModal").modal('show');
 		}
 	};
 }]);
 
 
 mainModule.controller("modalWindow", function($scope){
-	$scope.queryMessage="";
-	$scope.ErrorMessage="";
-	$scope.redirect ="";
-	$scope.okAction="";
+	$scope.queryMessage="Sei sicuro di procedere?";
+	$scope.ErrorMessage="Si è verificato un errore imprevisto, se si ripete contatta il gestore.";
+	$scope.okButtonText = "Conferma";
+	$scope.cancelButtonText = "Annulla";
+	$scope.redirect = false;
+	$scope.okAction = false;
+	//status bit
+	$scope.errore = false;
+	$scope.success = false;
+	$scope.loading = false;
+	$scope.okAction = function(){
+		$scope.loading = true;
+		if($scope.okAction)
+			$scope.okAction($scope);
+		else
+			$scope.loading = false;
+			$scope.success = true;
+	}
 });
  
 var navigationBar= mainModule.controller("navagationBar", function($rootScope, $scope ) {

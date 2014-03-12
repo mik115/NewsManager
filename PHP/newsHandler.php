@@ -15,6 +15,9 @@ switch($_POST["action"]){
 		$results = SaveNews($dom, $_POST);
 		
 		break;
+	case "DeleteNews":
+		$results = DeleteNews($dom, $_POST["id"]);
+		break;
 	default:
 		$results = false;
 }
@@ -117,6 +120,17 @@ function SaveNews($dom, $POST){
 	$notizia->appendChild($newsContent);
 	$dom->documentElement->appendChild($notizia);
 	return $dom->save(FILE_PATH);
+}
+
+function DeleteNews($dom, $id){
+	$xpath = new DOMXpath($dom);
+	$notiziaDom = $xpath->query("notizia[id = ".intval($id)."]")->item(0);
+	if(!is_null($notiziaDom)){
+	  $notiziaDom->parentNode->removeChild($notiziaDom);
+	  return $dom->save(FILE_PATH);
+	}else{
+	  return "false";
+	}
 }
 
 //////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

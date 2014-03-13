@@ -39,18 +39,19 @@
 		<?php echo content($path); ?>
 		
 		<!-- modal window-->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller='modalWindow'>
+			<div class="modal fade" data-keyboard="false" data-backdrop="static" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller='modalWindow'>
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-body">
-							<div ng-show='!errore && !success && !loading' ng-bind-html-unsafe="queryMessage"></div>
-							<div ng-show ='success' ng-bind-html-unsafe="successMessage"></div>
+							<div ng-show='!errore && !success && !loading && !errorLogic' ng-bind-html-unsafe="queryMessage"></div>
+							<div ng-show ='success' ng-bind-html-unsafe="OnSuccessMessage"></div>
 							<div ng-show='loading'><img src='<?php echo $path?>images/loading.gif'/></div>
 							<div ng-show='errore' ng-bind-html-unsafe="errorMessage"></div>
+							<div ng-show='errorLogic' ng-bind-html-unsafe="onlogicalError"></div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" data-target="#myModal">{{!success && cancelButtonText || 'Chiudi'}}</button>
-							<button ng-show='!errore && !loading && !success' type="button" class="btn btn-primary" ng-click='okAction()'>{{okButtonText}}</button>
+							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" data-target="#myModal">{{!success && cancelButtonText || cancelButtonTextOnSuccess}}</button>
+							<button ng-show='!errore && !loading && !success && needConfirm' type="button" class="btn btn-primary" ng-click='okButtonAction()'>{{okButtonText}}</button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

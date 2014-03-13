@@ -72,7 +72,7 @@
 							<div ng-show='!errore && !success && !loading && !saveError'> Sei sicuro di voler salvare la news?</div>
 							<div ng-show ='success'> News salvata con successo!</div>
 							<div ng-show='loading'><img src='<?php echo $path?>images/loading.gif'/></div>
-							<div ng-show='errore'> Devi compilare i campi che sono obbligatori per poter proseguire</div>
+							<div ng-show='errore'> Devi compilare i campi che sono obbligatori per poter proseguire.</div>
 							<div ng-show ='saveError'> Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore<div>
 						</div>
 						<div class="modal-footer">

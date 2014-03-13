@@ -35,33 +35,31 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 			$event.stopImmediatePropagation();
 		}
 		$scope.notiziaSelezionata = event.currentTarget.parentNode.parentNode.attributes["newsid"].textContent;
-		modalWindowService.openModal($scope.deleteNews,{
+		modalWindowService.openModal({
 			message: "Sei sicuro di voler eliminare la news <b>"+$scope.notizie[$scope.notiziaSelezionata].titolo+"</b>?",
-			okButtonText: "Elimina"
-		});
-	}
-	
-	$scope.deleteNews = function($modalScope){
-		//onclick sull'elliminazione della news
-		$http({
-			url: pagePath+"PHP/newsHandler.php",
-			method: "POST",
-			data : $.param({
-				action: "DeleteNews",
-				id: $scope.notizie[$scope.notiziaSelezionata].id
-			})
-		}).success(function(data, status, headers, config){
-			if (data != false) {
-				//$("#myModal").modal('hide');
-				$modalScope.loading=false;
-				$modalScope.success=true;
-				$scope.notizie.splice($scope.notiziaSelezionata, 1);
-			}else{
-				//non è andata bene
-				$modalScope.error=true;
-			}
-		}).error(function(data, status, headers, config){
-			$modalScope.error = true;
+			okButtonText: "Elimina",
+			okAction: function($modalScope){
+				$http({
+					url: pagePath+"PHP/newsHandler.php",
+					method: "POST",
+					data : $.param({
+						action: "DeleteNews",
+						id: $scope.notizie[$scope.notiziaSelezionata].id
+					})
+				}).success(function(data, status, headers, config){
+					if (data != false) {
+						$modalScope.loading=false;
+						$modalScope.success=true;
+						$scope.notizie.splice($scope.notiziaSelezionata, 1);
+					}else{
+						//non è andata bene
+						$modalScope.error=true;
+					}
+				}).error(function(data, status, headers, config){
+					$modalScope.error = true;
+				});,
+			confirm : true,
+			successMessage: "Operazione eseguita con successo"
 		});
 	}
 });

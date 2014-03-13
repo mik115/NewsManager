@@ -12,20 +12,28 @@ mainModule.service( 'classPage', [ '$rootScope', function( $rootScope ) {
  
 mainModule.service("modalWindowService", [function(){
 	return{
-		openModal: function(okAction, options){
+		openModal: function(options){
 			var scope = angular.element("#myModal").scope();
 			if(options){
 				if(options.message)
 					scope.queryMessage=options.message;
-				if(options.ErrorMessage)
-					scope.ErrorMessage = options.ErrorMessage;
+				if(options.errorMessage)
+					scope.errorMessage = options.errorMessage;
 				if(options.redirect)
 					scope.redirect = options.redirect;
 				if(options.okButtonText)
 					scope.okButtonText = options.okButtonText;
+				if(options.confirm != undefined)
+					scope.needConfirm = options.needConfirm;
+				if(options.cancelButtonTextOnSuccess)
+					scope.cancelButtonTextOnSuccess = options.cancelButtonTextOnSuccess;
+				if(options.okAction)
+					scope.okAction = options.okAction;
+				if(options.successMessage)
+					scope.OnSuccessMessage = options.successMessage;
+				if(options.logicalErrorMessage)
+					scope.logicalErrorMessage = options.onlogicalError;
 			}
-			
-			scope.okAction= okAction;
 			$("#myModal").modal('show');
 		}
 	};
@@ -33,17 +41,24 @@ mainModule.service("modalWindowService", [function(){
 
 
 mainModule.controller("modalWindow", function($scope){
-	$scope.queryMessage="Sei sicuro di procedere?";
-	$scope.ErrorMessage="Si è verificato un errore imprevisto, se si ripete contatta il gestore.";
+	$scope.queryMessage="Sei sicuro di voler procedere?";
+	$scope.errorMessage="Si è verificato un errore imprevisto, se si ripete contatta il gestore.";
+	$scope.OnSuccessMessage = "Operazione eseguita con successo.";
 	$scope.okButtonText = "Conferma";
 	$scope.cancelButtonText = "Annulla";
+	$scope.cancelButtonTextOnSuccess = "Chiudi"
+	$scope.onlogicalError = "";
+	$scope.needConfirm = true;
 	$scope.redirect = false;
 	$scope.okAction = false;
+	
 	//status bit
 	$scope.errore = false;
 	$scope.success = false;
 	$scope.loading = false;
-	$scope.okAction = function(){
+	$scope.errorLogic = false;
+
+	$scope.okButtonAction = function(){
 		$scope.loading = true;
 		if($scope.okAction)
 			$scope.okAction($scope);

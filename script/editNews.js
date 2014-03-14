@@ -7,7 +7,7 @@ mainModule.controller('pageTitleSetter', function pageTitleSetter($scope, $locat
 	}
 });
 
-mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location, $http){
+mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location, $http, modalWindowService){
 	classPage.setClassPage("News"); //per evidenziare il link corrente
 	var parametersArray = $location.search();
 	if (parametersArray && parametersArray.id) {
@@ -53,10 +53,22 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	$scope.save = function(){
+		modalWindowService.openModal({
+			message: "Sei sicuro di voler eliminare la news <b>"+$scope.notizie[$scope.notiziaSelezionata].titolo+"</b>?",
+			okButtonText: "salva",
+			confirm : true,
+			successMessage: "News salvata con successo!",
+			errorMessage: "Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
+			logicalErrorMessage: "Devi compilare i campi che sono obbligatori per poter proseguire.",
+			okAction: function($modalScope){
+			},
+			
+		});
 		$scope.saveError = false;
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
 			//TODO inserire qui le azioni per il salvataggio della news...
 			$scope.loading= true;
+			//TODO utilizzare le variabili della finestra modale!
 			$http({
 				url: pagePath+"PHP/newsHandler.php",
 				method: "POST",

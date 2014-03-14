@@ -57,7 +57,8 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 					}
 				}).error(function(data, status, headers, config){
 					$modalScope.error = true;
-				});,
+				})
+			},
 			confirm : true,
 			successMessage: "Operazione eseguita con successo"
 		});

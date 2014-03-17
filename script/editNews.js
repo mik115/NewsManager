@@ -25,7 +25,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				$scope.newNewsBody= unescape(data.corpo);
 				if (data.dataPublicazione=="") {
 					$('#datetimepicker').data("DateTimePicker").setValue(moment(data.dataCreazione, "X"));
-		//			$scope.publishDate = new Date(parseInt(data.dataCreazione));
 				}else{
 					$scope.publishDate = data.dataPublicazione;
 				}
@@ -61,8 +60,8 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				confirm : true,
 				successMessage: "News salvata con successo!",
 				errorMessage: "Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
+				redirect : "contents/handleNews.php",
 				okAction: function($modalScope){
-					//TODO utilizzare le variabili della finestra modale!
 					$http({
 						url: pagePath+"PHP/newsHandler.php",
 						method: "POST",
@@ -77,19 +76,17 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 							category: $scope.catSelect
 						})
 					}).success(function(data, status, headers, config){
+						$modalScope.loading= false;
 						if (data != "false") {
-							//$("#myModal").modal('hide');
 							$modalScope.loading=false;
 							$modalScope.success=true;
-							//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 						}else{
 							//non è andata bene
 							$modalScope.error = true;
 						}
 					}).error(function(data, status, headers, config){
-						$modalScope.error = true;
-					}).always(function(){
 						$modalScope.loading= false;
+						$modalScope.error = true;
 					});
 				},
 			});		

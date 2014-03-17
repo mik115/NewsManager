@@ -11,6 +11,8 @@
 	function content($path){ ?>
 		<div ng-controller='mainCtrl'>
 			<input id='backButton' type='button' class='btn btn-default' value='Indietro' ng-click='back()'/>
+			<input ng-click='editNews()' id='editButton' type ='button' class='btn btn-success' value='Edit'/>
+			<input ng-click='deleteNews()' id='deleteButton' type ='button' class='btn btn-danger' value='Elimina'/>
 			<div id='metaContent'>
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: {{notizia.titolo}}</div>
@@ -38,7 +40,6 @@
 						</div>
 					</div>
 			</div>
-			<input ng-click='editNews()' id='editButton' type ='button' class='btn btn-success' value='Edit'/>
 			<div class='bodyContainer'>
 				<p>Contenuto:</p>
 				<div class='newsBody' ng-bind-html-unsafe="notizia.corpo"></div>

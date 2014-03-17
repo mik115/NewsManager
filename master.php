@@ -49,7 +49,7 @@
 							<div ng-show='errore' ng-bind-html-unsafe="errorMessage"></div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" data-target="#myModal">{{!success && cancelButtonText || cancelButtonTextOnSuccess}}</button>
+							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" data-target="#myModal" ng-click='!errore && !loading && success && closeButtonAction()'>{{!success && cancelButtonText || cancelButtonTextOnSuccess}}</button>
 							<button ng-show='!errore && !loading && !success && needConfirm' type="button" class="btn btn-primary" ng-click='okButtonAction()'>{{okButtonText}}</button>
 						</div>
 					</div><!-- /.modal-content -->

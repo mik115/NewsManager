@@ -3,9 +3,8 @@
 }
 
 #backButton{
-	display: block;
-	margin: 20px;
-	clear: both;
+	float: left;
+	margin-left: 20px;
 }
 
 #cke_textEditor{
@@ -23,24 +22,23 @@
 
 .formRow {
 	margin: 5px 0px 10px;
+	clear: both;
 }
 
 #metaContent{
-	display: inline-block;
 	margin: auto;
-	margin-right: 20px;
+	clear: both;
+	width: 50%;
 }
 
 .rightDiv{
-	float:right;
+	float: right;
 	text-align: left;
-	width: 300px;
+	min-width: 300px;
 }
 .leftDiv{
 	float: left;
 	text-align: left;
-	margin-right: 100px;
-	width: 300px;
 }
 
 .tagList{
@@ -58,9 +56,13 @@
 
 #editButton{
 	margin-right: 20px;
-	margin-top: -30px;
+	float: right;
 }
 
+#deleteButton{
+	margin-right: 10px;
+	float: right;
+}
 
 .bodyContainer{
 	text-align: left;

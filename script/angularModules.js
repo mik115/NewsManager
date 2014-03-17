@@ -63,6 +63,12 @@ mainModule.controller("modalWindow", function($scope){
 			$scope.loading = false;
 			$scope.success = true;
 	}
+	
+	$scope.closeButtonAction=function(){
+		if($scope.redirect){
+			location.href= pagePath+$scope.redirect;
+		}
+	}
 });
  
 var navigationBar= mainModule.controller("navagationBar", function($rootScope, $scope ) {

@@ -154,7 +154,7 @@ class Notizia {
 		$this->sottotitolo = $dom->getElementsByTagName("sottotitolo")->item(0)->textContent;
 		$this->categoria = new Categoria($dom->getElementsByTagName("categoria")->item(0)->textContent);
 		$corpoNewsCoded = $dom->getElementsByTagName("corpo")->item(0)->textContent;		
-		$this->corpo= urlencode(base64_decode($corpoNewsCoded));
+		$this->corpo= addslashes(base64_decode($corpoNewsCoded));
 		$this->dataCreazione = $dom->getElementsByTagName("dataCreazione")->item(0)->textContent;
 		$this->dataPublicazione = $dom->getElementsByTagName("dataPubblicazione")->item(0)->textContent;
 		$this->id= $dom->getElementsByTagName("id")->item(0)->textContent;

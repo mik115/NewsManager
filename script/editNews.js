@@ -52,50 +52,51 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
-	$scope.save = function(){
-		modalWindowService.openModal({
-			message: "Sei sicuro di voler eliminare la news <b>"+$scope.notizie[$scope.notiziaSelezionata].titolo+"</b>?",
-			okButtonText: "salva",
-			confirm : true,
-			successMessage: "News salvata con successo!",
-			errorMessage: "Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
-			logicalErrorMessage: "Devi compilare i campi che sono obbligatori per poter proseguire.",
-			okAction: function($modalScope){
-			},
-			
-		});
-		$scope.saveError = false;
+	
+	$scope.saveNews = function(){
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
-			//TODO inserire qui le azioni per il salvataggio della news...
-			$scope.loading= true;
-			//TODO utilizzare le variabili della finestra modale!
-			$http({
-				url: pagePath+"PHP/newsHandler.php",
-				method: "POST",
-				data : $.param({
-					action: "SaveNews",
-					title : $scope.title,
-					newsContent: CKEDITOR.instances.textEditor.getData(),
-					date: $('#datetimepicker').data("DateTimePicker").getDate().toString(),
-					tags: $scope.tagSelect,
-					subtitle: $scope.subtitle,
-					important: $scope.important,
-					category: $scope.catSelect
-				})
-			}).success(function(data, status, headers, config){
-				if (data != "false") {
-					//$("#myModal").modal('hide');
-					$scope.loading=false;
-					$scope.success=true;
-					//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
-				}else{
-					//non è andata bene
-					$scope.saveError = true;
-				}
-			}).error(function(data, status, headers, config){
-				$scope.saveError = true;
-			}).always(function(){
-				$scope.loading= false;
+			modalWindowService.openModal({
+				message: "Sei sicuro di voler salvare la news?",
+				okButtonText: "Salva",
+				confirm : true,
+				successMessage: "News salvata con successo!",
+				errorMessage: "Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
+				okAction: function($modalScope){
+					//TODO utilizzare le variabili della finestra modale!
+					$http({
+						url: pagePath+"PHP/newsHandler.php",
+						method: "POST",
+						data : $.param({
+							action: "SaveNews",
+							title : $scope.title,
+							newsContent: CKEDITOR.instances.textEditor.getData(),
+							date: $('#datetimepicker').data("DateTimePicker").getDate().toString(),
+							tags: $scope.tagSelect,
+							subtitle: $scope.subtitle,
+							important: $scope.important,
+							category: $scope.catSelect
+						})
+					}).success(function(data, status, headers, config){
+						if (data != "false") {
+							//$("#myModal").modal('hide');
+							$modalScope.loading=false;
+							$modalScope.success=true;
+							//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
+						}else{
+							//non è andata bene
+							$modalScope.error = true;
+						}
+					}).error(function(data, status, headers, config){
+						$modalScope.error = true;
+					}).always(function(){
+						$modalScope.loading= false;
+					});
+				},
+			});		
+		}else{
+			modalWindowService.openModal({
+				message: "<p class='text-danger'>Devi Indicare almeno un titolo e un corpo della news per poterne creare una nuova.</p>",
+				confirm : false
 			});
 		}
 	}

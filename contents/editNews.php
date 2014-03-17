@@ -33,7 +33,6 @@
 	function content($path){ ?>
 		<div ng-controller='mainCtrl'>
 			<input id='backButton' ng-click='backAction()' type='button' class='btn btn-default' value='Anunlla'/>
-			</div>
 			<div id='metaContent'>
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: <input ng-model='title' class='form-control' value='titolo'/></div>
@@ -62,26 +61,8 @@
 					</select>
 				</div>
 			</div>
-			<input ng-click='checkCompleteness()' id='saveButton' type ='button' class='btn btn-primary' value='Salva' data-toggle="modal" data-target="#myModal"/>
+			<input ng-click='saveNews()' id='saveButton' type ='button' class='btn btn-primary' value='Salva'/>
 			<textarea id='textEditor' ng-model='newNewsBody'>{{newsBody}}</textarea>
-			<!-- modal window-->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-body">
-							<div ng-show='!errore && !success && !loading && !saveError'> Sei sicuro di voler salvare la news?</div>
-							<div ng-show ='success'> News salvata con successo!</div>
-							<div ng-show='loading'><img src='<?php echo $path?>images/loading.gif'/></div>
-							<div ng-show='errore'> Devi compilare i campi che sono obbligatori per poter proseguire.</div>
-							<div ng-show ='saveError'> Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore<div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" ng-click='redirect("<?php echo $path?>")'>{{!success && 'Annulla' || 'Chiudi'}}</button>
-							<button ng-show='!errore && !loading && !success' type="button" class="btn btn-primary" ng-click='save("<?php echo $path?>")'>Salva</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
 		</div>
 	<?php } 
 

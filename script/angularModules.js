@@ -24,15 +24,13 @@ mainModule.service("modalWindowService", [function(){
 				if(options.okButtonText)
 					scope.okButtonText = options.okButtonText;
 				if(options.confirm != undefined)
-					scope.needConfirm = options.needConfirm;
+					scope.needConfirm = options.confirm;
 				if(options.cancelButtonTextOnSuccess)
 					scope.cancelButtonTextOnSuccess = options.cancelButtonTextOnSuccess;
 				if(options.okAction)
 					scope.okAction = options.okAction;
 				if(options.successMessage)
 					scope.OnSuccessMessage = options.successMessage;
-				if(options.logicalErrorMessage)
-					scope.logicalErrorMessage = options.onlogicalError;
 			}
 			$("#myModal").modal('show');
 		}
@@ -56,7 +54,6 @@ mainModule.controller("modalWindow", function($scope){
 	$scope.errore = false;
 	$scope.success = false;
 	$scope.loading = false;
-	$scope.errorLogic = false;
 
 	$scope.okButtonAction = function(){
 		$scope.loading = true;
@@ -96,7 +93,7 @@ mainModule.config(['$locationProvider',
 );
 
 mainModule.run(function($rootScope) {
-    $('[ng-app]').on('click', 'a', function() {
+    $('[ng-app]').on('click', 'a[href]', function() {
         window.location.href = $(this).attr('href');
     });
 });

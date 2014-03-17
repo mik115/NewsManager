@@ -41,7 +41,7 @@
 			<input ng-click='editNews()' id='editButton' type ='button' class='btn btn-success' value='Edit'/>
 			<div class='bodyContainer'>
 				<p>Contenuto:</p>
-				<div class='newsBody' ng-bind-html-unsafe="unescape(notizia.corpo)"></div>
+				<div class='newsBody' ng-bind-html-unsafe="notizia.corpo"></div>
 			</div>
 		</div>
 	<?php }

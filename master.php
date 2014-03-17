@@ -47,7 +47,6 @@
 							<div ng-show ='success' ng-bind-html-unsafe="OnSuccessMessage"></div>
 							<div ng-show='loading'><img src='<?php echo $path?>images/loading.gif'/></div>
 							<div ng-show='errore' ng-bind-html-unsafe="errorMessage"></div>
-							<div ng-show='errorLogic' ng-bind-html-unsafe="onlogicalError"></div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" ng-show='!loading' class="btn btn-default" data-dismiss="modal" data-target="#myModal">{{!success && cancelButtonText || cancelButtonTextOnSuccess}}</button>

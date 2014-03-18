@@ -32,6 +32,9 @@
 /*end override*/
 /*fine override*/
 
+body * {
+	font-family: 'Oxygen', sans-serif;
+}
 
 .errorMessage{
 	color:red;

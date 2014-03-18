@@ -6,5 +6,7 @@
 		<script type="text/javascript" src='<?php echo $path ?>lib/angular.min.js'></script>
 		<script type='text/javascript' src='<?php echo $path ?>lib/moment.min.js'></script>
 		<script type='text/javascript' src='<?php echo $path ?>script/angularModules.js'></script>
+	<!--	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>-->
+		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>

@@ -59,9 +59,10 @@ mainModule.controller("modalWindow", function($scope){
 		$scope.loading = true;
 		if($scope.okAction)
 			$scope.okAction($scope);
-		else
+		else{
 			$scope.loading = false;
 			$scope.success = true;
+		}
 	}
 	
 	$scope.closeButtonAction=function(){

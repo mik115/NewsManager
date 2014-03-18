@@ -12,8 +12,12 @@ switch($_POST["action"]){
 		$results = GetNews($dom, $_POST["id"]);
 		break;
 	case "SaveNews":
-		$results = SaveNews($dom, $_POST);
-		
+		if(isset($_POST["id"])){
+			$results= UpdateNews($dom, $_POST);
+		}
+		else{
+			$results = SaveNews($dom, $_POST);
+		}
 		break;
 	case "DeleteNews":
 		$results = DeleteNews($dom, $_POST["id"]);
@@ -119,6 +123,55 @@ function SaveNews($dom, $POST){
 	$newsContent->appendChild($dom->createTextNode(base64_encode($POST["newsContent"])));
 	$notizia->appendChild($newsContent);
 	$dom->documentElement->appendChild($notizia);
+	return $dom->save(FILE_PATH);
+}
+
+function UpdateNews($dom, $post){
+	$xpath = new DOMXpath($dom);
+	$notizia = $xpath->query("//notizia[id = ".intval($post["id"])."]")->item(0);
+	//TITOLO
+	$titolo = $notizia->GetElementsByTagName("titolo")->item(0);
+	$titolo -> nodeValue = $post["title"];
+	//SOTOTITOLO
+	$subtitle = $notizia->GetElementsByTagName("sottotitolo")->item(0);
+	$subtitle->nodeValue = $post["subtitle"];
+	//DATAPUBBLICAZIONE
+	$date = new DateTime($post["date"]);
+	$now = new DateTime();
+	if($date<$now){
+		$date = "";
+	}else{
+		$date = $date->format("U");
+	}
+	$datePublication = $notizia->GetElementsByTagName("dataPubblicazione")->item(0);
+	$datePublication ->nodeValue = $date;
+	//IMPORTANTE
+	$important= $notizia->GetElementsByTagName("importante")->item(0);
+	if($post["important"]=="")
+		$important-> nodeValue =false;
+	else
+		$important->nodeValue=true;
+	//CATEGORIA
+	$category = $notizia->GetElementsByTagName("categoria")->item(0);
+	$category ->nodeValue = $post["category"];
+	//TAGS
+	$tags = $notizia->GetElementsByTagName("tags")->item(0);
+	
+	while ($parentNode->hasChildNodes()) {
+		$parentNode->removeChild($parentNode->firstChild);
+	}
+	
+	if($post["tags"]){
+		foreach($post["tags"] as $t){
+			$tag = $dom->createElement("tag");
+			$tag->appendChild($dom->createTextNode($t));
+			$tags->appendChild($tag);
+		}
+	}
+	//NEWSCONTENT
+	$newsContent = $notizia->GetElementsByTagName("corpo")->item(0);
+	$newsContent->nodeValue = base64_encode($post["newsContent"]);
+	
 	return $dom->save(FILE_PATH);
 }
 

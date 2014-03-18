@@ -9,9 +9,10 @@ mainModule.controller('pageTitleSetter', function pageTitleSetter($scope, $locat
 
 mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location, $http, modalWindowService){
 	classPage.setClassPage("News"); //per evidenziare il link corrente
+	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	var parametersArray = $location.search();
 	if (parametersArray && parametersArray.id) {
-		$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
+		$scope.newsId = parametersArray.id;
 		$http({
 			url: pagePath+"PHP/newsHandler.php",
 			method: "POST",
@@ -39,7 +40,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 			}else{
 				//non è andata bene
-				
+				//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 			}
 		}).error(function(data, status, headers, config){
 			
@@ -66,6 +67,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 						url: pagePath+"PHP/newsHandler.php",
 						method: "POST",
 						data : $.param({
+							id: $scope.newsId,
 							action: "SaveNews",
 							title : $scope.title,
 							newsContent: CKEDITOR.instances.textEditor.getData(),
@@ -107,11 +109,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			location.href=pagePath+'contents/handleNews.php';
 		}
 	}
-	
-	$scope.checkCompleteness=function(){
-		$scope.saveError = false;
-		$scope.errore = (!$scope.title || $scope.title=="" || CKEDITOR.instances.textEditor.getData()=="");
-	}
+
 	//TODO caricare dinamicamente le categories e i tags dall'apposito XML
 	$scope.tags = [
 		{

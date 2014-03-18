@@ -14,6 +14,11 @@ mainModule.service("modalWindowService", [function(){
 	return{
 		openModal: function(options){
 			var scope = angular.element("#myModal").scope();
+			
+			scope.errore = false;
+			scope.success = false;
+			scope.loading = false;
+			
 			if(options){
 				if(options.message)
 					scope.queryMessage=options.message;

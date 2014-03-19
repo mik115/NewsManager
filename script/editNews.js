@@ -10,6 +10,29 @@ mainModule.controller('pageTitleSetter', function pageTitleSetter($scope, $locat
 mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location, $http, modalWindowService){
 	classPage.setClassPage("News"); //per evidenziare il link corrente
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
+	
+	//Load dei tags
+	$http({
+		url: pagePath+"PHP/tagsHandler.php",
+		method: "POST",
+		data : $.param({
+			action: "GetAllTags"
+		})
+	}).success(function(data, status, headers, config){
+		if (data != false) {
+			$scope.tags = data;
+			setTimeout(function(){
+				angular.element("#tagsSelection").selectpicker("refresh");
+				//jQuery("#tagsSelection").selectpicker("refresh");
+			}, 1);
+		}else{
+			//non è andata bene
+			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
+		}
+	}).error(function(data, status, headers, config){
+		
+	});
+	
 	var parametersArray = $location.search();
 	if (parametersArray && parametersArray.id) {
 		$scope.newsId = parametersArray.id;
@@ -51,8 +74,25 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		//TODO qui instanzio le azioni specifiche per la creazione di una nuova news
 	}
 	
-	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	
+	/*
+	$http({
+		url: pagePath+"PHP/categoryHandler.php",
+		method: "POST",
+		data : $.param({
+			action: "GetAllCategory"
+		})
+	}).success(function(data, status, headers, config){
+		if (data != false) {
+			$scope.categories = data;
+		}else{
+			//non è andata bene
+			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
+		}
+	}).error(function(data, status, headers, config){
+		
+	});
+	*/
 	$scope.saveNews = function(){
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
 			modalWindowService.openModal({
@@ -110,38 +150,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		}
 	}
 
-	//TODO caricare dinamicamente le categories e i tags dall'apposito XML
-	$scope.tags = [
-		{
-			nome: "primo tag",
-			id: 0
-		},
-		{
-			nome: "prissmo tag",
-			id: 1
-		},
-		{
-			nome: "pridfdfmo tag",
-			id: 2
-		},
-		{
-			nome: "priamo tag",
-			id: 3
-		},
-		{
-			nome: "priamo tag",
-			id: 4
-		},
-		{
-			nome: "prifmo tag",
-			id: 5
-		},
-		{
-			nome: "primo tsdag",
-			id: 6
-		}
-	];
-	
 	$scope.categories = [
 		{
 			nome: "prima categoria",

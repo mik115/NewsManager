@@ -49,7 +49,6 @@
 					</div>
 					<select ng-model='tagSelect' id='tagsSelection' class='selectpicker' multiple data-live-search="true"
     						  title='Scegli dei tag' data-selected-text-format="count>2" data-count-selected-text="{0} selected" data-size=10>
-						<!--qui ci vanno i possibili tags-->
 						<option ng-repeat='tag in tags' value='{{tag.id}}'>{{tag.nome}}</option>
 					</select>
 				</div>

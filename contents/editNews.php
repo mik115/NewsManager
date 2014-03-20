@@ -55,7 +55,7 @@
 				<div class='rightDiv'>
 					<div class='formRow'>Sottotitolo: <input ng-model='subtitle' class='form-control' value='sottotitolo'/></div>
 					<div class='formRow'>Importante: <input ng-model='important' type='checkbox'/></div>
-					<select ng-model='catSelect' id='categoryButton' class='selectpicker' data-live-search="true" title='Scegli una categoria' data-size=10>
+					<select ng-model='catSelect' id='categorySelect' class='selectpicker' data-live-search="true" title='Scegli una categoria' data-size=10>
     					<option ng-repeat='category in categories' value='{{category.id}}'>{{category.nome}}</option>
 					</select>
 				</div>

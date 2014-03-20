@@ -33,6 +33,29 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		
 	});
 	
+	
+	$http({
+		url: pagePath+"PHP/categoryHandler.php",
+		method: "POST",
+		data : $.param({
+			action: "GetAllCategories"
+		})
+	}).success(function(data, status, headers, config){
+		if (data != false) {
+			$scope.categories = data;
+			setTimeout(function(){
+				angular.element("#categorySelect").selectpicker("refresh");
+			}, 1);
+		}else{
+			//non è andata bene
+			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
+		}
+	}).error(function(data, status, headers, config){
+		
+	});
+	
+	
+	
 	var parametersArray = $location.search();
 	if (parametersArray && parametersArray.id) {
 		$scope.newsId = parametersArray.id;
@@ -74,25 +97,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		//TODO qui instanzio le azioni specifiche per la creazione di una nuova news
 	}
 	
-	
-	/*
-	$http({
-		url: pagePath+"PHP/categoryHandler.php",
-		method: "POST",
-		data : $.param({
-			action: "GetAllCategory"
-		})
-	}).success(function(data, status, headers, config){
-		if (data != false) {
-			$scope.categories = data;
-		}else{
-			//non è andata bene
-			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
-		}
-	}).error(function(data, status, headers, config){
-		
-	});
-	*/
 	$scope.saveNews = function(){
 		if ($scope.title && $scope.title!="" && CKEDITOR.instances.textEditor.getData()!="") {
 			modalWindowService.openModal({
@@ -149,27 +153,4 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			location.href=pagePath+'contents/handleNews.php';
 		}
 	}
-
-	$scope.categories = [
-		{
-			nome: "prima categoria",
-			id: 0
-		},
-		{
-			nome: "prima categoria",
-			id: 1
-		},
-		{
-			nome: "priadsma categoria",
-			id: 2
-		},
-		{
-			nome: "primda categoria",
-			id: 3
-		},
-		{
-			nome: "paarima categoria",
-			id: 4
-		}
-	];
 });

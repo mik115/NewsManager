@@ -8,8 +8,14 @@ switch($_POST["action"]){
 	case "GetAllNews":
 		$results = GetAllNews($dom);
 		break;
+	case "GetAllNewsWithElements":
+		$results = GetAllNewsWithElements($dom);
+		break;
 	case "GetNews":
 		$results = GetNews($dom, $_POST["id"]);
+		break;
+	case "GetNewsWithElements":
+		$results = GetNewsWithElements($dom, $_POST["id"]);
 		break;
 	case "SaveNews":
 		if(isset($_POST["id"])){
@@ -29,29 +35,52 @@ switch($_POST["action"]){
 echo json_encode($results, false);
 
 //////////////////////////////////////// Method region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-function GetAllNews($dom){
+function GetAllNewsWithElements($dom){
   $xpath = new DOMXpath($dom);
   $notizie = $xpath->query("notizia");
   $notizieArray = array();
   if(!is_null($notizie)){
 	  foreach($notizie as $not){
-		  $notizia = new Notizia($not);
+		  $notizia = new Notizia($not, true);
 		  array_push($notizieArray, $notizia);
 	  }
   }
   return $notizieArray;
 }
 
-function GetNews($dom, $id){
+function GetAllNews($dom){
+  $xpath = new DOMXpath($dom);
+  $notizie = $xpath->query("notizia");
+  $notizieArray = array();
+  if(!is_null($notizie)){
+	  foreach($notizie as $not){
+		  $notizia = new Notizia($not, false);
+		  array_push($notizieArray, $notizia);
+	  }
+  }
+  return $notizieArray;
+}
+
+function GetNewsWithElements($dom, $id){
   $xpath = new DOMXpath($dom);
   $notiziaDom = $xpath->query("notizia[id = ".intval($id)."]")->item(0);
   if(!is_null($notiziaDom)){
-	  $notizia = new Notizia($notiziaDom);
+	  $notizia = new Notizia($notiziaDom, true);
 	  return $notizia;
   }else{
 	  return "false";
   }
+}
 
+function GetNews($dom, $id){
+  $xpath = new DOMXpath($dom);
+  $notiziaDom = $xpath->query("notizia[id = ".intval($id)."]")->item(0);
+  if(!is_null($notiziaDom)){
+	  $notizia = new Notizia($notiziaDom, false);
+	  return $notizia;
+  }else{
+	  return "false";
+  }
 }
 
 function SaveNews($dom, $POST){
@@ -202,10 +231,15 @@ class Notizia {
 	public $dataPublicazione;
 	public $importante;
 	
-	public function __construct($dom){
+	public function __construct($dom, $complete){
 		$this->titolo = $dom->getElementsByTagName("titolo")->item(0)->textContent;
 		$this->sottotitolo = $dom->getElementsByTagName("sottotitolo")->item(0)->textContent;
-		$this->categoria = new Categoria($dom->getElementsByTagName("categoria")->item(0)->textContent);
+		
+		if($complete)
+			$this->categoria = new Categoria($dom->getElementsByTagName("categoria")->item(0)->textContent);
+		else
+			$this->categoria = $dom->getElementsByTagName("categoria")->item(0)->textContent;
+		
 		$corpoNewsCoded = $dom->getElementsByTagName("corpo")->item(0)->textContent;		
 		$this->corpo= addslashes(base64_decode($corpoNewsCoded));
 		$this->dataCreazione = $dom->getElementsByTagName("dataCreazione")->item(0)->textContent;
@@ -215,7 +249,10 @@ class Notizia {
 		$this->tags= array();
 		$tags = $dom->getElementsByTagName("tag");
 		foreach($tags as $tag){
-			array_push($this->tags, new Tag($tag->textContent));
+			if($complete)
+				array_push($this->tags, new Tag($tag->textContent));
+			else
+				array_push($this->tags, $tag->textContent);
 		}
 	}
 }

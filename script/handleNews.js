@@ -6,7 +6,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 	$http({
 		url: pagePath+"PHP/newsHandler.php",
 		data : $.param({
-				action: "GetAllNews"
+				action: "GetAllNewsWithElements"
 			}),
 		method: "POST"
 	}).success(function(data, status, headers, config){

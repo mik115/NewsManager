@@ -13,7 +13,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			url: pagePath+"PHP/newsHandler.php",
 			method: "POST",
 			data : $.param({
-				action: "GetNews",
+				action: "GetNewsWithElements",
 				id : parametersArray.id
 			})
 		}).success(function(data, status, headers, config){

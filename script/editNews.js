@@ -21,10 +21,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}).success(function(data, status, headers, config){
 		if (data != false) {
 			$scope.tags = data;
-			setTimeout(function(){
-				angular.element("#tagsSelection").selectpicker("refresh");
-				//jQuery("#tagsSelection").selectpicker("refresh");
-			}, 1);
 		}else{
 			//non è andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
@@ -43,9 +39,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}).success(function(data, status, headers, config){
 		if (data != false) {
 			$scope.categories = data;
-			setTimeout(function(){
-				angular.element("#categorySelect").selectpicker("refresh");
-			}, 1);
 		}else{
 			//non è andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
@@ -77,12 +70,11 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				}
 				$scope.subtitle =  data.sottotitolo;
 				$scope.important = data.importante;
-				var tagListId= new Array();
-				for (var tag in data.tags) {
-					tagListId.push(data.tags[tag].id);
-				}
-				//TODO capire come valorizzare la select!
-				$("tagsSelection").selectpicker("val", tagListId)
+				
+				angular.element("#tagsSelection").selectpicker("val", data.tags);
+				angular.element("#categorySelect").selectpicker("val", data.categoria);
+				angular.element(".selectpicker").selectpicker("refresh");
+				
 				//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 			}else{
 				//non è andata bene

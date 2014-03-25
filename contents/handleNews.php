@@ -25,7 +25,7 @@
 						<td>{{notizia.titolo}}</td>
 						<td>{{moment(notizia.dataCreazione, "X").format("DD/MM/YYYY : HH:mm")}}</td>
 						<td>{{notizia.tags.length}}</td>
-						<td>{{notizia.categoria.nome}}</td>
+						<td>{{notizia.categoria.nome || "Nessuna categoria"}}</td>
 						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='onDelButtonEvent($event)'/></td>
 					</tr>
 				</table>

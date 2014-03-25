@@ -63,7 +63,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			if (data != false) {
 				$scope.title = data.titolo;
 				$scope.newNewsBody= unescape(data.corpo);
-				if (data.dataPublicazione=="") {
+				if (!data.dataPublicazione) {
 					$('#datetimepicker').data("DateTimePicker").setValue(moment(data.dataCreazione, "X"));
 				}else{
 					$scope.publishDate = data.dataPublicazione;
@@ -71,9 +71,14 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				$scope.subtitle =  data.sottotitolo;
 				$scope.important = data.importante;
 				
-				angular.element("#tagsSelection").selectpicker("val", data.tags);
-				angular.element("#categorySelect").selectpicker("val", data.categoria);
-				angular.element(".selectpicker").selectpicker("refresh");
+				setInterval(function(){ //per evitare l'errore "$digest already in progress"
+					if(!$scope.$$phase) {
+						clearInterval(this);
+						angular.element("#tagsSelection").selectpicker("val", data.tags);
+						angular.element("#categorySelect").selectpicker("val", data.categoria);
+						angular.element(".selectpicker").selectpicker("refresh");
+					}
+				}, 200);
 				
 				//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 			}else{

@@ -1,6 +1,8 @@
 <?php
 const FILE_PATH = "../data/tags.xml";
 
+include("Entity/Tag.php");
+
 $dom = new DomDocument();
 $dom->load(FILE_PATH);
 
@@ -32,7 +34,7 @@ function GetAllTag($dom){
   $tagsArray = array();
   if(!is_null($tags)){
 	  foreach($tags as $tag){
-		  $tagElem = new Tag($tag);
+		  $tagElem = Tag::FromXml($tag);
 		  array_push($tagsArray, $tagElem);
 	  }
   }
@@ -61,19 +63,6 @@ function DeleteTag($dom, $id){
 	}
 }
 
-//////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-//////////////////////////////////////// Class region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-class Tag{
-	public $id;
-	public $nome;
-	
-	public function __construct($dom){
-		$this->id = $dom->getElementsByTagName("id")->item(0)->textContent;
-		$this->nome = $dom->getElementsByTagName("nome")->item(0)->textContent;
-	}
-}
 //////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ?>

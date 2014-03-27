@@ -15,7 +15,7 @@ class Notizia {
 	public $categoria;
 	public $corpo;
 	public $dataCreazione;
-	public $dataPublicazione;
+	public $dataPubblicazione;
 	public $importante;
 	
 	private static function GetDom(){
@@ -67,7 +67,7 @@ class Notizia {
 		$not["categoria"] = $dom->getElementsByTagName("categoria")->item(0)->textContent;
 		$not["corpo"]= $dom->getElementsByTagName("corpo")->item(0)->textContent;	
 		$not["dataCreazione"] = $dom->getElementsByTagName("dataCreazione")->item(0)->textContent;
-		$not["dataPublicazione"] = $dom->getElementsByTagName("dataPubblicazione")->item(0)->textContent;
+		$not["dataPubblicazione"] = $dom->getElementsByTagName("dataPubblicazione")->item(0)->textContent;
 		$not["id"]= $dom->getElementsByTagName("id")->item(0)->textContent;
 		$not["importante"] =$dom->getElementsByTagName("importante")->item(0)->textContent;
 		$not["tags"]= array();
@@ -136,6 +136,8 @@ class Notizia {
 	public function SaveNews(){
 		$dom = self::GetDom();
 		$xpath = new DOMXpath($dom);
+		//TODO capire se va chiamato un save new news o un update news!!
+		//lo si capisce dall'id!
 		if(!is_int($this->id)){ //caso in cui sto aggiungendo una nuova news...quindi ho bisogno di un id
 			$result = $xpath ->query('//id');
 			if(!is_null($result)){
@@ -159,6 +161,7 @@ class Notizia {
 		
 		if(!is_int($this->dataCreazione)){
 			$now = new DateTime();
+			$date = new DateTime();
 			$date = $date->format("U");
 		}
 		
@@ -173,8 +176,6 @@ class Notizia {
 	
 	private function ToXml(){
 		$dom = self::GetDom();
-		$date = new DateTime($news["date"]);
-		
 		$notizia = $dom->createElement("notizia");
 		
 		//ID

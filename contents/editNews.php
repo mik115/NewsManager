@@ -58,6 +58,7 @@
 					<select ng-model='catSelect' id='categorySelect' class='selectpicker' data-live-search="true" title='Scegli una categoria' data-size=10>
     					<option ng-repeat='category in categories' value='{{category.id}}'>{{category.nome}}</option>
 					</select>
+					<input type="hidden" ng-model="dataCreazione"/>
 				</div>
 			</div>
 			<input ng-click='saveNews()' id='saveButton' type ='button' class='btn btn-primary' value='Salva'/>

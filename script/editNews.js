@@ -70,6 +70,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				}
 				$scope.subtitle =  data.sottotitolo;
 				$scope.important = data.importante;
+				$scope.dataCreazione = data.dataCreazione;
 				
 				setInterval(function(){ //per evitare l'errore "$digest already in progress"
 					if(!$scope.$$phase) {
@@ -110,13 +111,14 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 						data : $.param({
 							id: $scope.newsId,
 							action: "SaveNews",
-							title : $scope.title,
-							newsContent: CKEDITOR.instances.textEditor.getData(),
-							date: $('#datetimepicker').data("DateTimePicker").getDate().toString(),
+							titolo : $scope.title,
+							corpo: CKEDITOR.instances.textEditor.getData(),
+							dataPubblicazione: $('#datetimepicker').data("DateTimePicker").getDate().toString(),
 							tags: $scope.tagSelect,
-							subtitle: $scope.subtitle,
-							important: $scope.important,
-							category: $scope.catSelect
+							sottotitolo: $scope.subtitle,
+							importante: $scope.important,
+							categoria: $scope.catSelect,
+							dataCreazione : $scope.dataCreazione
 						})
 					}).success(function(data, status, headers, config){
 						$modalScope.loading= false;

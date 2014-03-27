@@ -28,10 +28,13 @@ echo json_encode($results, false);
 
 //////////////////////////////////////// Method region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-function SaveNews($dom, $POST){
+function SaveNews($POST){
 	//TODO spostare tutta la parte di creazione del dom all'interno dell'oggetto news...
-	$not = new Notizia($POST);
-	var_dump($not);
+	if(!isset($POST["id"])){
+		$date = new DateTime();
+		$POST["dataCreazione"] = $date->format("U");
+	}
+	$not = new Notizia($POST, false);
 	return $not->SaveNews();
 }
 

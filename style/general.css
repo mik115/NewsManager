@@ -64,3 +64,12 @@ body * {
 #mainContainer{
 	text-align: center;
 }
+
+.serviceMessage{
+	font-size: 22pt;
+	text-align: center;
+	clear: both;
+	color: gray;
+	font-weight: bold;
+	font-family: arial;
+}

@@ -13,7 +13,7 @@
 			<h1>Gestione delle news</h1>
 			<p> Qui di seguito potrai accedere alle news gia create per modificarle o crearne di nuove.</p>
 			<input id='addNewsButton' type='button' class="btn btn-primary" value='+ Aggiungi' ng-click='addNewNews($event)'/>
-			<div class='table-responsive'>
+			<div class='table-responsive' ng-show="notizie.length>0">
 				<table id='newsList' class='table table-striped table-bordered table-hover'>
 					<tr>
 						<th>Titolo</th>
@@ -29,6 +29,9 @@
 						<td class='btnCell'><input type='button' class='btn btn-danger btn-sm' value='Elimina' ng-click='onDelButtonEvent($event)'/></td>
 					</tr>
 				</table>
+			</div>
+			<div ng-show="notizie.length==0">
+				<div class="serviceMessage">Non sono presenti news salvate.</div>
 			</div>
 		</div>
 	<?php }

@@ -56,7 +56,11 @@ class Notizia {
 				array_push($this->tags, Tag::GetTagById($tag));
 			}
 		}else{
-			$this->tags = $array["tags"];
+			if(isset($array["tags"])){
+				$this->tags = $array["tags"];
+			}else{
+				$this->tags= array();
+			}
 		}
 	}
 	
@@ -133,25 +137,22 @@ class Notizia {
 		}
 	}
 	
+	public static function DeleteNews($newsId){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$notiziaDom = $xpath->query("notizia[id = ".intval($newsId)."]")->item(0);
+		if(!is_null($notiziaDom)){
+		  $notiziaDom->parentNode->removeChild($notiziaDom);
+		  return $dom->save(self::FILE_PATH);
+		}else{
+		  return "false";
+		}
+	}
+	
 	public function SaveNews(){
 		$dom = self::GetDom();
 		$xpath = new DOMXpath($dom);
-		//TODO capire se va chiamato un save new news o un update news!!
-		//lo si capisce dall'id!
-		if(!is_int($this->id)){ //caso in cui sto aggiungendo una nuova news...quindi ho bisogno di un id
-			$result = $xpath ->query('//id');
-			if(!is_null($result)){
-				$maxId = 0;
-				foreach($result as $idResult){
-					if($maxId< intval($idResult->textContent)){
-						$maxId= intval($idResult->textContent);
-					}
-				}
-				$this->id = $maxId+1;
-			}else{
-				$this->id =1;
-			}
-		}
+		
 		if(!is_bool($this->importante)){
 			if($this->importante == "")
 				$this->importante=false;
@@ -169,10 +170,70 @@ class Notizia {
 			$this->dataPubblicazione = $this->dataCreazione;
 		}
 		
-		$dom->documentElement->appendChild($this->ToXml());
-		return $dom->save(self::FILE_PATH);
+		if(!isset($this->id)){ //caso in cui sto aggiungendo una nuova news...quindi ho bisogno di un id
+			echo "newNews";
+			$result = $xpath ->query('//id');
+			if(!is_null($result)){
+				$maxId = 0;
+				foreach($result as $idResult){
+					if($maxId< intval($idResult->textContent)){
+						$maxId= intval($idResult->textContent);
+					}
+				}
+				$this->id = $maxId+1;
+			}else{
+				echo "oldNews";
+				$this->id =1;
+			}
+			
+			$dom->documentElement->appendChild($this->ToXml());
+			return $dom->save(self::FILE_PATH);
+		}else{
+			return $this->UpdateNews();
+		}
 	}
 	
+	private function UpdateNews(){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$notizia = $xpath->query("notizia[id = ".intval($this->id)."]")->item(0);
+		//TITOLO
+		$titolo = $notizia->GetElementsByTagName("titolo")->item(0);
+		$titolo -> nodeValue = $this->titolo;
+		//SOTOTITOLO
+		$subtitle = $notizia->GetElementsByTagName("sottotitolo")->item(0);
+		$subtitle->nodeValue = $this->sottotitolo;
+		//DATAPUBBLICAZIONE	
+		$datePublication = $notizia->GetElementsByTagName("dataPubblicazione")->item(0);
+		$datePublication ->nodeValue = $this->dataPubblicazione;
+		//IMPORTANTE
+		$important= $notizia->GetElementsByTagName("importante")->item(0);
+		if($this->importante=="")
+			$important-> nodeValue =false;
+		else
+			$important->nodeValue=true;
+		//CATEGORIA
+		$category = $notizia->GetElementsByTagName("categoria")->item(0);
+		$category ->nodeValue = $this->categoria;
+		//TAGS
+		$tags = $notizia->GetElementsByTagName("tags")->item(0);
+		
+		while ($tags->hasChildNodes()) {
+			$tags->removeChild($tags->firstChild);
+		}
+		
+		if(count($this->tags) > 0){
+			foreach($this->tags as $t){
+				$tag = $dom->createElement("tag");
+				$tag->appendChild($dom->createTextNode($t));
+				$tags->appendChild($tag);
+			}
+		}
+		//NEWSCONTENT
+		$newsContent = $notizia->GetElementsByTagName("corpo")->item(0);
+		$newsContent->nodeValue = base64_encode($this->corpo);
+		$dom->save(self::FILE_PATH);
+	}
 	
 	private function ToXml(){
 		$dom = self::GetDom();

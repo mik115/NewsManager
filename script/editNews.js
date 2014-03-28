@@ -72,9 +72,9 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				$scope.important = data.importante;
 				$scope.dataCreazione = data.dataCreazione;
 				
-				setInterval(function(){ //per evitare l'errore "$digest already in progress"
+				var interval = setInterval(function(){ //per evitare l'errore "$digest already in progress"
 					if(!$scope.$$phase) {
-						clearInterval(this);
+						clearInterval(interval);
 						angular.element("#tagsSelection").selectpicker("val", data.tags);
 						angular.element("#categorySelect").selectpicker("val", data.categoria);
 						angular.element(".selectpicker").selectpicker("refresh");

@@ -121,7 +121,7 @@ class Notizia {
 			$notizia = Notizia::FromXml($notiziaDom, true);
 			return $notizia;
 		}else{
-			return "false";
+			return false;
 		}
 	}
 	
@@ -133,7 +133,7 @@ class Notizia {
 			$notizia = Notizia::FromXml($notiziaDom, false);
 			return $notizia;
 		}else{
-			return "false";
+			return false;
 		}
 	}
 	
@@ -145,7 +145,7 @@ class Notizia {
 		  $notiziaDom->parentNode->removeChild($notiziaDom);
 		  return $dom->save(self::FILE_PATH);
 		}else{
-		  return "false";
+		  return false;
 		}
 	}
 	

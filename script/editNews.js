@@ -51,6 +51,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	var parametersArray = $location.search();
 	if (parametersArray && parametersArray.id) {
+		console.log( typeof  parseInt( parametersArray.id ));
 		$scope.newsId = parametersArray.id;
 		$http({
 			url: pagePath+"PHP/newsHandler.php",
@@ -60,7 +61,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				id: parametersArray.id
 			})
 		}).success(function(data, status, headers, config){
-			if (data != false) {
+			if (data != "false") {
 				$scope.title = data.titolo;
 				$scope.newNewsBody= unescape(data.corpo);
 				if (!data.dataPublicazione) {
@@ -83,8 +84,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				
 				//TODO gestire messaggio di conferma e di errore lato AngularJS su codice!!
 			}else{
-				//non è andata bene
-				//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
+				$scope.loadingError = true;
 			}
 		}).error(function(data, status, headers, config){
 			

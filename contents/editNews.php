@@ -33,7 +33,7 @@
 	function content($path){ ?>
 		<div ng-controller='mainCtrl'>
 			<input id='backButton' ng-click='backAction()' type='button' class='btn btn-default' value='Anunlla'/>
-			<div id='metaContent'>
+			<div id='metaContent' ng-show="!loadingError">
 				<div class='leftDiv'>
 					<div class='formRow'>Titolo: <input ng-model='title' class='form-control' value='titolo'/></div>
 					<div class='formRow'>
@@ -61,8 +61,13 @@
 					<input type="hidden" ng-model="dataCreazione"/>
 				</div>
 			</div>
-			<input ng-click='saveNews()' id='saveButton' type ='button' class='btn btn-primary' value='Salva'/>
-			<textarea id='textEditor' ng-model='newNewsBody'>{{newsBody}}</textarea>
+			<input ng-click='saveNews()' id='saveButton' type ='button' class='btn btn-primary' value='Salva' ng-show="!loadingError"/>
+			<div ng-show="!loadingError">
+				<textarea id='textEditor' ng-model='newNewsBody'>{{newsBody}}</textarea>
+			</div>
+			<div ng-show="loadingError" class='serviceMessage'>
+				Impossibile caricare la news.
+			</div>
 		</div>
 	<?php } 
 

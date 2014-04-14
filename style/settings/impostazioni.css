@@ -1,0 +1,22 @@
+h1{
+	margin-bottom: 30px;
+}
+
+#settingContainer{
+	text-align: left;
+	margin: 10px 40px 0px;
+}
+
+#settingContainer ul{
+	list-style: none;
+}
+
+#settingContainer ul li a{
+	text-decoration: none;
+	cursor: pointer;
+	color:#777777;
+}
+
+#settingContainer ul li a:hover{
+	color: black;	
+}

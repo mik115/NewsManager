@@ -7,13 +7,13 @@
 		<title> Title</title>
 		<link rel="stylesheet" type='text/css' href='<?php echo $path?>lib/bootstrap-select/bootstrap-select.css'/>
 		<link rel="stylesheet" type='text/css' href='<?php echo $path?>lib/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'/>
-		<link rel="stylesheet" type='text/css' href='<?php echo $path?>style/editNews.css'/>
+		<link rel="stylesheet" type='text/css' href='<?php echo $path?>style/news/editNews.css'/>
 		<script type="text/javascript" src='<?php echo $path?>lib/ckeditor/ckeditor.js'></script>
 		<script type= "text/javascript" src = '<?php echo $path?>lib/bootstrap-select/bootstrap-select.js'></script>
 		<script type= "text/javascript" src = '<?php echo $path?>lib/moment/moment.js'></script>
 		<script type= "text/javascript" src = '<?php echo $path?>lib/bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.it.js'></script>
 		<script type= "text/javascript" src = '<?php echo $path?>lib/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'></script>
-		<script type='text/javascript' src='<?php echo $path?>script/editNews.js'></script>
+		<script type='text/javascript' src='<?php echo $path?>script/news/editNews.js'></script>
 		<script type='text/javascript'>
 			angular.element(document).ready(function(){
 				CKEDITOR.replace( "textEditor",{

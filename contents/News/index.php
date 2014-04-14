@@ -3,8 +3,8 @@
 	//user controll per l'header...
 	function head($path){ ?>
 		<title>Handle News</title>
-		<link type = "text/css" rel='stylesheet' href='<?php echo $path?>style/handleNews.css'/>
-		<script type="text/javascript" src="<?php echo $path?>script/handleNews.js"></script>
+		<link type = "text/css" rel='stylesheet' href='<?php echo $path?>style/news/handleNews.css'/>
+		<script type="text/javascript" src="<?php echo $path?>script/news/handleNews.js"></script>
 	<?php }
 	
 	//user controll per il content..

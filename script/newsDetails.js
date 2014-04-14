@@ -40,11 +40,11 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$scope.editNews=function(){
-		location.href=pagePath+'contents/editNews.php?id='+parametersArray.id;
+		location.href=pagePath+'contents/News/editNews.php?id='+parametersArray.id;
 	}
 	
 	$scope.back = function(){
-		location.href=pagePath+'contents/handleNews.php';
+		location.href=pagePath+'contents/News/handleNews.php';
 	}
 	
 	$scope.deleteNews = function(){

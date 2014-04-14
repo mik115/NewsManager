@@ -19,7 +19,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 	$scope.moment = moment;
 	
 	$scope.showDetails= function(id){
-		location.href = pagePath+ "contents/newsDetails.php?id="+id;
+		location.href = pagePath+ "contents/News/newsDetails.php?id="+id;
 	}
 	
 	$scope.addNewNews=function($event){
@@ -27,7 +27,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 		if ($event) {
 			$event.stopImmediatePropagation();
 		}
-		location.href=pagePath + 'contents/editNews.php';
+		location.href=pagePath + 'contents/News/editNews.php';
 	}
 	
 	$scope.onDelButtonEvent = function($event){

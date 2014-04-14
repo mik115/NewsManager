@@ -11,6 +11,8 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	classPage.setClassPage("News"); //per evidenziare il link corrente
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 	
+	var parametersArray = $location.search();
+	
 	//Load dei tags
 	$http({
 		url: pagePath+"PHP/tagsHandler.php",
@@ -21,6 +23,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}).success(function(data, status, headers, config){
 		if (data != false) {
 			$scope.tags = data;
+			angular.element(".selectpicker").selectpicker("refresh");
 		}else{
 			//non è andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
@@ -39,6 +42,14 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}).success(function(data, status, headers, config){
 		if (data != false) {
 			$scope.categories = data;
+			if (!parametersArray || !parametersArray.id){
+				var interval = setInterval(function(){ //per evitare l'errore "$digest already in progress"
+						if(!$scope.$$phase) {
+							clearInterval(interval);
+							angular.element(".selectpicker").selectpicker("refresh");
+						}
+					}, 200);
+			}
 		}else{
 			//non è andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
@@ -47,9 +58,6 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 		
 	});
 	
-	
-	
-	var parametersArray = $location.search();
 	if (parametersArray && parametersArray.id) {
 		console.log( typeof  parseInt( parametersArray.id ));
 		$scope.newsId = parametersArray.id;
@@ -144,12 +152,12 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$scope.backAction= function(){
-		location.href=pagePath+'contents/handleNews.php';
+		location.href=pagePath+'contents/News/';
 	}
 	
 	$scope.redirect = function(){
 		if ($scope.success) {
-			location.href=pagePath+'contents/handleNews.php';
+			location.href=pagePath+'contents/News/';
 		}
 	}
 });

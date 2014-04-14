@@ -29,7 +29,7 @@
 			<div class="collapse navbar-collapse" ng-controller="navagationBar">
 				<ul class="nav navbar-nav">
 					<li ng-class='{active:classPage=="Home"}'><a ng-href="<?php echo $path?>contents/home.php">Home</a></li>
-					<li ng-class='{active:classPage=="News"}'><a ng-href="<?php echo $path?>contents/handleNews.php">News</a></li>
+					<li ng-class='{active:classPage=="News"}'><a ng-href="<?php echo $path?>contents/News/">News</a></li>
 					<li ng-class='{active:classPage=="Impostazioni"}'><a ng-href="<?php echo $path?>contents/impostazioni.php">Impostazioni</a></li>
 				</ul>
 			</div>

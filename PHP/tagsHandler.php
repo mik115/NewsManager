@@ -10,6 +10,7 @@ switch($_POST["action"]){
 	case "GetAllTags":
 		$results = GetAllTag($dom);
 		break;
+	
 	case "SaveTag":
 		if(isset($_POST["id"])){
 			$results= UpdateTag($dom, $_POST);

@@ -3,7 +3,7 @@ include("Entity/News.php");
 
 switch($_POST["action"]){
 	case "GetAllNews":
-		$results = Notizia::GetAll();
+		$results = Notizia::GetAllNews();
 		break;
 	case "GetAllNewsWithElements":
 		$results = Notizia::GetAllNewsWithElements();

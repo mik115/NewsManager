@@ -106,7 +106,7 @@ class Notizia {
 		$notizieArray = array();
 		if(!is_null($notizie)){
 			foreach($notizie as $not){
-				$notizia = new Notizia($not, false);
+				$notizia = Notizia :: FromXml($not, false);
 				array_push($notizieArray, $notizia);
 			}
 		}

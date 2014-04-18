@@ -25,7 +25,7 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 				
 				for (var t in $scope.tags) {
 					$scope.tags[t].ricorrenze = 0;
-					for (var i in resuslt){
+					for (var i in result){
 						if (result[i].tags.filter(function(element){return element == $scope.tags[t].id}).length>0) {
 							$scope.tags[t].ricorrenze++;
 						}
@@ -39,6 +39,13 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 	}).error(function(data, status, headers, config){
 		
 	});
+	
+	$scope.searchFunction =  function (obj){
+		if (!$scope.search ||$scope.search =="") {
+			return true;
+		}
+		return obj.nome.indexOf($scope.search) >-1 || obj.ricorrenze.toString().indexOf($scope.search)>-1 ;
+	}
 	
 	$scope.backAction= function(){
 		location.href = pagePath+"contents/Settings";

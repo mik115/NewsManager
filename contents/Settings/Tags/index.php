@@ -20,14 +20,14 @@
 						<span ng-show="orderable=='nome' && !reverse" class="glyphicon glyphicon-chevron-up orderVersus"></span>
 						<span ng-show="orderable=='nome' && reverse" class="glyphicon glyphicon-chevron-down orderVersus"></span>
 					</th>
-					<th ng-click="orderable='nome'; reverse=!reverse" class="orderable">Ricorrenze
-						<span class="glyphicon glyphicon-chevron-up"></span>
-						<span class="glyphicon glyphicon-chevron-down"></span>
+					<th ng-click="orderable='ricorrenze'; reverse=!reverse" class="orderable">Ricorrenze
+						<span ng-show="orderable=='ricorrenze' && !reverse" class="glyphicon glyphicon-chevron-up orderVersus"></span>
+						<span ng-show="orderable=='ricorrenze' && reverse" class="glyphicon glyphicon-chevron-down orderVersus"></span>
 					</th>
 					<th></th>
 					<th></th>
 				</tr>
-				<tr ng-repeat="tag in tags | filter: search | orderBy: orderable: reverse" id="{{tag.id}}">
+				<tr ng-repeat="tag in tags | filter: searchFunction | orderBy: orderable: reverse" id="{{tag.id}}">
 					<td>{{tag.nome}}</td>
 					<td>{{tag.ricorrenze}}</td>
 					<td class='buttonCell'><input type= "button" value="Edit"  class="btn btn-success" /></td>

@@ -1,8 +1,5 @@
 <?php
 
-include("Tag.php");
-include("Category.php");
-
 class Notizia {
 	const FILE_PATH = "../data/news.xml";
 	
@@ -26,14 +23,11 @@ class Notizia {
 		return self::$dom;
 	}
 	
-	public function __construct($array, $complete){
+	public function __construct($array){
 		$this->titolo = $array["titolo"];
 		$this->sottotitolo = $array["sottotitolo"];
 		if($array["categoria"]!=""){
-			if($complete)
-				$this->categoria = Categoria::GetCategoryById($array["categoria"]);
-			else
-				$this->categoria = $array["categoria"];
+			$this->categoria = $array["categoria"];
 		}
 		if (base64_decode($array["corpo"], true) == true)
 		{          
@@ -50,21 +44,15 @@ class Notizia {
 			
 		$this->id = $array["id"];
 		$this->importante = $array["importante"];
-		if($complete){
-			$this->tags = array();
-			foreach($array["tags"] as $tag){
-				array_push($this->tags, Tag::GetTagById($tag));
-			}
+
+		if(isset($array["tags"])){
+			$this->tags = $array["tags"];
 		}else{
-			if(isset($array["tags"])){
-				$this->tags = $array["tags"];
-			}else{
-				$this->tags= array();
-			}
+			$this->tags= array();
 		}
 	}
 	
-	public static function FromXml($dom, $complete){
+	public static function FromXml($dom){
 		$not= array();
 		$not["titolo"] = $dom->getElementsByTagName("titolo")->item(0)->textContent;
 		$not["sottotitolo"] = $dom->getElementsByTagName("sottotitolo")->item(0)->textContent;
@@ -81,22 +69,7 @@ class Notizia {
 			array_push($not["tags"], $tag->textContent);
 		}
 		
-		return new Notizia($not, $complete);
-	}
-	
-	
-	public static function GetAllNewsWithElements(){
-		$dom = self::GetDom();
-		$xpath = new DOMXpath($dom);
-		$notizie = $xpath->query("notizia");
-		$notizieArray = array();
-		if(!is_null($notizie)){
-			foreach($notizie as $not){
-				$notizia = Notizia :: FromXml($not, true);
-				array_push($notizieArray, $notizia);
-			}
-		}
-		return $notizieArray;
+		return new Notizia($not);
 	}
 	
 	public static function GetAllNews(){
@@ -111,18 +84,6 @@ class Notizia {
 			}
 		}
 		return $notizieArray;
-	}
-	
-	public static function GetNewsWithElements($id){
-		$dom = self::GetDom();
-		$xpath = new DOMXpath($dom);
-		$notiziaDom = $xpath->query("notizia[id = ".intval($id)."]")->item(0);
-		if(!is_null($notiziaDom)){
-			$notizia = Notizia::FromXml($notiziaDom, true);
-			return $notizia;
-		}else{
-			return false;
-		}
 	}
 	
 	public static function GetNews($id){

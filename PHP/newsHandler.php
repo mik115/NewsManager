@@ -1,24 +1,55 @@
 <?php
 include("Entity/News.php");
+include("Entity/Tag.php");
+include("Entity/Category.php");
+
 
 switch($_POST["action"]){
+	//NEWS
 	case "GetAllNews":
 		$results = Notizia::GetAllNews();
 		break;
 	case "GetAllNewsWithElements":
-		$results = Notizia::GetAllNewsWithElements();
+		$results = GetAllNewsWithElements();
 		break;
 	case "GetNews":
 		$results = Notizia::GetNews($_POST["id"]);
 		break;
 	case "GetNewsWithElements":
-		$results = Notizia::GetNewsWithElements($_POST["id"]);
+		$results = GetNewsWithElements($_POST["id"]);
 		break;
 	case "SaveNews":
 		$results = SaveNews($_POST);
 		break;
 	case "DeleteNews":
 		$results = Notizia::DeleteNews($_POST["id"]);
+		break;
+	
+	//TAGS
+	case "GetAllTags":
+		$results = Tag::GetAllTags();
+		break;
+	
+	case "SaveTag":
+		$results = Tag::SaveTag();
+		break;
+	
+	case "DeleteTag":
+		$results = Tag::DeleteTag($_POST["id"]);
+		break;
+	
+	//CATEGORIES
+	case "GetAllCategories":
+		$results = Category::GetAllCategories();
+		break;
+	case "SaveCategory":
+		$results = Category::SaveCategory();
+		break;
+	case "DeleteCategory":
+		$results = Category::DeleteCategory($_POST["id"]);
+		break;
+	case "GetCategoryById":
+		$results = Category::GetCategoryById($_POST["id"]);
 		break;
 	default:
 		$results = false;
@@ -29,15 +60,33 @@ echo json_encode($results, false);
 //////////////////////////////////////// Method region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 function SaveNews($POST){
-	//TODO spostare tutta la parte di creazione del dom all'interno dell'oggetto news...
 	if(!isset($POST["id"])){
-		echo "aaaaaaaaaaa";
 		$date = new DateTime();
 		$POST["dataCreazione"] = $date->format("U");
 	}
 	$not = new Notizia($POST, false);
 	var_dump($not);
 	return $not->SaveNews();
+}
+
+function GetAllNewsWithElements(){
+	$notizie = Notizia::GetAllNews();
+	foreach($notizie as $not){
+		$not->categoria = Categoria::GetCategoryById($not->categoria);
+		for($i=0; $i< count($not->tags); $i++){
+			$not->tags[$i] = Tag::GetTagById($not->tags[$i]);
+		}
+	}
+	return $notizie;
+}
+
+function GetNewsWithElements($id){
+	$notizia = Notizia::GetNews($id);
+	$notizia->categoria = Categoria::GetCategoryById($notizia->categoria);
+	for($i=0; $i< count($notizia->tags); $i++){
+		$notizia->tags[$i] = Tag::GetTagById($notizia->tags[$i]);
+	}
+	return $notizia;
 }
 
 //////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

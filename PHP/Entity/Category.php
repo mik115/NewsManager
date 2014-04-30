@@ -22,10 +22,14 @@ class Categoria{
 	}
 	
 	public static function GetCategoryById($categoryId){
-		$dom = self::GetDom();
-		$xpath = new DOMXpath($dom);
-		$categoria = $xpath->query("//categoria[id=".intval($categoryId)."]")->item(0);
-		return Categoria::FromXml($categoria);
+		if(!is_null($categoryId)){
+			$dom = self::GetDom();
+			$xpath = new DOMXpath($dom);
+			$categoria = $xpath->query("//categoria[id=".intval($categoryId)."]")->item(0);
+			return Categoria::FromXml($categoria);
+		}else{
+			return null;
+		}
 	}
 	
 	public static function FromXml($dom){
@@ -33,6 +37,20 @@ class Categoria{
 		$array["id"] = $dom->getElementsByTagName("id")->item(0)->textContent;
 		$array["nome"] = $dom->getElementsByTagName("nome")->item(0)->textContent;
 		return new Categoria($array);
+	}
+	
+	public static function GetAllCategories(){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$categories = $xpath->query("//categoria");
+		$categoriesArray = array();
+		if(!is_null($categories)){
+			foreach($categories as $c){
+				$category = Categoria::FromXml($c);
+				array_push($categoriesArray, $category);
+			}
+		}
+		return $categoriesArray;
 	}
 }
 

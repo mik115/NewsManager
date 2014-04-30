@@ -1,5 +1,6 @@
 <?php
 class Tag{
+	
 	const FILE_PATH = "../data/tags.xml";
 	
 	private static $dom=null;
@@ -37,11 +38,29 @@ class Tag{
 	}
 	
 	public static function GetAllTags(){
-		
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$tags = $xpath->query("//tag");
+		$tagsArray = array();
+		if(!is_null($tags)){
+			foreach($tags as $t){
+				$tag = Tag::FromXml($t);
+				array_push($tagArray, $tag);
+			}
+		}
+		return $tagArray;
 	}
 	
-	public static function DeleteTag(){
-		return 1;
+	public static function DeleteTag($id){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$tagToDelete = $xpath->query("//tag[id = ".intval($tagId)."]")->item(0);
+		if(!is_null($tagToDelete)){
+		  $tagToDelete->parentNode->removeChild($tagToDelete);
+		  return $dom->save(self::FILE_PATH);
+		}else{
+		  return false;
+		}
 	}
 	
 	public static function UpdateTag(){
@@ -49,7 +68,7 @@ class Tag{
 	}
 	
 	public static function SaveTag(){
-		
+		return false;
 	}
 }
 

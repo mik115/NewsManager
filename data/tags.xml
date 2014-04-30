@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <tags>
 	<tag>
 		<id>0</id>
@@ -9,7 +10,7 @@
 	</tag>
 	<tag>
 		<id>2</id>
-		<nome>geòlòàneral tag</nome>
+		<nome>ge&#xF2;l&#xF2;&#xE0;neral tag</nome>
 	</tag>
 	<tag>
 		<id>3</id>
@@ -31,8 +32,5 @@
 		<id>7</id>
 		<nome>general tag</nome>
 	</tag>
-	<tag>
-		<id>8</id>
-		<nome>general tag</nome>
-	</tag>
+	
 </tags>

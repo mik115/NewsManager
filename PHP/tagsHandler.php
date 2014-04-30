@@ -20,7 +20,7 @@ switch($_POST["action"]){
 		}
 		break;
 	case "DeleteTag":
-		$results = DeleteNews($dom, $_POST["id"]);
+		$results = DeleteTag($dom, $_POST["id"]);
 		break;
 	default:
 		$results = false;
@@ -55,9 +55,9 @@ function UpdateTag($dom, $post){
 
 function DeleteTag($dom, $id){
 	$xpath = new DOMXpath($dom);
-	$notiziaDom = $xpath->query("//tag[id = ".intval($id)."]")->item(0);
-	if(!is_null($notiziaDom)){
-	  $notiziaDom->parentNode->removeChild($notiziaDom);
+	$tagDom = $xpath->query("//tag[id = ".intval($id)."]")->item(0);
+	if(!is_null($tagDom)){
+	  $tagDom->parentNode->removeChild($tagDom);
 	  return $dom->save(FILE_PATH);
 	}else{
 	  return "false";

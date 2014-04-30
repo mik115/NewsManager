@@ -27,11 +27,11 @@
 					<th></th>
 					<th></th>
 				</tr>
-				<tr ng-repeat="tag in tags | filter: searchFunction | orderBy: orderable: reverse" id="{{tag.id}}">
+				<tr ng-repeat="tag in tags | filter: searchFunction | orderBy: orderable: reverse">
 					<td>{{tag.nome}}</td>
 					<td>{{tag.ricorrenze}}</td>
-					<td class='buttonCell'><input type= "button" value="Edit"  class="btn btn-success" /></td>
-					<td class='buttonCell'><input type= "button" value="Delete" class="btn btn-danger" /></td>
+					<td class='buttonCell'><input type= "button" value="Edit"  class="btn btn-success" ng-click="edit(tag.id);" /></td>
+					<td class='buttonCell'><input type= "button" value="Delete" class="btn btn-danger" ng-click="del(tag.id, tags.indexOf(tag));" /></td>
 				</tr>
 			</table>
 		</div>

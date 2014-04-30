@@ -41,7 +41,7 @@ class Tag{
 	}
 	
 	public static function DeleteTag(){
-		
+		return 1;
 	}
 	
 	public static function UpdateTag(){

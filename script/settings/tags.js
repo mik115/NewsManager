@@ -7,7 +7,7 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 	$scope.reverse= false;
 	
 	$http({
-		url: pagePath+"PHP/tagsHandler.php",
+		url: pagePath+"PHP/newsHandler.php",
 		method: "POST",
 		data : $.param({
 			action: "GetAllTags"
@@ -63,7 +63,7 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 				$modalScope.loading=true;
 				
 				$http({
-					url: pagePath+"PHP/tagsHandler.php",
+					url: pagePath+"PHP/newsHandler.php",
 					method: "POST",
 					data : $.param({
 						action: "DeleteTag",

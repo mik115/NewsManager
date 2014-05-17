@@ -40,16 +40,16 @@ switch($_POST["action"]){
 	
 	//CATEGORIES
 	case "GetAllCategories":
-		$results = Category::GetAllCategories();
+		$results = Categoria::GetAllCategories();
 		break;
 	case "SaveCategory":
-		$results = Category::SaveCategory();
+		$results = Categoria::SaveCategory();
 		break;
 	case "DeleteCategory":
-		$results = Category::DeleteCategory($_POST["id"]);
+		$results = Categoria::DeleteCategory($_POST["id"]);
 		break;
 	case "GetCategoryById":
-		$results = Category::GetCategoryById($_POST["id"]);
+		$results = Categoria::GetCategoryById($_POST["id"]);
 		break;
 	default:
 		$results = false;

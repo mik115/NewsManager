@@ -45,16 +45,16 @@ class Tag{
 		if(!is_null($tags)){
 			foreach($tags as $t){
 				$tag = Tag::FromXml($t);
-				array_push($tagArray, $tag);
+				array_push($tagsArray, $tag);
 			}
 		}
-		return $tagArray;
+		return $tagsArray;
 	}
 	
 	public static function DeleteTag($id){
 		$dom = self::GetDom();
 		$xpath = new DOMXpath($dom);
-		$tagToDelete = $xpath->query("//tag[id = ".intval($tagId)."]")->item(0);
+		$tagToDelete = $xpath->query("//tag[id = ".intval($id)."]")->item(0);
 		if(!is_null($tagToDelete)){
 		  $tagToDelete->parentNode->removeChild($tagToDelete);
 		  return $dom->save(self::FILE_PATH);
@@ -64,7 +64,7 @@ class Tag{
 	}
 	
 	public static function UpdateTag(){
-		
+		return false;
 	}
 	
 	public static function SaveTag(){

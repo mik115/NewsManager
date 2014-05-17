@@ -44,7 +44,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	}
 	
 	$scope.back = function(){
-		location.href=pagePath+'contents/News/handleNews.php';
+		location.href=pagePath+'contents/News/';
 	}
 	
 	$scope.deleteNews = function(){

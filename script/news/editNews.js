@@ -15,7 +15,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	//Load dei tags
 	$http({
-		url: pagePath+"PHP/tagsHandler.php",
+		url: pagePath+"PHP/NewsHandler.php",
 		method: "POST",
 		data : $.param({
 			action: "GetAllTags"
@@ -34,7 +34,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	
 	$http({
-		url: pagePath+"PHP/categoryHandler.php",
+		url: pagePath+"PHP/NewsHandler.php",
 		method: "POST",
 		data : $.param({
 			action: "GetAllCategories"

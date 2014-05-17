@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <tags>
-	<tag>
-		<id>0</id>
-		<nome>general tag</nome>
-	</tag>
+	
 	<tag>
 		<id>1</id>
 		<nome>general tag</nome>
@@ -28,9 +25,6 @@
 		<id>6</id>
 		<nome>general tag</nome>
 	</tag>
-	<tag>
-		<id>7</id>
-		<nome>general tag</nome>
-	</tag>
+	
 	
 </tags>

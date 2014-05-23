@@ -110,6 +110,18 @@ class Notizia {
 		}
 	}
 	
+	public static function DeleteTagsReference($tagId){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$tags = $xpath->query("notizia/tags/tag[text() = ".intval($tagId)."]");
+		var_dump($tags);
+		foreach($tags as $tag){
+			$tag->parentNode->removeChild($tag);
+		}
+		$dom->save(self::FILE_PATH);
+		return true;
+	}
+	
 	public function SaveNews(){
 		$dom = self::GetDom();
 		$xpath = new DOMXpath($dom);

@@ -57,7 +57,8 @@ class Tag{
 		$tagToDelete = $xpath->query("//tag[id = ".intval($id)."]")->item(0);
 		if(!is_null($tagToDelete)){
 		  $tagToDelete->parentNode->removeChild($tagToDelete);
-		  return $dom->save(self::FILE_PATH);
+		  $dom->save(self::FILE_PATH);
+		  return true;
 		}else{
 		  return false;
 		}

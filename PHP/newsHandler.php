@@ -36,6 +36,9 @@ switch($_POST["action"]){
 	
 	case "DeleteTag":
 		$results = Tag::DeleteTag($_POST["id"]);
+		if($results){
+			Notizia::DeleteTagsReference($_POST["id"]);
+		}
 		break;
 	
 	//CATEGORIES

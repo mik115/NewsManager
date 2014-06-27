@@ -29,3 +29,7 @@ table{
 .orderVersus{
 	float: right;
 }
+
+.form-control{
+	display: inline;
+}

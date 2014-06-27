@@ -52,7 +52,7 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 	}
 	
 	$scope.edit = function(id){
-		location.href = pagePath + "contents/Settings/Tags/edit.php/?id="+id;
+		location.href = pagePath + "contents/Settings/Tags/edit.php?id="+id;
 	}
 	
 	$scope.del = function(id, position){

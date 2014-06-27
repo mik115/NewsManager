@@ -26,6 +26,10 @@ switch($_POST["action"]){
 		break;
 	
 	//TAGS
+	case "GetTagById":
+		$results = Tag::GetTagById($_POST["id"]);
+		break;
+	
 	case "GetAllTags":
 		$results = Tag::GetAllTags();
 		break;

@@ -35,7 +35,7 @@ switch($_POST["action"]){
 		break;
 	
 	case "SaveTag":
-		$results = Tag::SaveTag();
+		$results = SaveTag();
 		break;
 	
 	case "DeleteTag":
@@ -67,12 +67,11 @@ echo json_encode($results, false);
 //////////////////////////////////////// Method region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 function SaveNews($POST){
-	if(!isset($POST["id"])){
+	if(!isset($POST["id"]) || trim($POST["id"]=="")){
 		$date = new DateTime();
 		$POST["dataCreazione"] = $date->format("U");
 	}
 	$not = new Notizia($POST, false);
-	var_dump($not);
 	return $not->SaveNews();
 }
 
@@ -94,6 +93,11 @@ function GetNewsWithElements($id){
 		$notizia->tags[$i] = Tag::GetTagById($notizia->tags[$i]);
 	}
 	return $notizia;
+}
+
+function SaveTag($POST){
+	$tag = new Tag($POST);
+	//TODO complete!
 }
 
 //////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

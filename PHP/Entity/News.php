@@ -41,8 +41,10 @@ class Notizia {
 			$this->dataPubblicazione = $array["dataPubblicazione"];
 		else
 			$this->dataPubblicazione = $this->dataCreazione;
-			
-		$this->id = $array["id"];
+		
+		if(isset($array["id"]))
+			$this->id = $array["id"];
+		
 		$this->importante = $array["importante"];
 
 		if(isset($array["tags"])){
@@ -142,9 +144,8 @@ class Notizia {
 		if(!is_int($this->dataPubblicazione)){
 			$this->dataPubblicazione = $this->dataCreazione;
 		}
-		
-		if(!isset($this->id)){ //caso in cui sto aggiungendo una nuova news...quindi ho bisogno di un id
-			echo "newNews";
+				
+		if(!is_int($this->id) || !trim($this->id)==""){ //caso in cui sto aggiungendo una nuova news...quindi ho bisogno di un id
 			$result = $xpath ->query('//id');
 			if(!is_null($result)){
 				$maxId = 0;
@@ -163,6 +164,7 @@ class Notizia {
 			return $dom->save(self::FILE_PATH);
 		}else{
 			return $this->UpdateNews();
+			//TODO cambiare l'update news in modo che sia la distruzione e ricreazione di una news...
 		}
 	}
 	
@@ -252,13 +254,15 @@ class Notizia {
 		
 		//TAGS
 		$tags = $dom->createElement("tags");
-		foreach($this->tags as $t){
-			$tag = $dom->createElement("tag");
-			if(is_object($t))
-				$tag->appendChild($dom->createTextNode($t->id));
-			else
-				$tag->appendChild($dom->createTextNode($t));
-			$tags->appendChild($tag);
+		if(is_array($this->tags)){
+			foreach($this->tags as $t){
+				$tag = $dom->createElement("tag");
+				if(is_object($t))
+					$tag->appendChild($dom->createTextNode($t->id));
+				else
+					$tag->appendChild($dom->createTextNode($t));
+				$tags->appendChild($tag);
+			}
 		}
 		$notizia->appendChild($tags);
 		

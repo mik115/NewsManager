@@ -8,9 +8,9 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 	if (parametersArray && parametersArray.id) {
 		
 		$http({
-		url: pagePath+"PHP/newsHandler.php",
-		method: "POST",
-		data : $.param({
+			url: pagePath+"PHP/newsHandler.php",
+			method: "POST",
+			data : $.param({
 				action: "GetTagById",
 				id: parametersArray.id
 			})
@@ -22,10 +22,36 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 	
 	$scope.Save=function(){
 		if ($.trim($scope.tagName)!="") {
-			//TODO richiesta di salvataggio.
-			/*salvare il tag con la funzione save tag passando un tag completo e aggionato...
-			 *vedi come edit news
-			 */
+			modalWindowService.openModal({
+				message: "Sei sicuro di voler salvare le modifiche?",
+				okButtonText: "Salva",
+				redirect : "contents/contents/Settings/Tags/",
+				okAction: function($modalScope){
+					$modalScope.loading=true;
+					
+					$http({
+						url: pagePath+"PHP/newsHandler.php",
+						method: "POST",
+						data : $.param({
+							action: "SaveTag",
+							id: parametersArray.id,
+							name: $scope.tagName
+						})
+					}).success(function(data, status, headers, config){ 
+						if (data != false) {
+							$modalScope.loading=false;
+							$modalScope.success=true;
+						}else{
+							//non è andata bene
+							$modalScope.error=true;
+						}
+					}).error(function(data, status, headers, config){
+						$modalScope.error = true;
+					})
+				},
+				confirm : true,
+				successMessage: "Operazione eseguita con successo"
+			});
 		} else {
 			$scope.emptyField=true;
 		}

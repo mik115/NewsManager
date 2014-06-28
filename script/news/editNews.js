@@ -15,7 +15,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	//Load dei tags
 	$http({
-		url: pagePath+"PHP/NewsHandler.php",
+		url: pagePath+"PHP/newsHandler.php",
 		method: "POST",
 		data : $.param({
 			action: "GetAllTags"
@@ -34,7 +34,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 	
 	
 	$http({
-		url: pagePath+"PHP/NewsHandler.php",
+		url: pagePath+"PHP/newsHandler.php",
 		method: "POST",
 		data : $.param({
 			action: "GetAllCategories"
@@ -111,7 +111,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				confirm : true,
 				successMessage: "News salvata con successo!",
 				errorMessage: "Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
-				redirect : "contents/handleNews.php",
+				redirect : "contents/News/",
 				okAction: function($modalScope){
 					$http({
 						url: pagePath+"PHP/newsHandler.php",

@@ -64,12 +64,23 @@ class Tag{
 		}
 	}
 	
-	public static function UpdateTag(){
-		return false;
+	public function SaveTag(){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		if(isset($this->id)){
+			//updateAction
+			$result = $xpath->query("\\tag[id=".$this->id."]")->item(0);
+			$name = $result->getElementsByTagName("nome")-item(0);
+			$name->nodeValue = $this->nome;
+		}else{
+			//insertAction
+			//TODO complete!
+		}
+		$dom->save(self::FILE_PATH);
 	}
 	
-	public static function SaveTag(){
-		return false;
+	public function ToXml(){
+		//TODO Complete!	
 	}
 }
 

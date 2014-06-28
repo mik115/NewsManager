@@ -33,3 +33,7 @@ table{
 .form-control{
 	display: inline;
 }
+
+.addTagButton{
+	float: left;
+}

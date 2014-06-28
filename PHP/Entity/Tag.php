@@ -74,14 +74,31 @@ class Tag{
 			$name = $result->getElementsByTagName("nome")->item(0);
 			$name->nodeValue = $this->nome;
 		}else{
-			//insertAction
-			//TODO complete!
+			$allIds = $xpath->query("//id");
+			$maxId = 0;
+			foreach($allIds as $id){
+				$id = intval($id->textContent);
+				if($maxId < $id)
+					$maxId = $id;
+			}
+			$this->id = $maxId + 1;
+			$dom->documentElement->appendChild($this->ToXml());
 		}
 		return $dom->save(self::FILE_PATH);
 	}
 	
 	public function ToXml(){
-		//TODO Complete!	
+		$dom = self::GetDom();
+		$tagElement = $dom->createElement("tag");
+		//ID
+		$id = $dom->createElement("id");
+		$id->appendChild($dom->createTextNode($this->id));
+		$tagElement->appendChild($id);
+		//NOME
+		$nome = $dom->createElement("nome");
+		$nome->appendChild($dom->createTextNode($this->nome));
+		$tagElement->appendchild($nome);
+		return $tagElement;
 	}
 }
 

@@ -14,7 +14,7 @@
 			<h1>Gestisci i Tags</h1>
 			<p>Crea nuovi tag, modifica quelli esistenti o eliminali</p>
 			<p class="filterRow">Filtra: <input type="text" id="searchField" ng-model="search" class="form-control" /></p>
-			<input type="button" class="btn btn-primary" value="Aggiungi" ng-click="add();"/>
+			<input type="button" class="btn btn-primary addTagButton" value="Aggiungi" ng-click="add();"/>
 			<table class="table table-striped table-responsive">
 				<tr>
 					<th ng-click="orderable='nome'; reverse=!reverse" class="orderable">Tag Name

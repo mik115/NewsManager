@@ -25,7 +25,7 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 			modalWindowService.openModal({
 				message: "Sei sicuro di voler salvare le modifiche?",
 				okButtonText: "Salva",
-				redirect : "contents/contents/Settings/Tags/",
+				redirect : "contents/Settings/Tags/",
 				okAction: function($modalScope){
 					$modalScope.loading=true;
 					
@@ -35,7 +35,7 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 						data : $.param({
 							action: "SaveTag",
 							id: parametersArray.id,
-							name: $scope.tagName
+							nome: $scope.tagName
 						})
 					}).success(function(data, status, headers, config){ 
 						if (data != false) {
@@ -56,4 +56,5 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 			$scope.emptyField=true;
 		}
 	}
+	
 });

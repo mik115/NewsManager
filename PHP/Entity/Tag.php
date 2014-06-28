@@ -9,7 +9,8 @@ class Tag{
 	public $nome;
 	
 	public function __construct($array){
-		$this->id = $array["id"];
+		if(isset($array["id"]) && trim($array["id"])!="")
+			$this->id = $array["id"];
 		$this->nome = $array["nome"];
 	}
 	
@@ -69,14 +70,14 @@ class Tag{
 		$xpath = new DOMXpath($dom);
 		if(isset($this->id)){
 			//updateAction
-			$result = $xpath->query("\\tag[id=".$this->id."]")->item(0);
-			$name = $result->getElementsByTagName("nome")-item(0);
+			$result = $xpath->query("//tag[id=".$this->id."]")->item(0);
+			$name = $result->getElementsByTagName("nome")->item(0);
 			$name->nodeValue = $this->nome;
 		}else{
 			//insertAction
 			//TODO complete!
 		}
-		$dom->save(self::FILE_PATH);
+		return $dom->save(self::FILE_PATH);
 	}
 	
 	public function ToXml(){

@@ -55,6 +55,10 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 		location.href = pagePath + "contents/Settings/Tags/edit.php?id="+id;
 	}
 	
+	$scope.add = function(){
+		location.href = pagePath + "contents/Settings/Tags/edit.php";
+	}
+	
 	$scope.del = function(id, position){
 		modalWindowService.openModal({
 			message: "Sei sicuro di voler eliminare il tag?",

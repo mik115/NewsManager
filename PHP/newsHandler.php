@@ -35,7 +35,7 @@ switch($_POST["action"]){
 		break;
 	
 	case "SaveTag":
-		$results = SaveTag();
+		$results = SaveTag($_POST);
 		break;
 	
 	case "DeleteTag":
@@ -97,7 +97,7 @@ function GetNewsWithElements($id){
 
 function SaveTag($POST){
 	$tag = new Tag($POST);
-	//TODO complete!
+	return $tag->SaveTag();
 }
 
 //////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

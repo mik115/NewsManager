@@ -1,0 +1,41 @@
+
+.buttonCell{
+	width: 1px;
+}
+
+.addCatButton{
+	float: left;
+}
+
+.filterRow{
+	float : right;
+	margin-bottom: 30px;
+}
+
+#searchField{
+	width: 300px;
+}
+
+.form-control{
+	display: inline-block;
+}
+
+#backButton{
+	float: left;
+}
+
+table{
+	border-bottom: 1px solid black;
+}
+
+.orderable{
+	cursor: pointer;
+}
+
+.orderVersus{
+	float: right;
+}
+
+th.orderable {
+	width: 50%;
+}

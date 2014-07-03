@@ -10,10 +10,11 @@
 	//user controll per il content..
 	function content($path){ ?>
 		<div ng-controller="categoryController">
+			<input id="backButton" type="button" value="Indietro" class="btn btn-default" ng-click="backAction();" />
 			<h1>Gestisci le Categorie</h1>
 			<p>Crea nuove categorie, modifica quelle esistenti o eliminale</p>
 			<p class="filterRow">Filtra: <input type="text" id="searchField" ng-model="search" class="form-control" /></p>
-			<input type="button" class="btn btn-primary addTagButton" value="Aggiungi" ng-click="add();"/>
+			<input type="button" class="btn btn-primary addCatButton" value="Aggiungi" ng-click="add();"/>
 			<table class="table table-striped table-responsive">
 				<tr>
 					<th ng-click="orderable='nome'; reverse=!reverse" class="orderable">Tag Name

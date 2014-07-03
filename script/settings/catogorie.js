@@ -4,6 +4,9 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";
 
+	$scope.orderable="nome";
+	$scope.reverse= false;
+	
 	$http({
 		url: pagePath+"PHP/newsHandler.php",
 		method: "POST",
@@ -39,6 +42,15 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 		//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 	});
 	
+	$scope.backAction = function(){
+		location.href = pagePath+"contents/Settings";
+	}
 	
+	$scope.searchFunction =  function (obj){
+		if (!$scope.search ||$scope.search =="") {
+			return true;
+		}
+		return obj.nome.toLowerCase().indexOf($scope.search.toLowerCase()) >-1 || obj.ricorrenze.toString().indexOf($scope.search)>-1 ;
+	}
 	
 });

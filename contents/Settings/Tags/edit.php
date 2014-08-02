@@ -10,6 +10,7 @@
 	//user controll per il content..
 	function content($path){ ?>
 		<div ng-controller="editTagController">
+			<input id="backButton" type="button" value="Annulla" class="btn btn-default" ng-click="backAction();" />
 			<h1>Edit Tag</h1>
 			<p>Modifica il nome del tag e  salva per confermare le modifiche.</p>
 			<p class="errorMessage" ng-show="emptyField"> Devi indicare un nome per poter salvare.</p>

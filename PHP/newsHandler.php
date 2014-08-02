@@ -50,7 +50,7 @@ switch($_POST["action"]){
 		$results = Categoria::GetAllCategories();
 		break;
 	case "SaveCategory":
-		$results = Categoria::SaveCategory();
+		$results = SaveCategory($_POST);
 		break;
 	case "DeleteCategory":
 		$results = Categoria::DeleteCategory($_POST["id"]);
@@ -98,6 +98,11 @@ function GetNewsWithElements($id){
 function SaveTag($POST){
 	$tag = new Tag($POST);
 	return $tag->SaveTag();
+}
+
+function SaveCategory($POST){
+	$category = new Categoria($POST);
+	return $category->SaveCategory();
 }
 
 //////////////////////////////////////// end region \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

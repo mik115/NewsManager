@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <categorie>
 	<categoria>
 		<id>1</id>
@@ -15,4 +16,4 @@
 		<id>4</id>
 		<nome>Che bellasadfasfs dfsadf</nome>
 	</categoria>
-</categorie>
+<categoria><id>5</id><nome>sgafdsfas</nome></categoria></categorie>

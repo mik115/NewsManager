@@ -60,5 +60,4 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 	$scope.backAction = function(){
 		location.href = pagePath+"contents/Settings/Categorie";
 	}
-	
 });

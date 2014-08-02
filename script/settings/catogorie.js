@@ -56,4 +56,8 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 	$scope.add = function(){
 		location.href = pagePath+"contents/Settings/Categorie/edit.php";	
 	}
+	
+	$scope.edit = function(id){
+		location.href = pagePath+"contents/Settings/Categorie/edit.php?id="+id;
+	}
 });

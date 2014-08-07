@@ -11,21 +11,21 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 			url: pagePath+"PHP/newsHandler.php",
 			method: "POST",
 			data : $.param({
-				action: "GetTagById",
+				action: "GetCategoryById",
 				id: parametersArray.id
 			})
 		}).success(function(data, status, headers, config){
-			$scope.tagName = data.nome;
+			$scope.catName = data.nome;
 		});
 		
 	}
 	
 	$scope.Save=function(){
-		if ($.trim($scope.tagName)!="") {
+		if ($.trim($scope.catName)!="") {
 			modalWindowService.openModal({
 				message: "Sei sicuro di voler salvare le modifiche?",
 				okButtonText: "Salva",
-				redirect : "contents/Settings/Tags/",
+				redirect : "contents/Settings/Categorie/",
 				okAction: function($modalScope){
 					$modalScope.loading=true;
 					
@@ -33,9 +33,9 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 						url: pagePath+"PHP/newsHandler.php",
 						method: "POST",
 						data : $.param({
-							action: "SaveTag",
+							action: "SaveCategory",
 							id: parametersArray.id,
-							nome: $scope.tagName
+							nome: $scope.catName
 						})
 					}).success(function(data, status, headers, config){ 
 						if (data != false) {
@@ -58,7 +58,6 @@ mainModule.controller("editTagController", function editTagController($scope, cl
 	}
 	
 	$scope.backAction = function(){
-		location.href = pagePath+"contents/Settings/Tags";
+		location.href = pagePath+"contents/Settings/Categorie";
 	}
-	
 });

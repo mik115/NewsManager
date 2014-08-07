@@ -85,4 +85,11 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 		return obj.nome.toLowerCase().indexOf($scope.search.toLowerCase()) >-1 || obj.ricorrenze.toString().indexOf($scope.search)>-1 ;
 	}
 	
+	$scope.add = function(){
+		location.href = pagePath+"contents/Settings/Categorie/edit.php";	
+	}
+	
+	$scope.edit = function(id){
+		location.href = pagePath+"contents/Settings/Categorie/edit.php?id="+id;
+	}
 });

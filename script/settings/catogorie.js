@@ -46,6 +46,38 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 		location.href = pagePath+"contents/Settings";
 	}
 	
+	$scope.del = function(id, position){
+		modalWindowService.openModal({
+			message: "Sei sicuro di voler eliminare la categoria?",
+			okButtonText: "Elimina",
+			okAction: function($modalScope){
+				$modalScope.loading=true;
+				
+				$http({
+					url: pagePath+"PHP/newsHandler.php",
+					method: "POST",
+					data : $.param({
+						action: "DeleteCategory",
+						id: id
+					})
+				}).success(function(data, status, headers, config){
+					if (data != false) {
+						$modalScope.loading=false;
+						$modalScope.success=true;
+						$scope.categories.splice(position, 1);
+					}else{
+						//non è andata bene
+						$modalScope.error=true;
+					}
+				}).error(function(data, status, headers, config){
+					$modalScope.error = true;
+				})
+			},
+			confirm : true,
+			successMessage: "Operazione eseguita con successo"
+		});
+	}
+	
 	$scope.searchFunction =  function (obj){
 		if (!$scope.search ||$scope.search =="") {
 			return true;

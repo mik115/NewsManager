@@ -52,6 +52,19 @@ class Categoria{
 		}
 		return $categoriesArray;
 	}
+	
+	public static function DeleteCategory($id){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$catToDelete = $xpath->query("//categoria[id = ".intval($id)."]")->item(0);
+		if(!is_null($catToDelete)){
+		  $catToDelete->parentNode->removeChild($catToDelete);
+		  $dom->save(self::FILE_PATH);
+		  return true;
+		}else{
+		  return false;
+		}
+	}
 }
 
 ?>

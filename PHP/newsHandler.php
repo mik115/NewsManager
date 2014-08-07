@@ -54,6 +54,9 @@ switch($_POST["action"]){
 		break;
 	case "DeleteCategory":
 		$results = Categoria::DeleteCategory($_POST["id"]);
+		if($results){
+			Notizia::DeleteCategoryReference($_POST["id"]);
+		}
 		break;
 	case "GetCategoryById":
 		$results = Categoria::GetCategoryById($_POST["id"]);

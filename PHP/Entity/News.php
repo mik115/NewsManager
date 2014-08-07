@@ -124,6 +124,17 @@ class Notizia {
 		return true;
 	}
 	
+	public static function DeleteCategoryReference($catId){
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$cats = $xpath->query("notizia/categoria[text() = ".intval($catId)."]");
+		foreach($cats as $cat){
+			$cat->parentNode->removeChild($cat);
+		}
+		$dom->save(self::FILE_PATH);
+		return true;
+	}
+	
 	public function SaveNews(){
 		$dom = self::GetDom();
 		$xpath = new DOMXpath($dom);

@@ -8,12 +8,9 @@
 		<id>2</id>
 		<nome>Che cat</nome>
 	</categoria>
-	<categoria>
-		<id>3</id>
-		<nome>Che sdfdsf cat</nome>
-	</categoria>
+	
 	<categoria>
 		<id>4</id>
 		<nome>Che bellasadfasfs dfsadf</nome>
 	</categoria>
-<categoria><id>5</id><nome>sgafdsfas</nome></categoria></categorie>
+</categorie>

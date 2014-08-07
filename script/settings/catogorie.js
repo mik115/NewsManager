@@ -1,5 +1,5 @@
 
-mainModule.controller('categoryController', function impMainCtrl($scope, classPage, $http){
+mainModule.controller('categoryController', function impMainCtrl($scope, classPage, $http, modalWindowService){
 	classPage.setClassPage("Impostazioni"); //per evidenziare il link corrente
 	
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8;";

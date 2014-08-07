@@ -129,7 +129,7 @@ class Notizia {
 		$xpath = new DOMXpath($dom);
 		$cats = $xpath->query("notizia/categoria[text() = ".intval($catId)."]");
 		foreach($cats as $cat){
-			$cat->parentNode->removeChild($cat);
+			$cat->nodeValue = "";
 		}
 		$dom->save(self::FILE_PATH);
 		return true;

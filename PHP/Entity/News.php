@@ -93,7 +93,7 @@ class Notizia {
 		$xpath = new DOMXpath($dom);
 		$notiziaDom = $xpath->query("notizia[id = ".intval($id)."]")->item(0);
 		if(!is_null($notiziaDom)){
-			$notizia = Notizia::FromXml($notiziaDom, false);
+			$notizia = Notizia::FromXml($notiziaDom);
 			return $notizia;
 		}else{
 			return false;

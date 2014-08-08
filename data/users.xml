@@ -1,1 +1,10 @@
-<users><user><username>Mik</username><password>5e7a6b03d32723456c17c9229b92154f5295cbaf</password></user></users>
+<users>
+	<user>
+		<id>1</id>
+		<username>Mik</username>
+		<password>5e7a6b03d32723456c17c9229b92154f5295cbaf</password>
+		<name>Michele</name>
+		<surname>Pini</surname>
+		<mail>michele.pini2@gmail.com</mail>
+	</user>
+</users>

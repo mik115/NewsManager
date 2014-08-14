@@ -8,6 +8,15 @@
 				header("Location: ".$path."index.php");
 			}
 		}
+		
+		function logOut(){
+			//TODO eliminare cockie e session
+			session_start();
+			session_destroy();
+			//TODO check
+			header("Location: ".$path."index.php");
+		}
+		
 	?>
 	<head>
 		

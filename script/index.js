@@ -12,11 +12,15 @@ mainApp.controller("auth", function authCtrl($scope, $http){
 		  else{
 				$scope.emptyField=false;
 				$http({
-					 url:"PHP/login.php",
+					 url:"PHP/userHandler.php",
 					 method: "POST",
-					 data : $.param({username : $scope.username, password: $scope.password})
+					 data : $.param({
+						  action: "Login",
+						  username : $scope.username,
+						  password: $scope.password
+						  })
 				}).success(function(data, status, headers, config){
-					 if (data != "") {
+					 if (data=="true") {
 						//è andato tutto a buon fine!! sei loggato
 						window.location.href= "contents/home.php"
 					 }else{

@@ -15,6 +15,7 @@
 				<ul>
 					<li><a href="<?php echo $path?>contents/Settings/Categorie">Gestisci Categorie</a></li>
 					<li><a href="<?php echo $path?>contents/Settings/Tags">Gestisci Tag</a></li>
+					<li><a href="<?php echo $path?>contents/Settings/User">Gestisci Utenti</a></li>
 				</ul>
 			</div>
 		</div>

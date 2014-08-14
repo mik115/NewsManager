@@ -1,0 +1,39 @@
+
+#backButton{
+	float: left;	
+}
+
+
+.filterRow{
+	float: right;
+	margin-bottom: 30px;
+}
+
+#searchField{
+	display: inline;
+	width: 300px;
+}
+
+.buttonCell{
+	width: 1px;
+}
+
+table{
+	border-bottom: 1px solid black;
+}
+
+.orderable{
+	cursor: pointer;
+}
+
+.orderVersus{
+	float: right;
+}
+
+.form-control{
+	display: inline;
+}
+
+.addTagButton{
+	float: left;
+}

@@ -3,7 +3,7 @@
 class Utente{
 	const FILE_PATH = "../data/users.xml";
 	
-	private static $com =null;
+	private static $dom =null;
 	
 	public $id;
 	public $username;
@@ -46,10 +46,27 @@ class Utente{
 		return $user;
 	}
 	
-	public static function GetAllUser(){
+	public static function Login(){
 		$dom = self::GetDom();
 		$xpath = new DOMXpath($dom);
-		$utentiDom = $xpath->query("user");
+		$users = $xpath->query('/users/user[username="'.$_POST["username"].'"]', $dom);
+		if($users->length>0){
+			$user = Utente::FromXml($users->item(0));
+			if($user->password == sha1($_POST["password"])){
+				session_start();
+				$_SESSION["user"]= $_POST["username"];
+				$_SESSION["scope"]="NewsManager";
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static function GetAllUser(){
+		session_start();
+		$dom = self::GetDom();
+		$xpath = new DOMXpath($dom);
+		$utentiDom = $xpath->query("user[username != '".$_SESSION["user"]."']");
 		$utentiArray = array();
 		if(!is_null($utentiDom)){
 			foreach($utentiDom as $user){

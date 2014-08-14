@@ -9,7 +9,7 @@
 	
 	//user controll per il content..
 	function content($path){ ?>
-		<div ng-controller="tagController">
+		<div ng-controller="userController">
 			<input id="backButton" type="button" value="Indietro" class="btn btn-default" ng-click="backAction();" />
 			<h1>Gestione Utenti</h1>
 			<p>Crea nuovi utenti, modifica i dati e i ruoli di utenti esistenti o eliminali</p>
@@ -17,19 +17,19 @@
 			<input type="button" class="btn btn-primary addTagButton" value="Aggiungi" ng-click="add();"/>
 			<table class="table table-striped table-responsive">
 				<tr>
-					<th ng-click="orderable='nome'; reverse=!reverse" class="orderable">Tag Name
+					<th ng-click="orderable='username'; reverse=!reverse" class="orderable">Username
 						<span ng-show="orderable=='username' && !reverse" class="glyphicon glyphicon-chevron-up orderVersus"></span>
 						<span ng-show="orderable=='username' && reverse" class="glyphicon glyphicon-chevron-down orderVersus"></span>
 					</th>
-					<th ng-click="orderable='ricorrenze'; reverse=!reverse" class="orderable">Ricorrenze
+					<th ng-click="orderable='name'; reverse=!reverse" class="orderable">Nome
 						<span ng-show="orderable=='name' && !reverse" class="glyphicon glyphicon-chevron-up orderVersus"></span>
 						<span ng-show="orderable=='name' && reverse" class="glyphicon glyphicon-chevron-down orderVersus"></span>
 					</th>
-					<th ng-click="orderable='ricorrenze'; reverse=!reverse" class="orderable">Ricorrenze
+					<th ng-click="orderable='surname'; reverse=!reverse" class="orderable">Cognome
 						<span ng-show="orderable=='surname' && !reverse" class="glyphicon glyphicon-chevron-up orderVersus"></span>
 						<span ng-show="orderable=='surname' && reverse" class="glyphicon glyphicon-chevron-down orderVersus"></span>
 					</th>
-					<th ng-click="orderable='ricorrenze'; reverse=!reverse" class="orderable">Ricorrenze
+					<th ng-click="orderable='mail'; reverse=!reverse" class="orderable">mail
 						<span ng-show="orderable=='mail' && !reverse" class="glyphicon glyphicon-chevron-up orderVersus"></span>
 						<span ng-show="orderable=='mail' && reverse" class="glyphicon glyphicon-chevron-down orderVersus"></span>
 					</th>

@@ -52,7 +52,7 @@ mainModule.controller("handleNewsController", function handleNewsController($sco
 						$modalScope.success=true;
 						$scope.notizie.splice($scope.notiziaSelezionata, 1);
 					}else{
-						//non è andata bene
+						//non Ã¨ andata bene
 						$modalScope.error=true;
 					}
 				}).error(function(data, status, headers, config){

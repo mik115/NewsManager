@@ -34,11 +34,11 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 				}
 			});
 		}else{
-			//non è andata bene
+			//non Ã¨ andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 		}
 	}).error(function(data, status, headers, config){
-		//non è andata bene
+		//non Ã¨ andata bene
 		//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 	});
 	
@@ -66,7 +66,7 @@ mainModule.controller('categoryController', function impMainCtrl($scope, classPa
 						$modalScope.success=true;
 						$scope.categories.splice(position, 1);
 					}else{
-						//non è andata bene
+						//non Ã¨ andata bene
 						$modalScope.error=true;
 					}
 				}).error(function(data, status, headers, config){

@@ -20,7 +20,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			if (data != false) {
 				$scope.notizia=data;
 			}else{
-				//non è andata bene
+				//non Ã¨ andata bene
 			}
 		}).error(function(data, status, headers, config){
 			
@@ -67,7 +67,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 						$modalScope.loading=false;
 						$modalScope.success=true;
 					}else{
-						//non è andata bene
+						//non Ã¨ andata bene
 						$modalScope.error=true;
 					}
 				}).error(function(data, status, headers, config){

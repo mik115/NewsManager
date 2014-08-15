@@ -25,7 +25,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 			$scope.tags = data;
 			angular.element(".selectpicker").selectpicker("refresh");
 		}else{
-			//non è andata bene
+			//non Ã¨ andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 		}
 	}).error(function(data, status, headers, config){
@@ -51,7 +51,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 					}, 200);
 			}
 		}else{
-			//non è andata bene
+			//non Ã¨ andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 		}
 	}).error(function(data, status, headers, config){
@@ -110,7 +110,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 				okButtonText: "Salva",
 				confirm : true,
 				successMessage: "News salvata con successo!",
-				errorMessage: "Si è verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
+				errorMessage: "Si Ã¨ verificato un errore imprevisto; riprova e se si ripete contatta l'amministratore.",
 				redirect : "contents/News/",
 				okAction: function($modalScope){
 					$http({
@@ -134,7 +134,7 @@ mainModule.controller('mainCtrl', function mainCtrl($scope, classPage, $location
 							$modalScope.loading=false;
 							$modalScope.success=true;
 						}else{
-							//non è andata bene
+							//non Ã¨ andata bene
 							$modalScope.error = true;
 						}
 					}).error(function(data, status, headers, config){

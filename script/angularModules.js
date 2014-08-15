@@ -45,7 +45,7 @@ mainModule.service("modalWindowService", [function(){
 
 mainModule.controller("modalWindow", function($scope){
 	$scope.queryMessage="Sei sicuro di voler procedere?";
-	$scope.errorMessage="Si è verificato un errore imprevisto, se si ripete contatta il gestore.";
+	$scope.errorMessage="Si Ã¨ verificato un errore imprevisto, se si ripete contatta il gestore.";
 	$scope.OnSuccessMessage = "Operazione eseguita con successo.";
 	$scope.okButtonText = "Conferma";
 	$scope.cancelButtonText = "Annulla";

@@ -16,7 +16,7 @@ mainModule.controller('userController', function impUserCtrl($scope, classPage, 
 		if (data != false) {
 				$scope.users = data;
 		}else{
-			//non è andata bene
+			//non Ã¨ andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 		}
 	}).error(function(data, status, headers, config){
@@ -39,7 +39,7 @@ mainModule.controller('userController', function impUserCtrl($scope, classPage, 
 	}
 	
 	$scope.add = function(){
-		location.href = pagePath + "contents/Settings/Tags/edit.php";
+		location.href = pagePath + "contents/Settings/User/edit.php";
 	}
 	
 	$scope.del = function(id, position){
@@ -62,7 +62,7 @@ mainModule.controller('userController', function impUserCtrl($scope, classPage, 
 						$modalScope.success=true;
 						$scope.tags.splice(position, 1);
 					}else{
-						//non è andata bene
+						//non Ã¨ andata bene
 						$modalScope.error=true;
 					}
 				}).error(function(data, status, headers, config){

@@ -33,7 +33,7 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 				}
 			});
 		}else{
-			//non è andata bene
+			//non Ã¨ andata bene
 			//TODO mostrare un messaggio di errore sul caricamento della news all'interno della pagina.
 		}
 	}).error(function(data, status, headers, config){
@@ -79,7 +79,7 @@ mainModule.controller('tagController', function impMainCtrl($scope, classPage, $
 						$modalScope.success=true;
 						$scope.tags.splice(position, 1);
 					}else{
-						//non è andata bene
+						//non Ã¨ andata bene
 						$modalScope.error=true;
 					}
 				}).error(function(data, status, headers, config){

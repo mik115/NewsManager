@@ -39,7 +39,7 @@ mainModule.controller('userController', function impUserCtrl($scope, classPage, 
 	}
 	
 	$scope.add = function(){
-		location.href = pagePath + "contents/Settings/User/edit.php";
+		location.href = pagePath + "contents/Settings/User/create.php";
 	}
 	
 	$scope.del = function(id, position){

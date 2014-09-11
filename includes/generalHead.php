@@ -3,7 +3,11 @@
 		<link rel='stylesheet' type='text/css' href='<?php echo $path ?>style/general.css'/>
 		<script type="text/javascript" src='<?php echo $path ?>lib/jquery-1.10.2.min.js'></script>
 		<script type="text/javascript" src='<?php echo $path ?>lib/dist/js/bootstrap.min.js'></script>
+		<!-- File fisico 
 		<script type="text/javascript" src='<?php echo $path ?>lib/angular.min.js'></script>
+		-->
+		<!-- CDN -->
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 		<script type='text/javascript' src='<?php echo $path ?>lib/moment.min.js'></script>
 		<script type='text/javascript' src='<?php echo $path ?>script/angularModules.js'></script>
 	<!--	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>-->

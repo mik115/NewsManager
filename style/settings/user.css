@@ -32,8 +32,21 @@ table{
 
 .form-control{
 	display: inline;
+	float: right;
+	width: 300px;
 }
 
 .addTagButton{
 	float: left;
+}
+
+.formRow{
+	width: 400px;
+	height: 35px;
+	line-height: 35px;
+	margin: 0px auto 10px;
+}
+
+.saveButton{
+	float: right;
 }
